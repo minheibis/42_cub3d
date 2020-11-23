@@ -75,6 +75,12 @@ int		ft_calc_line(t_s *s)
 		s->g.h_c.prepWallDist = (s->g.h_c.mapY + (1 - s->g.h_c.stepY) / 2 - s->g.p.posY) / s->g.r.rayDirY;
 	else
 		s->g.h_c.prepWallDist = (s->g.h_c.mapX + (1 - s->g.h_c.stepX) / 2 - s->g.p.posX) / s->g.r.rayDirX;
+	/*
+	**in case of over flow
+	*/
+	// printf("ft_calc_line: s->g.h_c.prepWallDist: [%lf]\n", s->g.h_c.prepWallDist);
+	if (s->g.h_c.prepWallDist < 0.01)
+		s->g.h_c.prepWallDist = 0.01;
 	//printf
 	// printf("ft_calc_line: s->g.img.scre_height: [%d]\n", s->g.img.scre_height);
 	// printf("ft_calc_line: s->g.h_c.prepWallDist: [%lf]\n", s->g.h_c.prepWallDist);

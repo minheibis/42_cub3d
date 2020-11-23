@@ -58,10 +58,13 @@ int			ft_draw_line_calc(t_s *s)
 	** different from old main
 	*/
 	if (s->g.d_c.lineH > s->g.img.scre_height)
-		s->g.d_c.texPos = s->g.ws.now.height * (s->g.img.scre_height / s->g.d_c.lineH);
+		s->g.d_c.texPos = s->g.ws.now.height * ((1 - (double)s->g.img.scre_height / (double)s->g.d_c.lineH) / 2);
 	else
 		s->g.d_c.texPos = 0;
-	// printf("ft_draw_line_calc: s->g.d_c.texPos: [%lf]\n", s->g.d_c.texPos);
+	printf("ft_draw_line_calc: cel: s->g.img.scre_height: [%d]\n", s->g.img.scre_height);
+	printf("ft_draw_line_calc: cel: s->g.d_c.lineH: [%d]\n", s->g.d_c.lineH);
+	printf("ft_draw_line_calc: cel: s->g.d_c.drawS: [%d]\n", s->g.d_c.drawS);
+	printf("ft_draw_line_calc: s->g.d_c.texPos: [%lf]\n", s->g.d_c.texPos);
 	return (0);
 }
 
@@ -73,9 +76,9 @@ int		ft_draw_line_draw(t_s *s, int x)
 	// printf("ft_draw_line_draw: cel: s->map.flo_col_int: [%x]\n", s->map.flo_col_int);
 	y = 0;
 	//printf
+	printf("ft_draw_line_draw: cel: x: [%d]\n", x);
 	printf("ft_draw_line_draw: cel: s->g.d_c.drawS: [%d]\n", s->g.d_c.drawS);
 	printf("ft_draw_line_draw: cel: s->g.d_c.drawE: [%d]\n", s->g.d_c.drawE);
-	printf("ft_draw_line_draw: cel: s->g.img.scre_height: [%d]\n", s->g.img.scre_height);
 
 	while (y < s->g.d_c.drawS)
 	{

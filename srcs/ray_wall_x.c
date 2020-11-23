@@ -7,8 +7,9 @@ int		ft_ray_wall_x(t_s *s, int x)
 	ft_calc_line(s);
 	ft_draw_line(s, x);
 	/*
-	**add some for sprite
+	**save zbuff for sprite
 	*/
+	s->g.sp_i.ZBuff[x] = s->g.h_c.prepWallDist;
 	return (0);
 }
 
@@ -25,10 +26,7 @@ int		ft_calc_pos(t_s *s, int x)
 	s->g.r.cameraX = 1 - (x * 2 / (double)s->g.img.scre_width);
 	s->g.r.rayDirX = s->g.p.dirX + s->g.p.planeX * s->g.r.cameraX;
 	s->g.r.rayDirY = s->g.p.dirY + s->g.p.planeY * s->g.r.cameraX;
-	//printf
 
-	// printf("ft_calc_pos: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_calc_pos: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	// printf("ft_calc_pos: s->g.p.dirX: [%lf]\n", s->g.p.dirX);
 	// printf("ft_calc_pos: s->g.p.dirY: [%lf]\n", s->g.p.dirY);
 	// printf("ft_calc_pos: s->g.p.planeX: [%lf]\n", s->g.p.planeX);
@@ -42,6 +40,7 @@ int		ft_calc_pos(t_s *s, int x)
 	*/
 	s->g.h_c.mapX = floor(s->g.p.posX);
 	s->g.h_c.mapY = floor(s->g.p.posY);
+
 	/*
 	**length of ray from one x-side to next x-side or one y-side to next y-side
 	** different from oldmain.c

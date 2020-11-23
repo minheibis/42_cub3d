@@ -6,8 +6,8 @@ int		ft_main_loop(t_s *s)
 
 	if ((rv = ft_ray_wall(s)))
 		return (rv);
-	// if ((rv = ft_ray_sprite(s)))
-	// 	return (rv);
+	if ((rv = ft_ray_sp(s)))
+		return (rv);
 	// have to put the saving code here.
 	/*
 	**put image to window

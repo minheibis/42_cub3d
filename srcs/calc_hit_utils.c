@@ -37,7 +37,7 @@ int		ft_calc_hit_DDA(t_s *s)
 		{
 			s->g.h_c.sideDistX += s->g.h_c.deltaDistX;
 			s->g.h_c.mapX += s->g.h_c.stepX;
-			s->g.h_c.side = 1; //is this true? should be 0? changed to 0
+			s->g.h_c.side = 1; //is this true?a should be 0? changed to 0
 		}
 		else
 		{
@@ -48,6 +48,11 @@ int		ft_calc_hit_DDA(t_s *s)
 		/*
 		**Check if ray has hit a wall
 		*/
+		//printf
+		// printf("ft_calc_hit_DDA: s->g.p.posX: [%lf]\n", s->g.p.posX);
+		// printf("ft_calc_hit_DDA: s->g.p.posY: [%lf]\n", s->g.p.posY);
+		// printf("ft_calc_hit_DDA: s->g.h_c.mapX: [%d]\n", s->g.h_c.mapX);
+		// printf("ft_calc_hit_DDA: s->g.h_c.mapY: [%d]\n", s->g.h_c.mapY);
 		if (s->map.map[s->g.h_c.mapY][s->g.h_c.mapX] == '1')
 		{
 			s->g.h_c.hit = 1;

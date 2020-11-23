@@ -7,7 +7,10 @@ int		ft_parse_to_draw(char *cub_file, int flag)
 	s.rv = 0;
 	init_s(&s);
 	s.flag = flag;
+	//free each unique malloc in each function, (map etc is exception)
 	if ((s.rv = ft_read_cub(&s, cub_file)))
+		return (s.rv);
+	if ((s.rv = ft_parse_sp(&s)))
 		return (s.rv);
 	if ((s.rv = ft_draw_map(&s)))
 		return (s.rv);

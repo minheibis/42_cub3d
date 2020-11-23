@@ -28,5 +28,15 @@ int		ft_error(int rv)
 		write(2, "Error\ncannot initialize for drawing\n", 37);
 	else if (rv == XPM_FILE_ERROR)
 		write(2, "Error\ncannot read xpm file\n", 28);
+	else if (rv == MALLOC_ERROR_ZBUFF)
+		write(2, "Error\nmalloc error for zbuffer\n", 32);
+	else if (rv == MALLOC_ERROR_SP_X)
+		write(2, "Error\nmalloc error for sp_x\n", 29);
+	else if (rv == MALLOC_ERROR_SP_Y)
+		write(2, "Error\nmalloc error for sp_y\n", 29);
+	else if (rv == MALLOC_ERROR_SPORD)
+		write(2, "Error\nmalloc error for spOrd\n", 30);
+	else if (rv == MALLOC_ERROR_SPDIST)
+		write(2, "Error\nmalloc error for spDist\n", 31);
 	return (0);
 }

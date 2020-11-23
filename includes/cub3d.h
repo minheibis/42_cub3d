@@ -26,6 +26,11 @@
 # define NOT_ONE_PLAYER 11
 # define FAIL_INIT 12
 # define XPM_FILE_ERROR 13
+# define MALLOC_ERROR_ZBUFF 14
+# define MALLOC_ERROR_SP_X 15
+# define MALLOC_ERROR_SP_Y 16
+# define MALLOC_ERROR_SPORD 17
+# define MALLOC_ERROR_SPDIST 18
 /*
 **for check_p
 */
@@ -205,13 +210,52 @@ typedef struct	s_draw_calc
 	int		color;
 }				t_draw_calc;
 
-typedef struct	s_sprite
+typedef struct	s_sp_info
 {
 	/*
 	**1d Zbuffer
 	*/
 	double		*ZBuff;
-}				t_sprite;
+	int			*sp_x;
+	int			*sp_y;
+	/*
+	**arrays used to sort the sprites
+	*/
+	int			*spOrd;
+	double		*spDist;
+	/*
+	**sprite position relative to camera
+	*/
+	double		spX;
+	double		spY;
+	/*
+	**transform sprite with inverse camera matirix
+	*/
+	double		invDet;
+	double		trX;
+	double		trY;
+	int			spScX;
+	/*
+	**calculate height of the sprite on screen
+	*/
+	int			spH;
+	/*
+	**calculate lowest and highest pixel to fill in current stripe
+	*/
+	int			drawSY;
+	int			drawEY;
+	/*
+	**calculate width of the sprite
+	*/
+	int			spW;
+	int			drawSX;
+	int			drawEX;
+	/*
+	**loop through every vertical stripe of the sprite on screen
+	*/
+	int			stripe;
+	int			d;
+}				t_sp_info;
 
 typedef struct	s_game
 {
@@ -223,7 +267,7 @@ typedef struct	s_game
 	t_ws_img	ws;
 	t_hit_calc	h_c;
 	t_draw_calc	d_c;
-	t_sprite	sp;
+	t_sp_info	sp_i;
 }				t_game;
 
 typedef struct	s_ij
@@ -417,7 +461,26 @@ int		to_coord(int x, int y, t_s *s);
 int		ft_decide_wall(t_s *s);
 int		ft_draw_line_calc(t_s *s);
 int		ft_draw_line_draw(t_s *s, int x);
-
+/*
+**parse_sp.c
+*/
+int		ft_parse_sp(t_s *s);
+int		ft_search_sp(t_s *s);
+/*
+**ray_sp.c
+*/
+int		ft_ray_sp(t_s *s);
+int		ft_sort_sp(t_s *s);
+int		ft_draw_sp(t_s *s);
+/*
+**sort_sp.c
+*/
+int		ft_sort_sp_calc(t_s *s);
+int		ft_sort_sp_sort(t_s *s);
+/*
+**draw_sp_one.c
+*/
+int		ft_draw_sp_one(t_s *s, int i);
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);

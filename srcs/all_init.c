@@ -32,8 +32,8 @@ int		ft_player_init(t_s *s)
 	/*
 	**x and y are oppposite
 	*/
-	s->g.p.posX = s->map.player_first[1];
-	s->g.p.posY = s->map.player_first[0];
+	s->g.p.posX = s->map.player_first[1] + 0.5;
+	s->g.p.posY = s->map.player_first[0] + 0.5;
 	//printf
 	printf("ft_player_init: 35: s->g.p.posX: [%f]\n", s->g.p.posX);
 	printf("ft_player_init: 36: s->g.p.posY: [%f]\n", s->g.p.posY);

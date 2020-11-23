@@ -47,5 +47,6 @@ int		init_map(t_s *s)
 	s->map.player_first[0] = 0;
 	s->map.player_first[1] = 0;
 	s->map.player_dir = '\0';
+	s->map.sp_count = 0;
 	return (0);
 }

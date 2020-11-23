@@ -8,9 +8,14 @@ int		ft_map_space(char c)
 		return (0);
 }
 
-int		ft_map_item(char c)
+int		ft_map_item(t_s *s, char c)
 {
-	if (c == '2' || c == 'd')
+	if (c == '2')
+	{
+		s->map.sp_count++;
+		return (1);
+	}
+	else if (c == 'd')
 		return (1);
 	else
 		return (0);

@@ -75,6 +75,7 @@ typedef struct	s_map
 	int		player[2];
 	int		player_first[2];
 	char	player_dir;
+	int		sp_count;
 }				t_map;
 
 typedef struct	s_img
@@ -355,7 +356,7 @@ int		ft_check_p_col(t_s *s, int i, int j);
 **check_p_utils.c
 */
 int		ft_map_space(char c);
-int		ft_map_item(char c);
+int		ft_map_item(t_s *s, char c);
 int		ft_map_player(char c);
 int		ft_map_fake_wall(char c);
 /*

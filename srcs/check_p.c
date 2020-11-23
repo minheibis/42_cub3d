@@ -7,19 +7,19 @@
 */
 int		ft_check_p_row(t_s *s, int i, int j)
 {
-	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s->map.map[i][j]) == 1)
+	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s, s->map.map[i][j]) == 1)
 	{
-		if (ft_map_item(s->map.map[i][j]) == 1)
+		if (ft_map_item(s, s->map.map[i][j]) == 1)
 			s->map.map[i][j] = 'y';
 		else
 			s->map.map[i][j] = 'w';
 		if (ft_map_space(s->map.map[i - 1][j]) == 1)
 			s->map.map[i - 1][j] = 'p';
-		else if (ft_map_item(s->map.map[i - 1][j]) == 1)
+		else if (ft_map_item(s, s->map.map[i - 1][j]) == 1)
 			s->map.map[i - 1][j] = 'd';
 		if (ft_map_space(s->map.map[i + 1][j]) == 1)
 			s->map.map[i + 1][j] = 'p';
-		else if (ft_map_item(s->map.map[i + 1][j]) == 1)
+		else if (ft_map_item(s, s->map.map[i + 1][j]) == 1)
 			s->map.map[i + 1][j] = 'd';
 		return (IS_MAP);
 	}
@@ -31,19 +31,19 @@ int		ft_check_p_row(t_s *s, int i, int j)
 
 int		ft_check_p_col(t_s *s, int i, int j)
 {
-	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s->map.map[i][j]) == 1)
+	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s, s->map.map[i][j]) == 1)
 	{
-		if (ft_map_item(s->map.map[i][j]) == 1)
+		if (ft_map_item(s, s->map.map[i][j]) == 1)
 			s->map.map[i][j] = 'y';
 		else
 			s->map.map[i][j] = 'w';
 		if (ft_map_space(s->map.map[i][j - 1]) == 1)
 			s->map.map[i][j - 1] = 'p';
-		else if (ft_map_item(s->map.map[i][j - 1]) == 1)
+		else if (ft_map_item(s, s->map.map[i][j - 1]) == 1)
 			s->map.map[i][j - 1] = 'd';
 		if (ft_map_space(s->map.map[i][j + 1]) == 1)
 			s->map.map[i][j + 1] = 'p';
-		else if (ft_map_item(s->map.map[i][j + 1]) == 1)
+		else if (ft_map_item(s, s->map.map[i][j + 1]) == 1)
 			s->map.map[i][j + 1] = 'd';
 		return (IS_MAP);
 	}

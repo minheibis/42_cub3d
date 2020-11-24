@@ -1,10 +1,10 @@
-R 400 200
+R 800 500
 NO ./textures/200_150_mountain.xpm
 SO ./textures/wall_1.xpm
 WE ./textures/wall_2.xpm
 EA ./textures/wall_3.xpm
 
-S ./textures/9_pillar.xpm
+S ./textures/114_64_bigtree_sprite.xpm
 F 125,20,60
 C 125,20,10
 

@@ -10,9 +10,9 @@ int		ft_parse_sp(t_s *s)
 	/*
 	**set the int* etc for sprites
 	*/
-	if (!(s->g.sp_i.sp_x = (int *)malloc((s->map.sp_count) * sizeof(int))))
+	if (!(s->g.sp_i.sp_x = (double *)malloc((s->map.sp_count) * sizeof(double))))
 		return (MALLOC_ERROR_SP_X);
-	if (!(s->g.sp_i.sp_y = (int *)malloc((s->map.sp_count) * sizeof(int))))
+	if (!(s->g.sp_i.sp_y = (double *)malloc((s->map.sp_count) * sizeof(double))))
 		return (MALLOC_ERROR_SP_Y);
 	if (!(s->g.sp_i.spOrd = (int *)malloc((s->map.sp_count) * sizeof(int))))
 		return (MALLOC_ERROR_SPORD);
@@ -39,10 +39,10 @@ int		ft_search_sp(t_s *s)
 		{
 			if (s->map.map[c.y][c.x] == 'y')
 			{
-				s->g.sp_i.sp_x[i] = c.x;
-				s->g.sp_i.sp_y[i] = c.y;
-				printf("ft_search_sp: s->g.sp_i.sp_x[i]: [%d]\n", s->g.sp_i.sp_x[i]);
-				printf("ft_search_sp: s->g.sp_i.sp_y[i]: [%d]\n", s->g.sp_i.sp_y[i]);
+				s->g.sp_i.sp_x[i] = c.x + 0.5;
+				s->g.sp_i.sp_y[i] = c.y + 0.5;
+				printf("ft_search_sp: s->g.sp_i.sp_x[i]: [%lf]\n", s->g.sp_i.sp_x[i]);
+				printf("ft_search_sp: s->g.sp_i.sp_y[i]: [%lf]\n", s->g.sp_i.sp_y[i]);
 				i++;
 			}
 			c.x++;

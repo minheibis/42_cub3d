@@ -12,11 +12,16 @@ int		ft_main_loop(t_s *s)
 	/*
 	**put image to window
 	*/
-	mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
-	/*
-	**reset window
-	*/
-	reset_img(s);
+	if (s->flag == 2)
+	{
+		mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
+		/*
+		**reset window
+		*/
+		reset_img(s);
+	}
+	else
+		mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
 	return (0);
 }
 

@@ -1,3 +1,6 @@
+#ifndef __CUB3D_H_INCLUDED__
+#define __CUB3D_H_INCLUDED__
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -216,8 +219,8 @@ typedef struct	s_sp_info
 	**1d Zbuffer
 	*/
 	double		*ZBuff;
-	int			*sp_x;
-	int			*sp_y;
+	double		*sp_x;
+	double		*sp_y;
 	/*
 	**arrays used to sort the sprites
 	*/
@@ -254,7 +257,6 @@ typedef struct	s_sp_info
 	**loop through every vertical stripe of the sprite on screen
 	*/
 	int			stripe;
-	int			d;
 }				t_sp_info;
 
 typedef struct	s_game
@@ -481,6 +483,11 @@ int		ft_sort_sp_sort(t_s *s);
 **draw_sp_one.c
 */
 int		ft_draw_sp_one(t_s *s, int i);
+int		ft_draw_sp_one_pos(t_s *s, int i);
+int		ft_draw_sp_one_HW(t_s *s);
+int		ft_draw_sp_one_draw(t_s *s);
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);
+
+#endif

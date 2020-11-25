@@ -33,7 +33,8 @@ SRCS_NAME	= test_utils.c \
 				parse_sp.c \
 				ray_sp.c \
 				sort_sp.c \
-				draw_sp_one.c
+				draw_sp_one.c \
+				bitmap.c
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))
 OBJS		= $(SRCS:.c=.o)

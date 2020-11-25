@@ -2,12 +2,10 @@
 
 int		ft_main_loop(t_s *s)
 {
-	int		rv;
-
-	if ((rv = ft_ray_wall(s)))
-		return (rv);
-	if ((rv = ft_ray_sp(s)))
-		return (rv);
+	if ((s->rv = ft_ray_wall(s)))
+		return (s->rv);
+	if ((s->rv = ft_ray_sp(s)))
+		return (s->rv);
 	// have to put the saving code here.
 	/*
 	**put image to window
@@ -20,8 +18,6 @@ int		ft_main_loop(t_s *s)
 		*/
 		reset_img(s);
 	}
-	else
-		mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
 	return (0);
 }
 

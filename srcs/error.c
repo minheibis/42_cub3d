@@ -38,5 +38,9 @@ int		ft_error(int rv)
 		write(2, "Error\nmalloc error for spOrd\n", 30);
 	else if (rv == MALLOC_ERROR_SPDIST)
 		write(2, "Error\nmalloc error for spDist\n", 31);
+	else if (rv == BMP_FILE_OPEN_ERROR)
+		write(2, "Error\nbmp file does not open\n", 30);
+	else if (rv == MALLOC_ERROR_BMP_LINE)
+		write(2, "Error\nmalloc error for bmp line\n", 33);
 	return (0);
 }

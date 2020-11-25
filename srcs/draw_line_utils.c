@@ -84,7 +84,9 @@ int		ft_draw_line_draw(t_s *s, int x)
 	{
 		s->g.img.data[to_coord(x, y, s)] = s->map.cel_col_int;
 		//printf
-		//printf("ft_draw_line_draw: cel: y: [%d]\n", y);
+		printf("ft_draw_line_draw: cel: y: [%d]\n", y);
+		printf("ft_draw_line_draw: cel: s->map.flo_col_int: [%d]\n", s->map.cel_col_int);
+		printf("ft_draw_line_draw: s->g.img.data: %d: [%d]\n", to_coord(x, y, s), s->g.img.data[to_coord(x, y, s)]);
 		y++;
 	}
 	while (y < s->g.d_c.drawE)
@@ -98,14 +100,18 @@ int		ft_draw_line_draw(t_s *s, int x)
 		s->g.img.data[to_coord(x, y, s)] = s->g.d_c.color;
 		s->g.d_c.texPos += s->g.d_c.step;
 		//printf
-		//printf("ft_draw_line_draw: wal: y: [%d]\n", y);
+		printf("ft_draw_line_draw: wall: y: [%d]\n", y);
+		printf("ft_draw_line_draw: wall: s->g.d_c.color: [%d]\n", s->g.d_c.color);
+		printf("ft_draw_line_draw: s->g.img.data: %d: [%d]\n", to_coord(x, y, s), s->g.img.data[to_coord(x, y, s)]);
 		y++;
 	}
 	while (y < s->g.img.scre_height)
 	{
 		s->g.img.data[to_coord(x, y, s)] = s->map.flo_col_int;
 		//printf
-		//printf("ft_draw_line_draw: flo: y: [%d]\n", y);
+		printf("ft_draw_line_draw: flo: y: [%d]\n", y);
+		printf("ft_draw_line_draw: flo: s->map.flo_col_int: [%d]\n", s->map.flo_col_int);
+		printf("ft_draw_line_draw: s->g.img.data: %d: [%d]\n", to_coord(x, y, s), s->g.img.data[to_coord(x, y, s)]);
 		y++;
 	}
 	return (0);

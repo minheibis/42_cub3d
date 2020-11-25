@@ -34,6 +34,8 @@
 # define MALLOC_ERROR_SP_Y 16
 # define MALLOC_ERROR_SPORD 17
 # define MALLOC_ERROR_SPDIST 18
+# define BMP_FILE_OPEN_ERROR 19
+# define MALLOC_ERROR_BMP_LINE 20
 /*
 **for check_p
 */
@@ -47,6 +49,13 @@
 # define X_EVENT_KEY_EXIT	17
 #define moveSpeed		0.3
 #define rotSpeed		0.1
+/*
+**for bitmap
+*/
+#define FILEHEADERSIZE 14
+#define INFOHEADERSIZE 40
+#define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
+
 
 typedef struct	s_cub_line
 {
@@ -486,6 +495,12 @@ int		ft_draw_sp_one(t_s *s, int i);
 int		ft_draw_sp_one_pos(t_s *s, int i);
 int		ft_draw_sp_one_HW(t_s *s);
 int		ft_draw_sp_one_draw(t_s *s);
+/*
+**bitmap.c
+*/
+int		ft_write_bmp(char *filename, t_s *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);

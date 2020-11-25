@@ -22,7 +22,11 @@ int		ft_draw_map(t_s *s)
 		mlx_loop(s->g.mlx);
 	}
 	else
+	{
 		ft_main_loop(s);
+		if ((s->rv = ft_write_bmp("cub3d.bmp", s)))
+			return (s->rv);
+	}
 	return (0);
 }
 

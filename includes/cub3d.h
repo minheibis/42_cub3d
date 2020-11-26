@@ -10,6 +10,7 @@
 
 //delet at last
 #include <stdio.h>
+#include <string.h>
 
 # define MAX_FD 256
 # define BUFFER_SIZE 256
@@ -499,7 +500,7 @@ int		ft_draw_sp_one_draw(t_s *s);
 **bitmap.c
 */
 int		ft_write_bmp(char *filename, t_s *s);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, void *src, size_t n);
 
 
 //test_utils.c delete after

@@ -30,7 +30,7 @@ int		main(void)
 	// char	argv_1[] = "test_3.cub";
 	char	argv_2[] = "--save";
 
-	argc = 3;
+	argc = 2;
 	rv = 0;
 	if (argc == 2 || argc == 3)
 	{

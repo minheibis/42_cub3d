@@ -15,7 +15,8 @@ int		ft_window_init(t_s *s)
 		s->g.img.scre_height = s->g.img.disp_height;
 	else
 		s->g.img.scre_height = s->map.hei_resol;
-	s->g.win = mlx_new_window(s->g.mlx, s->g.img.scre_width, s->g.img.scre_height, "cub3D");
+	if (s->flag == 2)
+		s->g.win = mlx_new_window(s->g.mlx, s->g.img.scre_width, s->g.img.scre_height, "cub3D");
 	return (0);
 }
 

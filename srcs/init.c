@@ -13,6 +13,9 @@ int		init_s(t_s *s)
 
 int		init_cub(t_s *s)
 {
+	/*
+	**
+	*/
 	if(!(s->cub_list.start = (t_cub_line *)malloc(sizeof(t_cub_line))))
 		return (MALLOC_ERROR);
 	s->cub_list.start->content = NULL;

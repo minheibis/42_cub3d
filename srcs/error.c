@@ -42,5 +42,9 @@ int		ft_error(int rv)
 		write(2, "Error\nbmp file does not open\n", 30);
 	else if (rv == MALLOC_ERROR_BMP_LINE)
 		write(2, "Error\nmalloc error for bmp line\n", 33);
+	else if (rv == BMP_HEAD_WRITE_ERROR)
+		write(2, "Error\nwrite error for bmp header\n", 34);
+	else if (rv == BMP_RGB_WRITE_ERROR)
+		write(2, "Error\nwrite error for bmp rgb\n", 31);
 	return (0);
 }

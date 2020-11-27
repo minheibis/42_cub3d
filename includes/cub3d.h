@@ -37,6 +37,8 @@
 # define MALLOC_ERROR_SPDIST 18
 # define BMP_FILE_OPEN_ERROR 19
 # define MALLOC_ERROR_BMP_LINE 20
+# define BMP_HEAD_WRITE_ERROR 21
+# define BMP_RGB_WRITE_ERROR 22
 /*
 **for check_p
 */
@@ -282,6 +284,35 @@ typedef struct	s_game
 	t_sp_info	sp_i;
 }				t_game;
 
+typedef struct		s_bitmap
+{
+	int				fd;
+	int				real_width;
+	/*
+	**画像一行分のRGBデータを格納する。
+	*/
+	unsigned char	*bmp_line_data;
+	/*
+	**ヘッダ	を格納する。
+	*/
+	unsigned char	header_buf[HEADERSIZE];
+	unsigned int	file_size;
+	unsigned int	reserved;
+	unsigned int	offset_to_data;
+	unsigned int	info_header_size;
+	unsigned int	bit_width;
+	unsigned int	bit_height;
+	unsigned short	planes;
+	unsigned short	color;
+	unsigned int	compress;
+	unsigned int	data_size;
+	unsigned int	xppm;
+	unsigned int	yppm;
+	unsigned int	pallete_num;
+	unsigned int	important;
+}					t_bitmap;
+
+
 typedef struct	s_ij
 {
 	int		i;
@@ -307,6 +338,7 @@ typedef struct	s_s
 	t_cub_list	cub_list;
 	t_map		map;
 	t_game		g;
+	t_bitmap	b;
 	int			flag;
 }				t_s;
 /*
@@ -500,8 +532,14 @@ int		ft_draw_sp_one_draw(t_s *s);
 **bitmap.c
 */
 int		ft_write_bmp(char *filename, t_s *s);
+int		ft_bmp_init(t_s *s);
+int		ft_bmp_head_set(t_s *s);
+int		ft_bmp_rgb_set(t_s *s);
+int		ft_bmp_rgb_set_line(int i, t_s *s);
+/*
+**bitmap_utils.c
+*/
 void	*ft_memcpy(void *dest, void *src, size_t n);
-
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);

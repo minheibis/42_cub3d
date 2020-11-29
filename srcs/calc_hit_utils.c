@@ -53,6 +53,7 @@ int		ft_calc_hit_DDA(t_s *s)
 		// printf("ft_calc_hit_DDA: s->g.p.posY: [%lf]\n", s->g.p.posY);
 		// printf("ft_calc_hit_DDA: s->g.h_c.mapX: [%d]\n", s->g.h_c.mapX);
 		// printf("ft_calc_hit_DDA: s->g.h_c.mapY: [%d]\n", s->g.h_c.mapY);
+		// printf("ft_calc_hit_DDA: s->map.map[s->g.h_c.mapY]: [%s]\n", s->map.map[s->g.h_c.mapY]);
 		if (s->map.map[s->g.h_c.mapY][s->g.h_c.mapX] == '1')
 		{
 			s->g.h_c.hit = 1;

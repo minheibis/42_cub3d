@@ -29,6 +29,7 @@ int		ft_read_cub(t_s *s, char *cub_file)
 		// printf("ft_read_cub: s->cub_list.tmp->content: [%s]\n", s->cub_list.tmp->content);
 		// printf("ft_read_cub: s->cub_list.tmp->next: [%p]\n", s->cub_list.tmp->next);
 	}
+	free_NULL(line);
 	s->cub_list.tmp = s->cub_list.start;
 	close(fd);
 	if ((s->rv = ft_parse_cub(s)))

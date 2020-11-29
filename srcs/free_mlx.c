@@ -19,3 +19,10 @@ int		free_img(t_s *s, int rv)
 	mlx_destroy_image(s->g.mlx, s->g.img.data);
 	return (rv);
 }
+
+// int		free_img_xpm(t_s *s, int rv)
+// {
+// 	free_img(s, rv);
+// 	free_xpm_SP(s, rv);
+// 	return (rv);
+// }

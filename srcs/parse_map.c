@@ -21,8 +21,8 @@ int		ft_parse_map(t_s *s)
 			return (free_map_all(s, s->rv));
 	}
 	//delete after
-	printf("ft_parse_map: \n");
-	ft_show_map(s);
+	// printf("ft_parse_map: \n");
+	// ft_show_map(s);
 	return (0);
 }
 

@@ -39,3 +39,13 @@ int		ft_dir_init_EW(t_s *s)
 	}
 	return (0);
 }
+
+int		ft_sp_init(t_s *s)
+{
+	s->g.sp_i.ZBuff = NULL;
+	s->g.sp_i.sp_x = NULL;
+	s->g.sp_i.sp_y = NULL;
+	s->g.sp_i.spOrd = NULL;
+	s->g.sp_i.spDist = NULL;
+	return (0);
+}

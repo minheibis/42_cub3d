@@ -5,8 +5,8 @@ int		ft_draw_map(t_s *s)
 	if ((ft_all_init(s)))
 		return (s->rv);
 	//printf
-	printf("ft_draw_map: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	printf("ft_draw_map: s->g.p.posY: [%lf]\n", s->g.p.posY);
+	// printf("ft_draw_map: s->g.p.posX: [%lf]\n", s->g.p.posX);
+	// printf("ft_draw_map: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	if (s->flag == 2)
 	{
 		/*
@@ -25,9 +25,10 @@ int		ft_draw_map(t_s *s)
 	{
 		ft_main_loop(s);
 		if ((s->rv = ft_write_bmp("cub3d.bmp", s)))
-			return (free_xpm_img(s, s->rv));
+			return (free_for_bmp(s, s->rv));
+		free_for_bmp(s, s->rv);
 	}
-	return (free_xpm_img(s, 0));
+	return (0);
 }
 
 int		ft_all_init(t_s *s)
@@ -38,17 +39,19 @@ int		ft_all_init(t_s *s)
 		return (free_wind(s, s->rv));
 	ft_player_init(s);
 	//printf
-	printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
+	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
+	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	if ((s->rv = ft_wall_sp_init(s)))
 		return (free_img(s, s->rv));
 	//printf
-	printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
+	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
+	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	ft_col_init(s);
-
 	//printf
-	printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
+	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
+	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
+	ft_sp_init(s);
+	if ((s->rv = ft_parse_sp(s)))
+		return (free_xpm_img(s, s->rv));
 	return (0);
 }

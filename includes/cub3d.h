@@ -11,6 +11,7 @@
 //delet at last
 #include <stdio.h>
 #include <string.h>
+#include <mcheck.h>
 
 # define MAX_FD 256
 # define BUFFER_SIZE 128
@@ -494,7 +495,7 @@ int		ft_col_init(t_s *s);
 */
 int		ft_dir_init(t_s *s);
 int		ft_dir_init_EW(t_s *s);
-
+int		ft_sp_init(t_s *s);
 /*
 **main_loop.c
 */
@@ -576,6 +577,7 @@ int		free_map(t_s *s);
 int		free_map_row(t_s *s, int row, int rv);
 int		free_map_all(t_s *s, int rv);
 int		free_tex_map(t_s *s, int rv);
+int		free_tex_map_sp(t_s *s, int rv);
 /*
 **free_xpm.c
 */
@@ -587,11 +589,11 @@ int		free_xpm_SP(t_s *s, int rv);
 /*
 **free_sp.c
 */
+int		free_sp_Zbuff(t_s *s, int rv);
 int		free_sp_x(t_s *s, int rv);
 int		free_sp_y(t_s *s, int rv);
 int		free_spOrd(t_s *s, int rv);
 int		free_sp_all(t_s *s, int rv);
-int		free_tex_map_sp(t_s *s, int rv);
 /*
 **free_mlx.c
 */
@@ -603,6 +605,7 @@ int		free_img(t_s *s, int rv);
 */
 int		free_xpm_img(t_s *s, int rv);
 int		free_exit(t_s *s, int rv);
+int		free_for_bmp(t_s *s, int rv);
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);

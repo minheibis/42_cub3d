@@ -32,8 +32,8 @@ int		ft_find_player_fir(t_s *s)
 				s->map.player_dir = s->map.map[var.i][var.j];
 				s->map.map[var.i][var.j] = 'p';
 				//printf
-				printf("ft_find_player_fir: var.i: [%d]\n", var.i);
-				printf("ft_find_player_fir: var.j: [%d]\n", var.j);
+				// printf("ft_find_player_fir: var.i: [%d]\n", var.i);
+				// printf("ft_find_player_fir: var.j: [%d]\n", var.j);
 				var.c++;
 			}
 			var.j++;

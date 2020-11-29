@@ -7,7 +7,7 @@ int		free_cublist(t_s *s)
 	while (s->cub_list.start->next)
 	{
 		tmp_list = s->cub_list.start->next;
-		free_NULL(s->cub_list.start->next->content);
+		free_NULL(s->cub_list.start->content);
 		free_NULL(s->cub_list.start);
 		s->cub_list.start = tmp_list;
 	}

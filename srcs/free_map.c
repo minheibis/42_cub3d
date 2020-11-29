@@ -32,3 +32,10 @@ int		free_tex_map(t_s *s, int rv)
 	free_map_all(s, rv);
 	return (rv);
 }
+
+int		free_tex_map_sp(t_s *s, int rv)
+{
+	free_tex_map(s, rv);
+	free_sp_all(s, rv);
+	return (rv);
+}

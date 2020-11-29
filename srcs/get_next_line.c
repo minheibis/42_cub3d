@@ -1,84 +1,82 @@
 #include "cub3d.h"
 
-int		free_return(char *s, int rv)
-{
-	free(s);
-	s = NULL;
-	return (rv);
-}
-
-int		set_fd(char **rest_fd, int fd)
+int		set_rest(char **rest, int fd)
 {
 	char	*buf;
 	char	*tmp;
-	int		read_val;
+	int		rv;
 
 	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
 		return (-1);
-	if ((read_val = read(fd, buf, BUFFER_SIZE)) < 0)
+	if ((rv = read(fd, buf, BUFFER_SIZE)) == -1)
 		return (free_return(buf, -1));
-	buf[read_val] = '\0';
-	tmp = *rest_fd;
-	if (!((*rest_fd = ft_strjoin(*rest_fd, buf))))
-		return (-1);
-	free(tmp);
-	free(buf);
-	tmp = NULL;
-	buf = NULL;
-	return (read_val);
+	buf[rv] = 0;
+	/*
+	**keep tmp for free of old rest
+	*/
+	tmp = *rest;
+	if (!(*rest = ft_strjoin(*rest, buf)))
+		return (free_return(tmp, free_return(buf, -1)));
+	free_NULL(tmp);
+	free_NULL(buf);
+	return (rv);
 }
 
-int		set_line(char **rest_fd, char **line)
+int		set_line(char **rest, char **line)
 {
+	int		rv;
 	int		i;
-	int		j;
 	char	*tmp;
 
 	i = 0;
-	while ((*rest_fd)[i] != '\n' && (*rest_fd)[i] != '\0')
+	rv = 0;
+	while ((*rest)[i] != '\n' && (*rest)[i] != '\0')
 		i++;
-	if (!(*line = (char *)malloc(sizeof(char) * (i + 1))))
-		return (-1);
-	j = 0;
-	while (j < i)
+	tmp = *line;
+	if (!(*line = ft_substr(*rest, 0, i)))
+		return (free_return(tmp, -1));
+	free_NULL(tmp);
+	if ((*rest)[i] == '\n')
 	{
-		(*line)[j] = (*rest_fd)[j];
-		j++;
-	}
-	(*line)[j] = '\0';
-	if ((*rest_fd)[i] == '\n')
 		i++;
-	tmp = *rest_fd;
-	if ((*rest_fd = ft_substr(*rest_fd, i, ft_strlen(*rest_fd))) == NULL)
+		rv = 1;
+	}
+	/*
+	**keep tmp for free of old rest
+	*/
+	tmp = *rest;
+	if (!(*rest = ft_substr(*rest, i, ft_strlen(*rest))))
 		return (free_return(*line, -1));
-	free(tmp);
-	tmp = NULL;
-	return ((i != j));
+	free_NULL(tmp);
+	return (rv);
 }
 
 int		get_next_line(int fd, char **line)
 {
-	static char *rest[MAX_FD];
-	int			read_val;
+	static char *rest;
+	int			rv;
 
-	if (fd < 0 || fd == 1 || fd == 2 || fd > MAX_FD
+	if (fd < 0 || fd > MAX_FD
 		|| line == NULL || BUFFER_SIZE < 1)
 		return (-1);
-	if (rest[fd] == NULL)
-		rest[fd] = ft_strdup("");
-	read_val = 1;
-	while (ft_strchr(rest[fd], '\n') == NULL && read_val > 0)
-		read_val = set_fd(&rest[fd], fd);
-	if (read_val == -1)
-		*line = NULL;
-	else if (set_line(&rest[fd], line) == -1)
-		*line = NULL;
-	if (read_val == -1 || read_val == 0)
+	if (rest == NULL)
 	{
-		free(rest[fd]);
-		rest[fd] = NULL;
+		if (!(rest = ft_strdup("")))
+			return (-1);
 	}
-	else
-		read_val = 1;
-	return (read_val);
+	rv = 1;
+	/*
+	**strchr is what we need here. rv>0 is for error handling.
+	*/
+	while ((ft_strchr(rest, '\n') == NULL && rv > 0))
+		rv = set_rest(&rest, fd);
+	if (rv == -1)
+		free(*line);
+	if (rv == -1 || set_line(&rest, line) == -1)
+	{
+		free_NULL(rest);
+		*line = NULL;
+		return (-1);
+	}
+	return (rv > 0);
 }

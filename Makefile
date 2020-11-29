@@ -35,13 +35,20 @@ SRCS_NAME	= test_utils.c \
 				sort_sp.c \
 				draw_sp_one.c \
 				bitmap.c \
-				bitmap_utils.c
+				bitmap_utils.c \
+				free_utils.c \
+				free_cub_tex.c \
+				free_map.c \
+				free_xpm.c \
+				free_sp.c \
+				free_mlx.c \
+				free_exit.c
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_NAME))
 OBJS		= $(SRCS:.c=.o)
 LIBS		= -lmlx -lXext -lX11 -lm
 CC			= gcc
-CFLAGS		= -g -Wall -Wextra -Werror $(INCLUDE_DIR)
+CFLAGS		= -g -O0 -Wall -Wextra -Werror $(INCLUDE_DIR)
 RM			= rm -f
 
 $(NAME): $(OBJS)

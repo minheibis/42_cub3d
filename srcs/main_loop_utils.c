@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-int		reset_img(t_s *s)
+int		ft_reset_img(t_s *s)
 {
 	t_xy	c;
 

@@ -25,21 +25,23 @@ int		ft_draw_map(t_s *s)
 	{
 		ft_main_loop(s);
 		if ((s->rv = ft_write_bmp("cub3d.bmp", s)))
-			return (s->rv);
+			return (free_xpm_img(s, s->rv));
 	}
-	return (0);
+	return (free_xpm_img(s, 0));
 }
 
 int		ft_all_init(t_s *s)
 {
-	ft_window_init(s);
-	ft_img_init(s);
+	if ((s->rv = ft_window_init(s)))
+		return (s->rv);
+	if ((s->rv = ft_img_init(s)))
+		return (free_wind(s, s->rv));
 	ft_player_init(s);
 	//printf
 	printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
 	printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	if ((s->rv = ft_wall_sp_init(s)))
-		return (s->rv);
+		return (free_img(s, s->rv));
 	//printf
 	printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
 	printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);

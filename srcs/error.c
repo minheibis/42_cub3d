@@ -8,16 +8,30 @@ int		ft_error(int rv)
 		write(2, "Error\nInvalid name of Cub file\n", 32);
 	else if (rv == NOT_SAVE)
 		write(2, "Error\nThird argument not --save\n", 33);
+	else if (rv == MALLOC_ERROR_CUB_LIST_START)
+		write(2, "Error\nmalloc error cub list start\n", 35);
 	else if (rv == FILE_OPEN_ERROR)
 		write(2, "Error\ncub file not opened\n", 27);
 	else if (rv == GNL_ERROR)
 		write(2, "Error\nline in cubfile not read well\n", 37);
-	else if (rv == MALLOC_ERROR)
-		write(2, "Error\nmalloc error\n", 20);
+	else if (rv == MALLOC_ERROR_TMP_CONTENT)
+		write(2, "Error\nmalloc error for tmp content\n", 36);
+	else if (rv == MALLOC_ERROR_NEXT_CUB_LIST)
+		write(2, "Error\nmalloc error for next cub list\n", 38);
+	else if (rv == SET_RESOL_ERROR)
+		write(2, "Error\ncub file set resolution error\n", 37);
+	else if (rv == MALLOC_ERROR_TEX_PATH)
+		write(2, "Error\nmalloc error tex path\n", 29);
 	else if (rv == SET_COLOR_ERROR)
-		write(2, "Error\ncub file color error\n", 28);
+		write(2, "Error\ncub file set color error\n", 32);
 	else if (rv == NO_MAP_FOUND)
 		write(2, "Error\nno map in cub file\n", 26);
+	else if (rv == MALLOC_ERROR_MAP)
+		write(2, "Error\nmalloc error map\n", 24);
+	else if (rv == MALLOC_ERROR_MAP_XROW)
+		write(2, "Error\nmalloc error map xrow\n", 24);
+	else if (rv == MALLOC_ERROR_MAP_ROW)
+		write(2, "Error\nmalloc error map row\n", 23);
 	else if (rv == NOT_EMPTY_LINE_AFTER_MAP)
 		write(2, "Error\nnot empty line after map in cub file\n", 44);
 	else if (rv == NOT_SURROUNEDED_BY_WALLS)

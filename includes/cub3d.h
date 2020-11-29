@@ -13,22 +13,31 @@
 #include <string.h>
 
 # define MAX_FD 256
-# define BUFFER_SIZE 256
+# define BUFFER_SIZE 128
 /*
 **define_errors
 */
 # define INPUT_NUM_ERROR 1
 # define CUB_NAME_ERROR 2
 # define NOT_SAVE 3
+# define MALLOC_ERROR_CUB_LIST_START 3
 # define FILE_OPEN_ERROR 4
 # define GNL_ERROR 5
-# define MALLOC_ERROR 6
+# define MALLOC_ERROR_TMP_CONTENT 6
+# define MALLOC_ERROR_NEXT_CUB_LIST 7
+# define SET_RESOL_ERROR 7
+# define MALLOC_ERROR_TEX_PATH 7
 # define SET_COLOR_ERROR 7
 # define NO_MAP_FOUND 8
+# define MALLOC_ERROR_MAP 8
+# define MALLOC_ERROR_MAP_XROW 8
+# define MALLOC_ERROR_MAP_ROW 8
 # define NOT_EMPTY_LINE_AFTER_MAP 9
 # define NOT_SURROUNEDED_BY_WALLS 10
 # define NOT_ONE_PLAYER 11
 # define FAIL_INIT 12
+# define MLX_ERROR 12
+# define WIN_ERROR 12
 # define XPM_FILE_ERROR 13
 # define MALLOC_ERROR_ZBUFF 14
 # define MALLOC_ERROR_SP_X 15
@@ -97,6 +106,15 @@ typedef struct	s_map
 	char	player_dir;
 	int		sp_count;
 }				t_map;
+
+typedef struct	s_malloc_flag
+{
+	int		flag_N;
+	int		flag_S;
+	int		flag_W;
+	int		flag_E;
+	int		flag_SP;
+}				t_malloc_flag;
 
 typedef struct	s_img
 {
@@ -334,17 +352,18 @@ typedef struct	s_ijc
 
 typedef struct	s_s
 {
-	int			rv;
-	t_cub_list	cub_list;
-	t_map		map;
-	t_game		g;
-	t_bitmap	b;
-	int			flag;
+	int				rv;
+	t_cub_list		cub_list;
+	t_map			map;
+	t_malloc_flag	mal;
+	t_game			g;
+	t_bitmap		b;
+	int				flag;
 }				t_s;
 /*
 **cub_list_utils.c
 */
-int		set_next_cub_list(t_s *s);
+int		ft_set_next_cub_list(t_s *s);
 /*
 **cub3d.c
 */
@@ -365,16 +384,16 @@ char	*ft_strchr(const char *s, int c);
 /*
 **get_next_line.c
 */
-int		free_return(char *s, int rv);
 int		set_fd(char **rest_fd, int fd);
 int		set_line(char **rest_fd, char **line);
 int		get_next_line(int fd, char **line);
 /*
 **init.c
 */
-int		init_s(t_s *s);
-int		init_cub(t_s *s);
-int		init_map(t_s *s);
+int		ft_init_s(t_s *s);
+int		ft_init_cub(t_s *s);
+int		ft_init_map(t_s *s);
+int		ft_init_mal_flag(t_s *s);
 /*
 **input_check.c
 */
@@ -390,7 +409,7 @@ int		ft_parse_cub(t_s *s);
 */
 int		ft_parse_element(t_s *s);
 int		ft_parse_R(t_s *s);
-int		ft_parse_tex(t_s *s, char **p_tex_path);
+int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
 int		ft_parse_color(t_s *s, int *p_color_path);
 /*
 **parse_map.c
@@ -484,7 +503,7 @@ int		ft_ray_wall(t_s *s);
 /*
 **main_loop_utils.c
 */
-int		reset_img(t_s *s);
+int		ft_reset_img(t_s *s);
 /*
 **ray_wall_x.c
 */
@@ -540,6 +559,50 @@ int		ft_bmp_rgb_set_line(int i, t_s *s);
 **bitmap_utils.c
 */
 void	*ft_memcpy(void *dest, void *src, size_t n);
+/*
+**free_utils.c
+*/
+void	free_NULL(void *p);
+int		free_return(void *p, int rv);
+/*
+**free_cub_tex.c
+*/
+int		free_cublist(t_s *s);
+int		free_tex(t_s *s, int rv);
+/*
+**free_map.c
+*/
+int		free_map(t_s *s);
+int		free_map_row(t_s *s, int row, int rv);
+int		free_map_all(t_s *s, int rv);
+int		free_tex_map(t_s *s, int rv);
+/*
+**free_xpm.c
+*/
+int		free_xpm_N(t_s *s, int rv);
+int		free_xpm_S(t_s *s, int rv);
+int		free_xpm_W(t_s *s, int rv);
+int		free_xpm_E(t_s *s, int rv);
+int		free_xpm_SP(t_s *s, int rv);
+/*
+**free_sp.c
+*/
+int		free_sp_x(t_s *s, int rv);
+int		free_sp_y(t_s *s, int rv);
+int		free_spOrd(t_s *s, int rv);
+int		free_sp_all(t_s *s, int rv);
+int		free_tex_map_sp(t_s *s, int rv);
+/*
+**free_mlx.c
+*/
+int		free_mlx(t_s *s, int rv);
+int		free_wind(t_s *s, int rv);
+int		free_img(t_s *s, int rv);
+/*
+**free_exit.c
+*/
+int		free_xpm_img(t_s *s, int rv);
+int		free_exit(t_s *s, int rv);
 
 //test_utils.c delete after
 void	ft_show_map(t_s *s);

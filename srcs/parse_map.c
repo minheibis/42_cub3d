@@ -7,20 +7,18 @@ int		ft_parse_map(t_s *s)
 	** the line that does not inculde the identifier is the start line of the map
 	** or maybe '1' could be used to detect the line. 'space'... + '1' is the start of the map
 	*/
-	int		rv;
-
 	s->cub_list.tmp = s->cub_list.start;
 	while (s->map.map_flag == 0)
 	{
-		if ((rv = ft_parse_map_bef(s)))
-			return (rv);
+		if ((s->rv = ft_parse_map_bef(s)))
+			return (s->rv);
 	}
 	if (s->map.map_flag == 1)
 	{
-		if ((rv = ft_parse_map_set(s)))
-			return (rv);
-		if ((rv = ft_parse_map_aft(s)))
-			return (rv);
+		if ((s->rv = ft_parse_map_set(s)))
+			return (s->rv);
+		if ((s->rv = ft_parse_map_aft(s)))
+			return (free_map_all(s, s->rv));
 	}
 	//delete after
 	printf("ft_parse_map: \n");
@@ -30,15 +28,13 @@ int		ft_parse_map(t_s *s)
 
 int		ft_parse_map_bef(t_s *s)
 {
-	int		rv;
-
 	while (s->cub_list.tmp->next)
 	{
-		if ((rv = ft_parse_is_map_line(s->cub_list.tmp->content)))
+		if ((s->rv = ft_parse_is_map_line(s->cub_list.tmp->content)))
 		{
 			s->map.map_flag = 1;
 			return (0);
-		};
+		}
 		s->cub_list.tmp = s->cub_list.tmp->next;
 	}
 	return (NO_MAP_FOUND);
@@ -46,12 +42,9 @@ int		ft_parse_map_bef(t_s *s)
 
 int		ft_parse_map_set(t_s *s)
 {
-	int		rv;
-
-	if ((rv = ft_parse_map_size(s)))
-		return (rv);
-	if ((rv = ft_parse_map_put(s)))
-		return (rv);
+	ft_parse_map_size(s);
+	if ((s->rv = ft_parse_map_put(s)))
+		return (s->rv);
 	return (0);
 }
 

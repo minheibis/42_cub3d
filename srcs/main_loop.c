@@ -16,7 +16,7 @@ int		ft_main_loop(t_s *s)
 		/*
 		**reset window
 		*/
-		reset_img(s);
+		ft_reset_img(s);
 	}
 	return (0);
 }

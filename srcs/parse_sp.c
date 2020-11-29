@@ -13,11 +13,11 @@ int		ft_parse_sp(t_s *s)
 	if (!(s->g.sp_i.sp_x = (double *)malloc((s->map.sp_count) * sizeof(double))))
 		return (MALLOC_ERROR_SP_X);
 	if (!(s->g.sp_i.sp_y = (double *)malloc((s->map.sp_count) * sizeof(double))))
-		return (MALLOC_ERROR_SP_Y);
+		return (free_sp_x(s, MALLOC_ERROR_SP_Y));
 	if (!(s->g.sp_i.spOrd = (int *)malloc((s->map.sp_count) * sizeof(int))))
-		return (MALLOC_ERROR_SPORD);
+		return (free_sp_y(s, MALLOC_ERROR_SPORD));
 	if (!(s->g.sp_i.spDist = (double *)malloc((s->map.sp_count) * sizeof(double))))
-		return (MALLOC_ERROR_SPDIST);
+		return (free_spOrd(s, MALLOC_ERROR_SPDIST));
 	ft_search_sp(s);
 	return (0);
 }

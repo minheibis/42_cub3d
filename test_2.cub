@@ -1,4 +1,4 @@
-R 200 100
+R 20 10
 NO ./textures/200_150_mountain.xpm
 SO ./textures/wall_1.xpm
 WE ./textures/wall_2.xpm

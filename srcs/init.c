@@ -1,32 +1,27 @@
 #include "cub3d.h"
 
-int		init_s(t_s *s)
+int		ft_init_s(t_s *s)
 {
-	int		rv;
-
-	if ((rv = init_cub(s)))
-		return (rv);
-	if ((rv = init_map(s)))
-		return (rv);
+	s->rv = 0;
+	if ((s->rv = ft_init_cub(s)))
+		return (s->rv);
+	ft_init_map(s);
+	ft_init_mal_flag(s);
 	return (0);
 }
 
-int		init_cub(t_s *s)
+int		ft_init_cub(t_s *s)
 {
-	/*
-	**
-	*/
 	if(!(s->cub_list.start = (t_cub_line *)malloc(sizeof(t_cub_line))))
-		return (MALLOC_ERROR);
+		return (MALLOC_ERROR_CUB_LIST_START);
 	s->cub_list.start->content = NULL;
 	s->cub_list.start->num = 0;
 	s->cub_list.start->len = 0;
 	s->cub_list.start->next = NULL;
-	printf("init_cub: s->cub_list.start->num: [%d]\n", s->cub_list.start->num);
 	return (0);
 }
 
-int		init_map(t_s *s)
+int		ft_init_map(t_s *s)
 {
 	s->map.wid_resol = 0;
 	s->map.hei_resol = 0;
@@ -51,5 +46,15 @@ int		init_map(t_s *s)
 	s->map.player_first[1] = 0;
 	s->map.player_dir = '\0';
 	s->map.sp_count = 0;
+	return (0);
+}
+
+int		ft_init_mal_flag(t_s *s)
+{
+	s->mal.flag_N = 0;
+	s->mal.flag_S = 0;
+	s->mal.flag_E = 0;
+	s->mal.flag_W = 0;
+	s->mal.flag_SP = 0;
 	return (0);
 }

@@ -10,28 +10,26 @@ int		ft_parse_element(t_s *s)
 	**Except for the map, each type of information from
 	**	 an element can be separated by one or more space(s).
 	*/
-	int		rv;
-
 	while (s->cub_list.tmp->next)
 	{
 		// printf("ft_parse_element: s->cub_list.tmp->content [%s]\n", s->cub_list.tmp->content);
 		// printf("ft_parse_element: s->cub_list.tmp->num [%d]\n", s->cub_list.tmp->num);
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')
-			rv = ft_parse_R(s);
+			s->rv = ft_parse_R(s);
 		else if (s->cub_list.tmp->content[0] == 'N' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			rv = ft_parse_tex(s, &(s->map.nor_tex_path));
+			s->rv = ft_parse_tex(s, &(s->mal.flag_N), &(s->map.nor_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			rv = ft_parse_tex(s, &(s->map.sou_tex_path));
+			s->rv = ft_parse_tex(s, &(s->mal.flag_S), &(s->map.sou_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'W' && s->cub_list.tmp->content[1] == 'E' && s->cub_list.tmp->content[2] == ' ')
-			rv = ft_parse_tex(s, &(s->map.wes_tex_path));
+			s->rv = ft_parse_tex(s, &(s->mal.flag_W), &(s->map.wes_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'E' && s->cub_list.tmp->content[1] == 'A' && s->cub_list.tmp->content[2] == ' ')
-			rv = ft_parse_tex(s, &(s->map.eas_tex_path));
+			s->rv = ft_parse_tex(s, &(s->mal.flag_E), &(s->map.eas_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == ' ')
-			rv = ft_parse_tex(s, &(s->map.spr_tex_path));
+			s->rv = ft_parse_tex(s, &(s->mal.flag_SP), &(s->map.spr_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'F' && s->cub_list.tmp->content[1] == ' ')
-			rv = ft_parse_color(s, &(s->map.flo_color[0]));
+			s->rv = ft_parse_color(s, &(s->map.flo_color[0]));
 		else if (s->cub_list.tmp->content[0] == 'C' && s->cub_list.tmp->content[1] == ' ')
-			rv = ft_parse_color(s, &(s->map.cel_color[0]));
+			s->rv = ft_parse_color(s, &(s->map.cel_color[0]));
 		// printf("ft_parse_element: s->map.wid_resol [%d]\n", s->map.wid_resol);
 		// printf("ft_parse_element: s->map.hei_resol [%d]\n", s->map.hei_resol);
 		// printf("ft_parse_element: s->map.nor_tex_path [%s]\n", s->map.nor_tex_path);
@@ -45,8 +43,8 @@ int		ft_parse_element(t_s *s)
 		// printf("ft_parse_element: s->map.flo_color[0] [%d]\n", s->map.flo_color[0]);
 		// printf("ft_parse_element: s->map.flo_color[1] [%d]\n", s->map.flo_color[1]);
 		// printf("ft_parse_element: s->map.flo_color[2] [%d]\n", s->map.flo_color[2]);
-		if (rv != 0)
-			return (rv);
+		if (s->rv != 0)
+			return (free_tex(s, s->rv));
 		s->cub_list.tmp = s->cub_list.tmp->next;
 	}
 	return (0);
@@ -76,21 +74,22 @@ int		ft_parse_R(t_s *s)
 		i++;
 	}
 	if (s->cub_list.tmp->content[i] != '\0')
-		return (SET_COLOR_ERROR);
+		return (SET_RESOL_ERROR);
 	return (0);
 }
 
-int		ft_parse_tex(t_s *s, char **p_tex_path)
+int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path)
 {
 	int		i;
 
+	*tex_flag = 1;
 	i = 0;
 	while(s->cub_list.tmp->content[i] != ' ')
 		i++;
 	while(s->cub_list.tmp->content[i] == ' ')
 		i++;
 	if(!(*p_tex_path = ft_strdup(s->cub_list.tmp->content + i)))
-		return (MALLOC_ERROR);
+		return (MALLOC_ERROR_TEX_PATH);
 	return (0);
 }
 

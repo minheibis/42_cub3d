@@ -20,11 +20,14 @@ int		ft_parse_map_size(t_s *s)
 int		ft_parse_map_put(t_s *s)
 {
 	if (!(s->map.map = (char **)malloc(sizeof(char *) * (s->map.map_hei + 3))))
-		return (MALLOC_ERROR);
+		return (MALLOC_ERROR_MAP);
 	s->map.map[s->map.map_hei + 2] = NULL;
-	ft_parse_map_put_xrow(s, 0);
-	ft_parse_map_put_xrow(s, s->map.map_hei + 1);
-	ft_parse_map_put_row(s);
+	if ((s->rv = ft_parse_map_put_xrow(s, 0)))
+		return (free_map(s));
+	if ((s->rv = ft_parse_map_put_row(s)))
+		return (free_map(s));
+	if ((s->rv = ft_parse_map_put_xrow(s, s->map.map_hei + 1)))
+		return (free_map(s));
 	return (0);
 }
 
@@ -33,13 +36,32 @@ int		ft_parse_map_put_xrow(t_s *s, int row)
 	int		j;
 
 	if (!(s->map.map[row] = (char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
-		return (MALLOC_ERROR);
+		return (free_map_row(s, row, MALLOC_ERROR_MAP_XROW));
 	s->map.map[row][s->map.map_wid + 2] = '\0';
 	j = 0;
 	while (j < s->map.map_wid + 2)
 	{
 		s->map.map[row][j] = 'X';
 		j++;
+	}
+	return (0);
+}
+
+int		ft_parse_map_put_row(t_s *s)
+{
+	int		i;
+
+	i = 1;
+	while (i < s->map.map_hei + 1)
+	{
+		if (!(s->map.map[i] = (char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
+			return (free_map_row(s, i, MALLOC_ERROR_MAP_ROW));
+		s->map.map[i][0] = 'X';
+		s->map.map[i][s->map.map_wid + 1] = 'X';
+		s->map.map[i][s->map.map_wid + 2] = '\0';
+		ft_parse_map_put_row_in(s, i);
+		s->cub_list.tmp = s->cub_list.tmp->next;
+		i++;
 	}
 	return (0);
 }
@@ -58,25 +80,6 @@ int		ft_parse_map_put_row_in(t_s *s, int	i)
 	{
 		s->map.map[i][j] = ' ';
 		j++;
-	}
-	return (0);
-}
-
-int		ft_parse_map_put_row(t_s *s)
-{
-	int		i;
-
-	i = 1;
-	while (i < s->map.map_hei + 1)
-	{
-		if (!(s->map.map[i] = (char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
-			return (MALLOC_ERROR);
-		s->map.map[i][0] = 'X';
-		s->map.map[i][s->map.map_wid + 1] = 'X';
-		s->map.map[i][s->map.map_wid + 2] = '\0';
-		ft_parse_map_put_row_in(s, i);
-		s->cub_list.tmp = s->cub_list.tmp->next;
-		i++;
 	}
 	return (0);
 }

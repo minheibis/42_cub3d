@@ -9,7 +9,10 @@ int		ft_deal_key(int key_code, t_s *s)
 	**exit
 	*/
 	if (key_code == KEY_ESC)
+	{
+		free_exit(s, 0);
 		exit(0);
+	}
 	/*
 	**move forward if no wall in front of you
 	*/

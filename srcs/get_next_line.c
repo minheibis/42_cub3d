@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/20 10:33:43 by hyuki             #+#    #+#             */
+/*   Updated: 2020/11/30 22:00:54 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		set_rest(char **rest, int fd)
@@ -22,6 +34,7 @@ int		set_rest(char **rest, int fd)
 	return (rv);
 }
 
+
 int		set_line(char **rest, char **line)
 {
 	int		rv;
@@ -34,7 +47,7 @@ int		set_line(char **rest, char **line)
 		i++;
 	tmp = *line;
 	if (!(*line = ft_substr(*rest, 0, i)))
-		return (free_return(tmp, -1));
+		return (free_return(tmp, free_return(rest, -1)));
 	free_NULL(tmp);
 	if ((*rest)[i] == '\n')
 	{
@@ -46,7 +59,7 @@ int		set_line(char **rest, char **line)
 	*/
 	tmp = *rest;
 	if (!(*rest = ft_substr(*rest, i, ft_strlen(*rest))))
-		return (free_return(*line, -1));
+		return (free_return(*line, free_return(tmp, -1)));
 	free_NULL(tmp);
 	return (rv);
 }
@@ -56,7 +69,7 @@ int		get_next_line(int fd, char **line)
 	static char *rest;
 	int			rv;
 
-	if (fd < 0 || fd > MAX_FD
+	if (fd < 0 || fd == 1 || fd == 2 || fd > MAX_FD
 		|| line == NULL || BUFFER_SIZE < 1)
 		return (-1);
 	if (rest == NULL)
@@ -68,15 +81,13 @@ int		get_next_line(int fd, char **line)
 	/*
 	**strchr is what we need here. rv>0 is for error handling.
 	*/
-	while ((ft_strchr(rest, '\n') == NULL && rv > 0))
-		rv = set_rest(&rest, fd);
-	if (rv == -1)
-		free(*line);
-	if (rv == -1 || set_line(&rest, line) == -1)
+	while (ft_strchr(rest, '\n') == NULL && rv > 0)
 	{
-		free_NULL(rest);
-		*line = NULL;
-		return (-1);
+		if ((rv = set_rest(&rest, fd)) == -1)
+			free_return(*line, -1);
 	}
-	return (rv > 0);
+	rv = set_line(&rest, line);
+	if (rv == 0)
+		free_NULL(rest);
+	return (rv);
 }

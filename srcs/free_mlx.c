@@ -9,14 +9,16 @@ int		free_mlx(t_s *s, int rv)
 int		free_wind(t_s *s, int rv)
 {
 	mlx_destroy_window(s->g.mlx, s->g.win);
+	s->g.win = NULL;
 	free_mlx(s, rv);
 	return (rv);
 }
 
 int		free_img(t_s *s, int rv)
 {
+	mlx_destroy_image(s->g.mlx, s->g.img.ptr);
 	free_wind(s, rv);
-	mlx_destroy_image(s->g.mlx, s->g.img.data);
+	s->g.img.ptr = NULL;
 	return (rv);
 }
 

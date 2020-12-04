@@ -11,6 +11,7 @@ SRCS_NAME	= test_utils.c \
 				input_check.c \
 				read_cub.c \
 				parse_element.c \
+				parse_element_utils.c \
 				parse_map.c \
 				parse_map_set.c \
 				parse_map_utils.c \

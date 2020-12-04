@@ -8,11 +8,11 @@ int		ft_window_init(t_s *s)
 	if (!(s->g.mlx = mlx_init()))
 		return (MLX_ERROR);
 	mlx_get_screen_size(s->g.mlx, &s->g.img.disp_width, &s->g.img.disp_height);
-	if (s->map.wid_resol > s->g.img.disp_width)
+	if (s->map.wid_resol > s->g.img.disp_width && s->flag == 2)
 		s->g.img.scre_width = s->g.img.disp_width;
 	else
 		s->g.img.scre_width = s->map.wid_resol;
-	if (s->map.hei_resol > s->g.img.disp_height)
+	if (s->map.hei_resol > s->g.img.disp_height && s->flag == 2)
 		s->g.img.scre_height = s->g.img.disp_height;
 	else
 		s->g.img.scre_height = s->map.hei_resol;

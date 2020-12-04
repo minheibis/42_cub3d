@@ -18,15 +18,15 @@ int		free_cublist(t_s *s)
 
 int		free_tex(t_s *s, int rv)
 {
-	if (s->mal.flag_N == 1)
+	if (s->elem.f_NO > 0)
 		free_NULL(s->map.nor_tex_path);
-	if (s->mal.flag_S == 1)
+	if (s->elem.f_SP > 0)
 		free_NULL(s->map.sou_tex_path);
-	if (s->mal.flag_E == 1)
+	if (s->elem.f_EA > 0)
 		free_NULL(s->map.eas_tex_path);
-	if (s->mal.flag_W == 1)
+	if (s->elem.f_WE > 0)
 		free_NULL(s->map.wes_tex_path);
-	if (s->mal.flag_SP == 1)
+	if (s->elem.f_SP > 0)
 		free_NULL(s->map.spr_tex_path);
 	return (rv);
 }

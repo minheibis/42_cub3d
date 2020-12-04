@@ -6,7 +6,7 @@ int		ft_init_s(t_s *s)
 	if ((s->rv = ft_init_cub(s)))
 		return (s->rv);
 	ft_init_map(s);
-	ft_init_mal_flag(s);
+	ft_init_elem_flag(s);
 	return (0);
 }
 
@@ -49,12 +49,15 @@ int		ft_init_map(t_s *s)
 	return (0);
 }
 
-int		ft_init_mal_flag(t_s *s)
+int		ft_init_elem_flag(t_s *s)
 {
-	s->mal.flag_N = 0;
-	s->mal.flag_S = 0;
-	s->mal.flag_E = 0;
-	s->mal.flag_W = 0;
-	s->mal.flag_SP = 0;
+	s->elem.f_R = 0;
+	s->elem.f_NO = 0;
+	s->elem.f_SO = 0;
+	s->elem.f_WE = 0;
+	s->elem.f_EA = 0;
+	s->elem.f_SP = 0;
+	s->elem.f_F = 0;
+	s->elem.f_C = 0;
 	return (0);
 }

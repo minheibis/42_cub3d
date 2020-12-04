@@ -3,9 +3,8 @@
 int		ft_parse_map(t_s *s)
 {
 	/*
-	**look from backward and detect the identifier
-	** the line that does not inculde the identifier is the start line of the map
-	** or maybe '1' could be used to detect the line. 'space'... + '1' is the start of the map
+	**look from front and detect the identifier
+	** if map is not at the end, ft_parse_map_aft can detect
 	*/
 	s->cub_list.tmp = s->cub_list.start;
 	while (s->map.map_flag == 0)

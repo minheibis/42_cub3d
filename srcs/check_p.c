@@ -7,59 +7,73 @@
 */
 int		ft_check_p_row(t_s *s, int i, int j)
 {
+	int	rv;
+
 	/*
-	**check i, i-1, i+1 cells
+	**check i
 	*/
-	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s, s->map.map[i][j]) == 1)
-	{
-		if (ft_map_item(s, s->map.map[i][j]) == 1)
-			s->map.map[i][j] = 'y';
-		else
-			s->map.map[i][j] = 'w';
-		if (ft_map_space(s->map.map[i - 1][j]) == 1)
-			s->map.map[i - 1][j] = 'p';
-		else if (ft_map_item(s, s->map.map[i - 1][j]) == 1)
-			s->map.map[i - 1][j] = 'd';
-		else
-			return (NO_WALL);
-		if (ft_map_space(s->map.map[i + 1][j]) == 1)
-			s->map.map[i + 1][j] = 'p';
-		else if (ft_map_item(s, s->map.map[i + 1][j]) == 1)
-			s->map.map[i + 1][j] = 'd';
-		else
-			return (NO_WALL);
-		return (IS_MAP);
-	}
-	else if (s->map.map[i][j] == '1' || ft_map_fake_wall(s->map.map[i][j]) == 1)
-		return (IS_WALL);
-	else
-		return (NO_WALL);
+	if ((rv = ft_check_cell(s, i, j)) != 0)
+		return (rv);
+	/*
+	**check i-1
+	*/
+	if ((rv = ft_check_cell_around(s, i - 1, j)) != 0)
+		return (rv);
+	/*
+	**check i+1
+	*/
+	if ((rv = ft_check_cell_around(s, i + 1, j)) != 0)
+		return (rv);
+	return (IS_MAP);
 }
 
 int		ft_check_p_col(t_s *s, int i, int j)
 {
-	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s, s->map.map[i][j]) == 1)
-	{
-		if (ft_map_item(s, s->map.map[i][j]) == 1)
-			s->map.map[i][j] = 'y';
-		else
-			s->map.map[i][j] = 'w';
-		if (ft_map_space(s->map.map[i][j - 1]) == 1)
-			s->map.map[i][j - 1] = 'p';
-		else if (ft_map_item(s, s->map.map[i][j - 1]) == 1)
-			s->map.map[i][j - 1] = 'd';
-		else
-			return (NO_WALL);
-		if (ft_map_space(s->map.map[i][j + 1]) == 1)
-			s->map.map[i][j + 1] = 'p';
-		else if (ft_map_item(s, s->map.map[i][j + 1]) == 1)
-			s->map.map[i][j + 1] = 'd';
-		else
-			return (NO_WALL);
-		return (IS_MAP);
-	}
+	int		rv;
+	/*
+	**check j
+	*/
+	if ((rv = ft_check_cell(s, i, j)) != 0)
+		return (rv);
+	/*
+	**check j-1
+	*/
+	if ((rv = ft_check_cell_around(s, i, j - 1)) != 0)
+		return (rv);
+	/*
+	**check j+1
+	*/
+	if ((rv = ft_check_cell_around(s, i, j + 1)) != 0)
+		return (rv);
+	return (IS_MAP);
+}
+
+int		ft_check_cell(t_s *s, int i, int j)
+{
+	if (ft_map_space(s->map.map[i][j]) == 1)
+		s->map.map[i][j] = 'w';
+	else if (ft_map_item(s, s->map.map[i][j]) == 1)
+		s->map.map[i][j] = 'y';
 	else if (s->map.map[i][j] == '1' || ft_map_fake_wall(s->map.map[i][j]) == 1)
 		return (IS_WALL);
 	else
 		return (NO_WALL);
+	return (0);
+}
+
+int		ft_check_cell_around(t_s *s, int i, int j)
+{
+	if (ft_map_space(s->map.map[i][j]) == 1)
+	{
+		s->map.map[i][j] = 'p';
+		return (0);
+	}
+	else if (ft_map_item(s, s->map.map[i][j]) == 1)
+	{
+		s->map.map[i][j] = 'd';
+		return (0);
+	}
+	else if (s->map.map[i][j] == '1' || ft_map_fake_wall(s->map.map[i][j]) == 1)
+		return (0);
+	return (NO_WALL);
 }

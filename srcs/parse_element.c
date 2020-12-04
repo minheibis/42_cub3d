@@ -17,19 +17,21 @@ int		ft_parse_element(t_s *s)
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')
 			s->rv = ft_parse_R(s);
 		else if (s->cub_list.tmp->content[0] == 'N' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->mal.flag_N), &(s->map.nor_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_NO), &(s->map.nor_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->mal.flag_S), &(s->map.sou_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_SO), &(s->map.sou_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'W' && s->cub_list.tmp->content[1] == 'E' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->mal.flag_W), &(s->map.wes_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_WE), &(s->map.wes_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'E' && s->cub_list.tmp->content[1] == 'A' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->mal.flag_E), &(s->map.eas_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_EA), &(s->map.eas_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_tex(s, &(s->mal.flag_SP), &(s->map.spr_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_SP), &(s->map.spr_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'F' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_color(s, &(s->map.flo_color[0]));
+			s->rv = ft_parse_color(s, &(s->elem.f_F), &(s->map.flo_color[0]));
 		else if (s->cub_list.tmp->content[0] == 'C' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_color(s, &(s->map.cel_color[0]));
+			s->rv = ft_parse_color(s, &(s->elem.f_C), &(s->map.cel_color[0]));
+		else if (s->cub_list.tmp->content[0] != '\0' && ft_parse_is_map_line(s->cub_list.tmp->content) == 0)
+			s->rv = INVALID_LINE_ERROR;
 		// printf("ft_parse_element: s->map.wid_resol [%d]\n", s->map.wid_resol);
 		// printf("ft_parse_element: s->map.hei_resol [%d]\n", s->map.hei_resol);
 		// printf("ft_parse_element: s->map.nor_tex_path [%s]\n", s->map.nor_tex_path);
@@ -47,6 +49,8 @@ int		ft_parse_element(t_s *s)
 			return (free_tex(s, s->rv));
 		s->cub_list.tmp = s->cub_list.tmp->next;
 	}
+	if ((s->rv = ft_check_set_element(s)))
+		return (free_tex(s, s->rv));
 	return (0);
 }
 
@@ -54,9 +58,11 @@ int		ft_parse_R(t_s *s)
 {
 	int		i;
 
-	i = 0;
-	while(s->cub_list.tmp->content[i] != ' ')
-		i++;
+	if (s->elem.f_R != 0)
+		return (NOT_ONE_ELEMENT_ERROR);
+	else
+		s->elem.f_R++;
+	i = 1;
 	while(s->cub_list.tmp->content[i] == ' ')
 		i++;
 	while (ft_isnum(s->cub_list.tmp->content[i]))
@@ -73,7 +79,7 @@ int		ft_parse_R(t_s *s)
 		s->map.hei_resol += (s->cub_list.tmp->content[i] - '0');
 		i++;
 	}
-	if (s->cub_list.tmp->content[i] != '\0')
+	if (s->cub_list.tmp->content[i] != '\0' || s->map.wid_resol <= 0 || s->map.hei_resol <= 0)
 		return (SET_RESOL_ERROR);
 	return (0);
 }
@@ -82,7 +88,10 @@ int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path)
 {
 	int		i;
 
-	*tex_flag = 1;
+	if (*tex_flag != 0)
+		return (NOT_ONE_ELEMENT_ERROR);
+	else
+		(*tex_flag)++;
 	i = 0;
 	while(s->cub_list.tmp->content[i] != ' ')
 		i++;
@@ -93,21 +102,24 @@ int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path)
 	return (0);
 }
 
-int		ft_parse_color(t_s *s, int *p_color_path)
+int		ft_parse_color(t_s *s, int *col_flag, int *p_color_path)
 {
 	int		i;
 	int		j;
 
-	i = 0;
-	while(s->cub_list.tmp->content[i] != ' ')
-		i++;
+	if (*col_flag != 0)
+		return (NOT_ONE_ELEMENT_ERROR);
+	else
+		(*col_flag)++;
+	i = 1;
 	j = 0;
 	while (j < 3)
 	{
-		if (j == 0)
-			while (s->cub_list.tmp->content[i] == ' ')
-				i++;
-		else if (s->cub_list.tmp->content[i] == ',')
+		if (j != 0 && s->cub_list.tmp->content[i] == ',')
+			i++;
+		else if (j != 0)
+			return (SET_COLOR_ERROR);
+		while (s->cub_list.tmp->content[i] == ' ')
 			i++;
 		while (ft_isnum(s->cub_list.tmp->content[i]))
 		{

@@ -2,7 +2,7 @@
 
 int		ft_map_space(char c)
 {
-	if (c == '0'|| c == 'p')
+	if (c == '0'|| c == 'p' || c == ' ')
 		return (1);
 	else
 		return (0);

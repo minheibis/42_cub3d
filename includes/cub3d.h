@@ -27,6 +27,8 @@
 # define MALLOC_ERROR_TMP_CONTENT 7
 # define MALLOC_ERROR_NEXT_CUB_LIST 8
 # define SET_RESOL_ERROR 9
+# define NOT_ONE_ELEMENT_ERROR 33
+# define INVALID_LINE_ERROR 32
 # define MALLOC_ERROR_TEX_PATH 10
 # define SET_COLOR_ERROR 11
 # define NO_MAP_FOUND 12
@@ -69,7 +71,6 @@
 #define INFOHEADERSIZE 40
 #define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
 
-
 typedef struct	s_cub_line
 {
 	char				*content;
@@ -83,6 +84,18 @@ typedef struct	s_cub_list
 	t_cub_line	*start;
 	t_cub_line	*tmp;
 }				t_cub_list;
+
+typedef struct	s_elem_flag
+{
+	int		f_R;
+	int		f_NO;
+	int		f_SO;
+	int		f_WE;
+	int		f_EA;
+	int		f_SP;
+	int		f_F;
+	int		f_C;
+}				t_elem_flag;
 
 typedef struct	s_map
 {
@@ -107,15 +120,6 @@ typedef struct	s_map
 	char	player_dir;
 	int		sp_count;
 }				t_map;
-
-typedef struct	s_malloc_flag
-{
-	int		flag_N;
-	int		flag_S;
-	int		flag_W;
-	int		flag_E;
-	int		flag_SP;
-}				t_malloc_flag;
 
 typedef struct	s_img
 {
@@ -172,7 +176,6 @@ typedef struct	s_ws_img
 	t_img	E;
 	t_img	sp;
 }				t_ws_img;
-
 
 typedef struct	s_hit_calc
 {
@@ -356,7 +359,7 @@ typedef struct	s_s
 	int				rv;
 	t_cub_list		cub_list;
 	t_map			map;
-	t_malloc_flag	mal;
+	t_elem_flag		elem;
 	t_game			g;
 	t_bitmap		b;
 	int				flag;
@@ -369,8 +372,8 @@ int		ft_set_next_cub_list(t_s *s);
 **cub3d.c
 */
 int		ft_parse_to_draw(char *cub_file, int flag);
-// int		main(int argc, char **argv);
-int		main(void);
+int		main(int argc, char **argv);
+// int		main(void);
 /*
 **error.c
 */
@@ -395,7 +398,7 @@ int		get_next_line(int fd, char **line);
 int		ft_init_s(t_s *s);
 int		ft_init_cub(t_s *s);
 int		ft_init_map(t_s *s);
-int		ft_init_mal_flag(t_s *s);
+int		ft_init_elem_flag(t_s *s);
 /*
 **input_check.c
 */
@@ -412,7 +415,11 @@ int		ft_parse_cub(t_s *s);
 int		ft_parse_element(t_s *s);
 int		ft_parse_R(t_s *s);
 int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
-int		ft_parse_color(t_s *s, int *p_color_path);
+int		ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
+/*
+**parse_element_utils.c
+*/
+int		ft_check_set_element(t_s *s);
 /*
 **parse_map.c
 */
@@ -461,6 +468,8 @@ int		ft_find_wall_col_bac(t_s *s);
 */
 int		ft_check_p_row(t_s *s, int i, int j);
 int		ft_check_p_col(t_s *s, int i, int j);
+int		ft_check_cell(t_s *s, int i, int j);
+int		ft_check_cell_around(t_s *s, int i, int j);
 /*
 **check_p_utils.c
 */

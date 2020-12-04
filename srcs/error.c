@@ -20,6 +20,10 @@ int		ft_error(int rv)
 		write(2, "Error\nmalloc error for next cub list\n", 38);
 	else if (rv == SET_RESOL_ERROR)
 		write(2, "Error\ncub file set resolution error\n", 37);
+	else if (rv == NOT_ONE_ELEMENT_ERROR)
+		write(2, "Error\ncub file has zero or more than one elemnt\n", 49);
+	else if (rv == INVALID_LINE_ERROR)
+		write(2, "Error\ncub file has invalid line\n", 33);
 	else if (rv == MALLOC_ERROR_TEX_PATH)
 		write(2, "Error\nmalloc error tex path\n", 29);
 	else if (rv == SET_COLOR_ERROR)
@@ -35,7 +39,7 @@ int		ft_error(int rv)
 	else if (rv == NOT_EMPTY_LINE_AFTER_MAP)
 		write(2, "Error\nnot empty line after map in cub file\n", 44);
 	else if (rv == NOT_SURROUNEDED_BY_WALLS)
-		write(2, "Error\nplayer in map not surrounded by walls\n(or spacd inside map)\n", 67);
+		write(2, "Error\nplayer in map not surrounded by walls\n(or invalid letter inside map)\n", 76);
 	else if (rv == NOT_ONE_PLAYER)
 		write(2, "Error\nnot one player in the map\n", 33);
 	else if (rv == FAIL_INIT)

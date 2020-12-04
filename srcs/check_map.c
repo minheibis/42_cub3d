@@ -8,8 +8,8 @@ int		ft_check_map(t_s *s)
 	if (ft_find_player_fir(s) != 1)
 		return (NOT_ONE_PLAYER);
 	//delete after
-	// printf("ft_check_map 1: s->map.map\n");
-	// ft_show_map(s);
+	printf("ft_check_map 1: s->map.map\n");
+	ft_show_map(s);
 	while (ft_find_fake_player(s))
 	{
 		if (ft_edge_player(s))
@@ -17,13 +17,13 @@ int		ft_check_map(t_s *s)
 		else if (ft_find_wall(s, flag_row))
 			return (NOT_SURROUNEDED_BY_WALLS);
 		//delete after
-		// printf("ft_check_map 2: s->map.map\n");
-		// ft_show_map(s);
+		printf("ft_check_map 2: s->map.map\n");
+		ft_show_map(s);
 		flag_row *= -1;
 	}
 	ft_set_player_ag(s);
-	// printf("ft_check_map 3: s->map.map\n");
-	// ft_show_map(s);
+	printf("ft_check_map 3: s->map.map\n");
+	ft_show_map(s);
 	return (0);
 }
 
@@ -39,6 +39,9 @@ int		ft_find_fake_player(t_s *s)
 		{
 			if (ft_map_player(s->map.map[var.i][var.j]) == 1)
 			{
+				/*
+				**set the first (fake) player found here
+				*/
 				s->map.player[0] = var.i;
 				s->map.player[1] = var.j;
 				return (1);

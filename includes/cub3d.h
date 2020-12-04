@@ -21,34 +21,34 @@
 # define INPUT_NUM_ERROR 1
 # define CUB_NAME_ERROR 2
 # define NOT_SAVE 3
-# define MALLOC_ERROR_CUB_LIST_START 3
-# define FILE_OPEN_ERROR 4
-# define GNL_ERROR 5
-# define MALLOC_ERROR_TMP_CONTENT 6
-# define MALLOC_ERROR_NEXT_CUB_LIST 7
-# define SET_RESOL_ERROR 7
-# define MALLOC_ERROR_TEX_PATH 7
-# define SET_COLOR_ERROR 7
-# define NO_MAP_FOUND 8
-# define MALLOC_ERROR_MAP 8
-# define MALLOC_ERROR_MAP_XROW 8
-# define MALLOC_ERROR_MAP_ROW 8
-# define NOT_EMPTY_LINE_AFTER_MAP 9
-# define NOT_SURROUNEDED_BY_WALLS 10
-# define NOT_ONE_PLAYER 11
-# define FAIL_INIT 12
-# define MLX_ERROR 12
-# define WIN_ERROR 12
-# define XPM_FILE_ERROR 13
-# define MALLOC_ERROR_ZBUFF 14
-# define MALLOC_ERROR_SP_X 15
-# define MALLOC_ERROR_SP_Y 16
-# define MALLOC_ERROR_SPORD 17
-# define MALLOC_ERROR_SPDIST 18
-# define BMP_FILE_OPEN_ERROR 19
-# define MALLOC_ERROR_BMP_LINE 20
-# define BMP_HEAD_WRITE_ERROR 21
-# define BMP_RGB_WRITE_ERROR 22
+# define MALLOC_ERROR_CUB_LIST_START 4
+# define FILE_OPEN_ERROR 5
+# define GNL_ERROR 6
+# define MALLOC_ERROR_TMP_CONTENT 7
+# define MALLOC_ERROR_NEXT_CUB_LIST 8
+# define SET_RESOL_ERROR 9
+# define MALLOC_ERROR_TEX_PATH 10
+# define SET_COLOR_ERROR 11
+# define NO_MAP_FOUND 12
+# define MALLOC_ERROR_MAP 13
+# define MALLOC_ERROR_MAP_XROW 14
+# define MALLOC_ERROR_MAP_ROW 15
+# define NOT_EMPTY_LINE_AFTER_MAP 16
+# define NOT_SURROUNEDED_BY_WALLS 17
+# define NOT_ONE_PLAYER 18
+# define FAIL_INIT 19
+# define MLX_ERROR 20
+# define WIN_ERROR 21
+# define XPM_FILE_ERROR 22
+# define MALLOC_ERROR_ZBUFF 23
+# define MALLOC_ERROR_SP_X 24
+# define MALLOC_ERROR_SP_Y 25
+# define MALLOC_ERROR_SPORD 26
+# define MALLOC_ERROR_SPDIST 27
+# define BMP_FILE_OPEN_ERROR 28
+# define MALLOC_ERROR_BMP_LINE 29
+# define BMP_HEAD_WRITE_ERROR 30
+# define BMP_RGB_WRITE_ERROR 31
 /*
 **for check_p
 */
@@ -369,6 +369,7 @@ int		ft_set_next_cub_list(t_s *s);
 **cub3d.c
 */
 int		ft_parse_to_draw(char *cub_file, int flag);
+// int		main(int argc, char **argv);
 int		main(void);
 /*
 **error.c

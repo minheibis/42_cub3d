@@ -7,6 +7,9 @@
 */
 int		ft_check_p_row(t_s *s, int i, int j)
 {
+	/*
+	**check i, i-1, i+1 cells
+	*/
 	if (ft_map_space(s->map.map[i][j]) == 1 || ft_map_item(s, s->map.map[i][j]) == 1)
 	{
 		if (ft_map_item(s, s->map.map[i][j]) == 1)
@@ -17,10 +20,14 @@ int		ft_check_p_row(t_s *s, int i, int j)
 			s->map.map[i - 1][j] = 'p';
 		else if (ft_map_item(s, s->map.map[i - 1][j]) == 1)
 			s->map.map[i - 1][j] = 'd';
+		else
+			return (NO_WALL);
 		if (ft_map_space(s->map.map[i + 1][j]) == 1)
 			s->map.map[i + 1][j] = 'p';
 		else if (ft_map_item(s, s->map.map[i + 1][j]) == 1)
 			s->map.map[i + 1][j] = 'd';
+		else
+			return (NO_WALL);
 		return (IS_MAP);
 	}
 	else if (s->map.map[i][j] == '1' || ft_map_fake_wall(s->map.map[i][j]) == 1)
@@ -41,10 +48,14 @@ int		ft_check_p_col(t_s *s, int i, int j)
 			s->map.map[i][j - 1] = 'p';
 		else if (ft_map_item(s, s->map.map[i][j - 1]) == 1)
 			s->map.map[i][j - 1] = 'd';
+		else
+			return (NO_WALL);
 		if (ft_map_space(s->map.map[i][j + 1]) == 1)
 			s->map.map[i][j + 1] = 'p';
 		else if (ft_map_item(s, s->map.map[i][j + 1]) == 1)
 			s->map.map[i][j + 1] = 'd';
+		else
+			return (NO_WALL);
 		return (IS_MAP);
 	}
 	else if (s->map.map[i][j] == '1' || ft_map_fake_wall(s->map.map[i][j]) == 1)

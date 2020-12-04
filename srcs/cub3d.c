@@ -18,15 +18,17 @@ int		ft_parse_to_draw(char *cub_file, int flag)
 
 int		main(void)
 {
+	//int argc, char **argv
 	//have to rewrite to argc, argv
 	int		rv;
 	int		argc;
-	// char	argv_1[] = "test_fail.cub";
+	// char	argv_1[] = "test_fail_1_open_map.cub";
+	char	argv_1[] = "test_fail_2_space_in_map.cub";
 	// char	argv_1[] = "test_fail_2.cub";
-	// char	argv_1[] = "test_fail_3.cub";
-	// char	argv_1[] = "test.cub";
-	char	argv_1[] = "test_2.cub";
-	// char	argv_1[] = "test_3.cub";
+	// // char	argv_1[] = "test_fail_3.cub";
+	// // char	argv_1[] = "test.cub";
+	// // char	argv_1[] = "test_2.cub";
+	// // char	argv_1[] = "test_3.cub";
 	char	argv_2[] = "--save";
 
 	//mtrace();

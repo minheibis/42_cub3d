@@ -4,6 +4,7 @@ cub3D
 *.a
 *.cub
 *.sh
+*.bmp
 Make2
 test_functions
 oldmain.c
@@ -11,3 +12,4 @@ old_main_11.c
 typescript
 mtrace.log
 cub3d.bmp
+make_test

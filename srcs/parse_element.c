@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:18 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:21:32 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 13:09:06 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ int		ft_parse_element(t_s *s)
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')
 			s->rv = ft_parse_R(s);
 		else if (s->cub_list.tmp->content[0] == 'N' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->elem.f_NO), &(s->map.nor_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_no), &(s->map.nor_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->elem.f_SO), &(s->map.sou_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_so), &(s->map.sou_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'W' && s->cub_list.tmp->content[1] == 'E' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->elem.f_WE), &(s->map.wes_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_we), &(s->map.wes_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'E' && s->cub_list.tmp->content[1] == 'A' && s->cub_list.tmp->content[2] == ' ')
-			s->rv = ft_parse_tex(s, &(s->elem.f_EA), &(s->map.eas_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_ea), &(s->map.eas_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_tex(s, &(s->elem.f_SP), &(s->map.spr_tex_path));
+			s->rv = ft_parse_tex(s, &(s->elem.f_sp), &(s->map.spr_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'F' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_color(s, &(s->elem.f_F), &(s->map.flo_color[0]));
+			s->rv = ft_parse_color(s, &(s->elem.f_f), &(s->map.flo_color[0]));
 		else if (s->cub_list.tmp->content[0] == 'C' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_color(s, &(s->elem.f_C), &(s->map.cel_color[0]));
+			s->rv = ft_parse_color(s, &(s->elem.f_c), &(s->map.cel_color[0]));
 		else if (s->cub_list.tmp->content[0] != '\0' && ft_parse_is_map_line(s->cub_list.tmp->content) == 0)
 			s->rv = INVALID_LINE_ERROR;
 		if (s->rv != 0)
@@ -55,10 +55,10 @@ int		ft_parse_R(t_s *s)
 {
 	int		i;
 
-	if (s->elem.f_R != 0)
+	if (s->elem.f_r != 0)
 		return (NOT_ONE_ELEMENT_ERROR);
 	else
-		s->elem.f_R++;
+		s->elem.f_r++;
 	i = 1;
 	while(s->cub_list.tmp->content[i] == ' ')
 		i++;

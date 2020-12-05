@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:57:00 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 13:49:32 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,37 +55,37 @@ int		ft_img_init(t_s *s)
 
 int		ft_player_init(t_s *s)
 {
-	s->g.p.posX = (double)(s->map.player_first[1] + 0.5);
-	s->g.p.posY = (double)(s->map.player_first[0] + 0.5);
+	s->g.p.posx = (double)(s->map.player_first[1] + 0.5);
+	s->g.p.posy = (double)(s->map.player_first[0] + 0.5);
 	ft_dir_init(s);
 	return (0);
 }
 
 int		ft_wall_sp_init(t_s *s)
 {
-	if (!(s->g.ws.N.ptr = mlx_xpm_file_to_image(s->g.mlx,
-		s->map.nor_tex_path, &s->g.ws.N.width, &s->g.ws.N.height)))
+	if (!(s->g.ws.n.ptr = mlx_xpm_file_to_image(s->g.mlx,
+		s->map.nor_tex_path, &s->g.ws.n.width, &s->g.ws.n.height)))
 		return (XPM_FILE_ERROR);
-	if (!(s->g.ws.N.data = (int *)mlx_get_data_addr(s->g.ws.N.ptr,
-		&s->g.ws.N.bpp, &s->g.ws.N.size_l, &s->g.ws.N.endian)))
+	if (!(s->g.ws.n.data = (int *)mlx_get_data_addr(s->g.ws.n.ptr,
+		&s->g.ws.n.bpp, &s->g.ws.n.size_l, &s->g.ws.n.endian)))
 		return (free_xpm_N(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.S.ptr = mlx_xpm_file_to_image(s->g.mlx,
-		s->map.sou_tex_path, &s->g.ws.S.width, &s->g.ws.S.height)))
+	if (!(s->g.ws.s.ptr = mlx_xpm_file_to_image(s->g.mlx,
+		s->map.sou_tex_path, &s->g.ws.s.width, &s->g.ws.s.height)))
 		return (free_xpm_N(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.S.data = (int *)mlx_get_data_addr(s->g.ws.S.ptr,
-		&s->g.ws.S.bpp, &s->g.ws.S.size_l, &s->g.ws.S.endian)))
+	if (!(s->g.ws.s.data = (int *)mlx_get_data_addr(s->g.ws.s.ptr,
+		&s->g.ws.s.bpp, &s->g.ws.s.size_l, &s->g.ws.s.endian)))
 		return (free_xpm_S(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.W.ptr = mlx_xpm_file_to_image(s->g.mlx,
-		s->map.wes_tex_path, &s->g.ws.W.width, &s->g.ws.W.height)))
+	if (!(s->g.ws.w.ptr = mlx_xpm_file_to_image(s->g.mlx,
+		s->map.wes_tex_path, &s->g.ws.w.width, &s->g.ws.w.height)))
 		return (free_xpm_S(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.W.data = (int *)mlx_get_data_addr(s->g.ws.W.ptr,
-		&s->g.ws.W.bpp, &s->g.ws.W.size_l, &s->g.ws.W.endian)))
+	if (!(s->g.ws.w.data = (int *)mlx_get_data_addr(s->g.ws.w.ptr,
+		&s->g.ws.w.bpp, &s->g.ws.w.size_l, &s->g.ws.w.endian)))
 		return (free_xpm_W(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.E.ptr = mlx_xpm_file_to_image(s->g.mlx,
-		s->map.eas_tex_path, &s->g.ws.E.width, &s->g.ws.E.height)))
+	if (!(s->g.ws.e.ptr = mlx_xpm_file_to_image(s->g.mlx,
+		s->map.eas_tex_path, &s->g.ws.e.width, &s->g.ws.e.height)))
 		return (free_xpm_W(s, XPM_FILE_ERROR));
-	if (!(s->g.ws.E.data = (int *)mlx_get_data_addr(s->g.ws.E.ptr,
-		&s->g.ws.E.bpp, &s->g.ws.E.size_l, &s->g.ws.E.endian)))
+	if (!(s->g.ws.e.data = (int *)mlx_get_data_addr(s->g.ws.e.ptr,
+		&s->g.ws.e.bpp, &s->g.ws.e.size_l, &s->g.ws.e.endian)))
 		return (free_xpm_E(s, XPM_FILE_ERROR));
 	return (ft_wall_sp_init_sp(s));
 }

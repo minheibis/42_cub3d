@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:38 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:10:39 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 13:53:58 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int		ft_sort_sp_calc(t_s *s)
 	i = 0;
 	while (i < s->map.sp_count)
 	{
-		s->g.sp_i.spOrd[i] = i;
-		s->g.sp_i.spDist[i] = pow((s->g.p.posX - s->g.sp_i.sp_x[i]), 2) + pow((s->g.p.posY - s->g.sp_i.sp_y[i]), 2);
+		s->g.sp_i.spord[i] = i;
+		s->g.sp_i.spdist[i] = pow((s->g.p.posx - s->g.sp_i.sp_x[i]), 2) + pow((s->g.p.posy - s->g.sp_i.sp_y[i]), 2);
 		i++;
 	}
 	return (0);
@@ -38,14 +38,14 @@ int		ft_sort_sp_sort(t_s *s)
 		c.j = c.i + 1;
 		while (c.j < s->map.sp_count)
 		{
-			if (s->g.sp_i.spDist[c.i] < s->g.sp_i.spDist[c.j])
+			if (s->g.sp_i.spdist[c.i] < s->g.sp_i.spdist[c.j])
 			{
-				tmp_int = s->g.sp_i.spOrd[c.i];
-				tmp_double = s->g.sp_i.spDist[c.i];
-				s->g.sp_i.spOrd[c.i] = s->g.sp_i.spOrd[c.j];
-				s->g.sp_i.spDist[c.i] = s->g.sp_i.spDist[c.j];
-				s->g.sp_i.spOrd[c.j] = tmp_int;
-				s->g.sp_i.spDist[c.j] = tmp_double;
+				tmp_int = s->g.sp_i.spord[c.i];
+				tmp_double = s->g.sp_i.spdist[c.i];
+				s->g.sp_i.spord[c.i] = s->g.sp_i.spord[c.j];
+				s->g.sp_i.spdist[c.i] = s->g.sp_i.spdist[c.j];
+				s->g.sp_i.spord[c.j] = tmp_int;
+				s->g.sp_i.spdist[c.j] = tmp_double;
 			}
 			c.j++;
 		}

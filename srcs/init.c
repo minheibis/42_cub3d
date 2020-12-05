@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:03 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:10:04 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 13:09:06 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int		ft_init_map(t_s *s)
 
 int		ft_init_elem_flag(t_s *s)
 {
-	s->elem.f_R = 0;
-	s->elem.f_NO = 0;
-	s->elem.f_SO = 0;
-	s->elem.f_WE = 0;
-	s->elem.f_EA = 0;
-	s->elem.f_SP = 0;
-	s->elem.f_F = 0;
-	s->elem.f_C = 0;
+	s->elem.f_r = 0;
+	s->elem.f_no = 0;
+	s->elem.f_so = 0;
+	s->elem.f_we = 0;
+	s->elem.f_ea = 0;
+	s->elem.f_sp = 0;
+	s->elem.f_f = 0;
+	s->elem.f_c = 0;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:37 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:38 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 13:08:28 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ int		free_cublist(t_s *s)
 
 int		free_tex(t_s *s, int rv)
 {
-	if (s->elem.f_NO > 0)
+	if (s->elem.f_no > 0)
 		free_NULL(s->map.nor_tex_path);
-	if (s->elem.f_SP > 0)
+	if (s->elem.f_sp > 0)
 		free_NULL(s->map.sou_tex_path);
-	if (s->elem.f_EA > 0)
+	if (s->elem.f_ea > 0)
 		free_NULL(s->map.eas_tex_path);
-	if (s->elem.f_WE > 0)
+	if (s->elem.f_we > 0)
 		free_NULL(s->map.wes_tex_path);
-	if (s->elem.f_SP > 0)
+	if (s->elem.f_sp > 0)
 		free_NULL(s->map.spr_tex_path);
 	return (rv);
 }

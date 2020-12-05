@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:47:12 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 12:48:54 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ int		ft_img_init(t_s *s)
 	return (0);
 }
 
+/*
+**0 and 1, and, x and y are oppposite between map and screen
+*/
+
 int		ft_player_init(t_s *s)
 {
-	/*
-	**x and y are oppposite
-	*/
 	s->g.p.posX = (double)(s->map.player_first[1] + 0.5);
 	s->g.p.posY = (double)(s->map.player_first[0] + 0.5);
 	ft_dir_init(s);

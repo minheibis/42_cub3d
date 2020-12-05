@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:32 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:52:19 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:25:33 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_error(int rv)
 	else if (rv == NOT_ONE_ELEMENT_ERROR)
 		write(2, "Error\ncub file has zero or more than one elemnt\n", 49);
 	else
-		return(ft_error_2(rv));
+		return (ft_error_2(rv));
 	return (0);
 }
 
@@ -52,17 +52,17 @@ int		ft_error_2(int rv)
 	else if (rv == MALLOC_ERROR_MAP)
 		write(2, "Error\nmalloc error map\n", 24);
 	else if (rv == MALLOC_ERROR_MAP_XROW)
-		write(2, "Error\nmalloc error map xrow\n", 24);
+		write(2, "Error\nmalloc error map xrow\n", 29);
 	else if (rv == MALLOC_ERROR_MAP_ROW)
-		write(2, "Error\nmalloc error map row\n", 23);
+		write(2, "Error\nmalloc error map row\n", 28);
 	else if (rv == NOT_EMPTY_LINE_AFTER_MAP)
 		write(2, "Error\nnot empty line after map in cub file\n", 44);
 	else if (rv == NOT_SURROUNEDED_BY_WALLS)
-		write(2, "Error\nmap not is not closed\n(or invalid letter in map)\n", 56);
+		write(2, "Error\nmap not closed\n(or invalid letter in map)\n", 49);
 	else if (rv == NOT_ONE_PLAYER)
 		write(2, "Error\nnot one player in the map\n", 33);
 	else
-		return(ft_error_3(rv));
+		return (ft_error_3(rv));
 	return (0);
 }
 

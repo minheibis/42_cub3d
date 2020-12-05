@@ -6,11 +6,11 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:08 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:42:14 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:22:10 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
 /*
 ** w stands for inside the map(and it is same as '1' = wall)

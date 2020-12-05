@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:35 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:13:43 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:21:13 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 int		ft_read_cub(t_s *s, char *cub_file)
 {
-	int			fd;
-	int			rv;
-	char		*line;
+	t_read_cub	r;
 
-	line = NULL;
-	if ((fd = open(cub_file, O_RDONLY)) == -1)
+	r.line = NULL;
+	if ((r.fd = open(cub_file, O_RDONLY)) == -1)
 		return (FILE_OPEN_ERROR);
-	rv = 1;
+	r.rv = 1;
 	s->cub_list.tmp = s->cub_list.start;
-	while (rv == 1)
+	while (r.rv == 1)
 	{
-		if ((rv = get_next_line(fd, &line)) == -1)
+		if ((r.rv = get_next_line(r.fd, &r.line)) == -1)
 			return (GNL_ERROR);
-		if (!(s->cub_list.tmp->content = ft_strdup(line)))
-			return (free_return(line, MALLOC_ERROR_TMP_CONTENT));
+		if (!(s->cub_list.tmp->content = ft_strdup(r.line)))
+			return (free_return(r.line, MALLOC_ERROR_TMP_CONTENT));
 		s->cub_list.tmp->len = ft_strlen(s->cub_list.tmp->content);
-		if (rv == 1)
-			if(ft_set_next_cub_list(s) != 0)
-				return (free_return(line, MALLOC_ERROR_NEXT_CUB_LIST));
+		if (r.rv == 1)
+			if (ft_set_next_cub_list(s) != 0)
+				return (free_return(r.line, MALLOC_ERROR_NEXT_CUB_LIST));
 	}
-	free_null(line);
+	free_null(r.line);
 	s->cub_list.tmp = s->cub_list.start;
-	close(fd);
+	close(r.fd);
 	if ((s->rv = ft_parse_cub(s)))
 		return (free_tex(s, s->rv));
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:10:46 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:33:53 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -280,6 +280,13 @@ typedef struct		s_ijc
 	int		c;
 }					t_ijc;
 
+typedef struct		s_read_cub
+{
+	int			fd;
+	int			rv;
+	char		*line;
+}					t_read_cub;
+
 typedef struct		s_s
 {
 	int				rv;
@@ -340,12 +347,14 @@ int					ft_parse_cub(t_s *s);
 **parse_element.c
 */
 int					ft_parse_element(t_s *s);
-int					ft_parse_r(t_s *s);
-int					ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
-int					ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
+int					ft_parse_element_tex(t_s *s);
+int					ft_parse_element_col(t_s *s);
 /*
 **parse_element_utils.c
 */
+int					ft_parse_r(t_s *s);
+int					ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
+int					ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
 int					ft_check_set_element(t_s *s);
 /*
 **parse_map.c

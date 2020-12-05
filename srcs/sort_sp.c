@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:38 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:53:58 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:23:10 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		ft_sort_sp_calc(t_s *s)
 	while (i < s->map.sp_count)
 	{
 		s->g.sp_i.spord[i] = i;
-		s->g.sp_i.spdist[i] = pow((s->g.p.posx - s->g.sp_i.sp_x[i]), 2) + pow((s->g.p.posy - s->g.sp_i.sp_y[i]), 2);
+		s->g.sp_i.spdist[i] = pow((s->g.p.posx - s->g.sp_i.sp_x[i]), 2) +
+			pow((s->g.p.posy - s->g.sp_i.sp_y[i]), 2);
 		i++;
 	}
 	return (0);

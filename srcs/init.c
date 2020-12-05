@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:03 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:09:06 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:13:41 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_init_s(t_s *s)
 
 int		ft_init_cub(t_s *s)
 {
-	if(!(s->cub_list.start = (t_cub_line *)malloc(sizeof(t_cub_line))))
+	if (!(s->cub_list.start = (t_cub_line *)malloc(sizeof(t_cub_line))))
 		return (MALLOC_ERROR_CUB_LIST_START);
 	s->cub_list.start->content = NULL;
 	s->cub_list.start->num = 0;

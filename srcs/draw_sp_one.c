@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:30 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:48:56 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:35:09 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_draw_sp_one_pos(t_s *s, int i)
 		(-s->g.p.planey * s->g.sp_i.spx + s->g.p.planex * s->g.sp_i.spy);
 	s->g.sp_i.spscx = (int)floor(s->g.img.scre_width *
 		(0.5 - s->g.sp_i.trx / (s->g.sp_i.try * 0.66 * 2)));
- 	return (0);
+	return (0);
 }
 
 int		ft_draw_sp_one_hw(t_s *s)
@@ -62,7 +62,7 @@ int		ft_draw_sp_one_draw(t_s *s)
 	while (s->g.sp_i.stripe < s->g.sp_i.drawex)
 	{
 		s->g.d_c.texx = (int)floor(((double)s->g.sp_i.stripe -
-			((double)s->g.sp_i.spscx -(double)s->g.sp_i.spw / 2)) *
+			((double)s->g.sp_i.spscx - (double)s->g.sp_i.spw / 2)) *
 			(double)s->g.ws.sp.width / (double)s->g.sp_i.spw);
 		if (s->g.sp_i.try > 0 && s->g.sp_i.stripe > 0 &&
 			s->g.sp_i.stripe < s->g.img.scre_width &&

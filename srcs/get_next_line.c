@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 10:33:43 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:53:02 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:14:41 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		set_rest(char **rest, int fd)
 	free_null(buf);
 	return (rv);
 }
-
 
 int		set_line(char **rest, char **line)
 {

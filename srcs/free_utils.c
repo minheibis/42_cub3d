@@ -6,11 +6,11 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:49 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:13:43 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:34:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
 void	free_null(void *p)
 {

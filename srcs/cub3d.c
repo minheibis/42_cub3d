@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:17 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:14:10 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:34:14 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int		main(int argc, char **argv)
 			return (ft_error(rv));
 	}
 	else
-		return(ft_error(INPUT_NUM_ERROR));
+		return (ft_error(INPUT_NUM_ERROR));
 	return (0);
 }

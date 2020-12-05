@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:56 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 17:01:47 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 17:05:04 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ int		ft_bmp_rgb_set(t_s *s)
 {
 	int	i;
 
-	if (!(s->b.bmp_line_data
-		= (unsigned char *)malloc(sizeof(unsigned char) * s->b.real_width)))
+	if (!(s->b.bmp_line_data =
+		(unsigned char *)malloc(sizeof(unsigned char) * s->b.real_width)))
 		return (MALLOC_ERROR_BMP_LINE);
 	i = 0;
 	while (i < s->g.img.scre_height)

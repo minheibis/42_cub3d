@@ -1,8 +1,8 @@
 R 200 100
 NO ./textures/200_150_mountain.xpm
-SO ./textures/wall_1.xpm
-WE ./textures/wall_2.xpm
-EA ./textures/wall_3.xpm
+SO ./textures/64_64_lake.xpm
+EA ./textures/300_255_castle.xpm
+WE ./textures/101_75_sea.xpm
 
 S ./textures/114_64_bigtree_sprite.xpm
 F 125,20,60

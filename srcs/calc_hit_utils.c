@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:58 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:37:44 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:39:54 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int		ft_calc_hit_init(t_s *s)
 		s->g.h_c.sidedistx =
 		(s->g.h_c.mapx + 1 - s->g.p.posx) * s->g.h_c.deltadistx;
 	}
+	return (ft_calc_hit_init_2(s));
+}
+
+int		ft_calc_hit_init_2(t_s *s)
+{
 	if (s->g.r.raydiry < 0)
 	{
 		s->g.h_c.stepy = -1;

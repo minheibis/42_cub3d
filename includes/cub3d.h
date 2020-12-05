@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:33:04 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:40:17 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -455,6 +455,7 @@ int					ft_draw_line(t_s *s, int x);
 **calc_hit_utils.c
 */
 int					ft_calc_hit_init(t_s *s);
+int					ft_calc_hit_init_2(t_s *s);
 int					ft_calc_hit_dda(t_s *s);
 /*
 **draw_line_utils.c

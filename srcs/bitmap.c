@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:56 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:08:57 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:35:58 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ int		ft_write_bmp(char *filename, t_s *s)
 int		ft_bmp_init(t_s *s)
 {
 	s->b.real_width = s->g.img.scre_width * 3 + s->g.img.scre_width % 4;
-	/*
-	**ここからヘッダ作成
-	*/
 	s->b.reserved = 0;
 	s->b.file_size =  s->g.img.scre_height * s->b.real_width + HEADERSIZE;
 	s->b.offset_to_data = HEADERSIZE;
@@ -76,9 +73,6 @@ int		ft_bmp_head_set(t_s *s)
 	ft_memcpy(s->b.header_buf + 42, &s->b.yppm, sizeof(s->b.yppm));
 	ft_memcpy(s->b.header_buf + 46, &s->b.pallete_num, sizeof(s->b.pallete_num));
 	ft_memcpy(s->b.header_buf + 50, &s->b.important, sizeof(s->b.important));
-	/*
-	**ヘッダの書き込み
-	*/
 	if (write(s->b.fd, s->b.header_buf, HEADERSIZE) == -1)
 		return (BMP_HEAD_WRITE_ERROR);
 	return (0);
@@ -88,9 +82,6 @@ int		ft_bmp_rgb_set(t_s *s)
 {
 	int	i;
 
-	/*
-	**RGB情報の書き込み
-	*/
 	if(!(s->b.bmp_line_data = (unsigned char *)malloc(sizeof(unsigned char)*s->b.real_width)))
 		return (MALLOC_ERROR_BMP_LINE);
 	i = 0;
@@ -117,9 +108,6 @@ int		ft_bmp_rgb_set_line(int i, t_s *s)
 		s->b.bmp_line_data[j * 3 + 2] = (unsigned char)(s->g.img.data[( s->g.img.scre_height - i - 1) * s->g.img.scre_width + j] >> 16);
 		j++;
 	}
-	/*
-	**RGB情報を4バイトの倍数（=real_width）に合わせる
-	*/
 	j = s->g.img.scre_width * 3;
 	while (j < s->b.real_width)
 	{

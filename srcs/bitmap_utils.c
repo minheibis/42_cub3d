@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:53 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:08:54 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:34:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, void *src, size_t n)
 {
 	unsigned char	*mem_dest;
 	unsigned char	*mem_src;
-	size_t		i;
+	size_t			i;
 
 	if (dest == NULL && src == NULL)
 		return (NULL);

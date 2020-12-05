@@ -3,7 +3,6 @@ cub3D
 *.out
 *.o
 *.a
-*.sh
 *.bmp
 Make2
 test_functions

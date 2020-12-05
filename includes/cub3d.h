@@ -305,13 +305,7 @@ typedef struct		s_bitmap
 {
 	int				fd;
 	int				real_width;
-	/*
-	**画像一行分のRGBデータを格納する。
-	*/
 	unsigned char	*bmp_line_data;
-	/*
-	**ヘッダ	を格納する。
-	*/
 	unsigned char	header_buf[HEADERSIZE];
 	unsigned int	file_size;
 	unsigned int	reserved;

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:03 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:13:30 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:41:39 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ int		ft_find_fake_player(t_s *s)
 		{
 			if (ft_map_player(s->map.map[var.i][var.j]) == 1)
 			{
-				/*
-				**set the first (fake) player found here
-				*/
 				s->map.player[0] = var.i;
 				s->map.player[1] = var.j;
 				return (1);

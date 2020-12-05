@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:01 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:12:40 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:41:16 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		ft_find_player_fir(t_s *s)
 	return (var.c);
 }
 
-
 int		ft_edge_player(t_s *s)
 {
 	if (s->map.player[0] == 1)
@@ -69,6 +68,7 @@ int		ft_edge_player(t_s *s)
 
 int		ft_set_player_ag(t_s *s)
 {
-	s->map.map[s->map.player_first[0]][s->map.player_first[1]] = s->map.player_dir;
+	s->map.map[s->map.player_first[0]][s->map.player_first[1]] =
+	s->map.player_dir;
 	return (0);
 }

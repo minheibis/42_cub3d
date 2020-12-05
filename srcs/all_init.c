@@ -6,18 +6,17 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:41:50 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 12:46:12 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_window_init(t_s *s)
-{
-
 /*
 **get_screen_resolution
 */
+int		ft_window_init(t_s *s)
+{
 	if (!(s->g.mlx = mlx_init()))
 		return (MLX_ERROR);
 	mlx_get_screen_size(s->g.mlx, &s->g.img.disp_width, &s->g.img.disp_height);

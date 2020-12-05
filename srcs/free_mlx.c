@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:44 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:20:28 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:43 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		free_mlx(t_s *s, int rv)
 {
-	free_NULL(s->g.mlx);
+	free_null(s->g.mlx);
 	return (rv);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:30 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:57:26 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:31 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_draw_sp_one(t_s *s, int i)
 {
 	ft_draw_sp_one_pos(s, i);
-	ft_draw_sp_one_HW(s);
+	ft_draw_sp_one_hw(s);
 	ft_draw_sp_one_draw(s);
 	return (0);
 }
@@ -41,7 +41,7 @@ int		ft_draw_sp_one_pos(t_s *s, int i)
  	return (0);
 }
 
-int		ft_draw_sp_one_HW(t_s *s)
+int		ft_draw_sp_one_hw(t_s *s)
 {
 	/*
 	**calculate height of the sprite on screen

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:37 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:08:28 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,26 @@ int		free_cublist(t_s *s)
 	while (s->cub_list.start->next)
 	{
 		tmp_list = s->cub_list.start->next;
-		free_NULL(s->cub_list.start->content);
-		free_NULL(s->cub_list.start);
+		free_null(s->cub_list.start->content);
+		free_null(s->cub_list.start);
 		s->cub_list.start = tmp_list;
 	}
-	free_NULL(s->cub_list.start->content);
-	free_NULL(s->cub_list.start);
+	free_null(s->cub_list.start->content);
+	free_null(s->cub_list.start);
 	return (s->rv);
 }
 
 int		free_tex(t_s *s, int rv)
 {
 	if (s->elem.f_no > 0)
-		free_NULL(s->map.nor_tex_path);
+		free_null(s->map.nor_tex_path);
 	if (s->elem.f_sp > 0)
-		free_NULL(s->map.sou_tex_path);
+		free_null(s->map.sou_tex_path);
 	if (s->elem.f_ea > 0)
-		free_NULL(s->map.eas_tex_path);
+		free_null(s->map.eas_tex_path);
 	if (s->elem.f_we > 0)
-		free_NULL(s->map.wes_tex_path);
+		free_null(s->map.wes_tex_path);
 	if (s->elem.f_sp > 0)
-		free_NULL(s->map.spr_tex_path);
+		free_null(s->map.spr_tex_path);
 	return (rv);
 }

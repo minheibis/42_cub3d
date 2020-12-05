@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:58 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:52:10 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:20 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_calc_hit_init(t_s *s)
 	return (0);
 }
 
-int		ft_calc_hit_DDA(t_s *s)
+int		ft_calc_hit_dda(t_s *s)
 {
 	while (s->g.h_c.hit == 0)
 	{

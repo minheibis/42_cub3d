@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:18 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:09:06 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:12:27 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_parse_element(t_s *s)
 	while (s->cub_list.tmp->next)
 	{
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')
-			s->rv = ft_parse_R(s);
+			s->rv = ft_parse_r(s);
 		else if (s->cub_list.tmp->content[0] == 'N' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
 			s->rv = ft_parse_tex(s, &(s->elem.f_no), &(s->map.nor_tex_path));
 		else if (s->cub_list.tmp->content[0] == 'S' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
@@ -51,7 +51,7 @@ int		ft_parse_element(t_s *s)
 	return (0);
 }
 
-int		ft_parse_R(t_s *s)
+int		ft_parse_r(t_s *s)
 {
 	int		i;
 

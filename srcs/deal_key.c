@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:22 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:11:36 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:12:59 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int		ft_deal_key(int key_code, t_s *s)
 			s->g.p.posy -= s->g.p.diry * MOVESPEED;
 	}
 	else
-		return (ft_deal_key_AD(key_code, s));
+		return (ft_deal_key_ad(key_code, s));
 	return (0);
 }
 
-int		ft_deal_key_AD(int key_code, t_s *s)
+int		ft_deal_key_ad(int key_code, t_s *s)
 {
 	/*
 	**move right if no wall on left of you
@@ -71,11 +71,11 @@ int		ft_deal_key_AD(int key_code, t_s *s)
 			s->g.p.posy += s->g.p.dirx * MOVESPEED;
 	}
 	else
-		return (ft_deal_key_RL(key_code, s));
+		return (ft_deal_key_rl(key_code, s));
 	return (0);
 }
 
-int		ft_deal_key_RL(int key_code, t_s *s)
+int		ft_deal_key_rl(int key_code, t_s *s)
 {
 	/*
 	**rotate to the right

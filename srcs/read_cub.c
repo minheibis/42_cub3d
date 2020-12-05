@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:35 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:23:09 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:43 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_read_cub(t_s *s, char *cub_file)
 			if(ft_set_next_cub_list(s) != 0)
 				return (free_return(line, MALLOC_ERROR_NEXT_CUB_LIST));
 	}
-	free_NULL(line);
+	free_null(line);
 	s->cub_list.tmp = s->cub_list.start;
 	close(fd);
 	if ((s->rv = ft_parse_cub(s)))

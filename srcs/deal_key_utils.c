@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:20 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:21 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:12:40 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_map_in(char c)
 {
-	if (c == 'w' || c == 'y' || ft_is_NSEW(c))
+	if (c == 'w' || c == 'y' || ft_is_nsew(c))
 		return (1);
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:12:00 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:16:55 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,7 +337,7 @@ int		ft_parse_cub(t_s *s);
 **parse_element.c
 */
 int		ft_parse_element(t_s *s);
-int		ft_parse_R(t_s *s);
+int		ft_parse_r(t_s *s);
 int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
 int		ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
 /*
@@ -376,7 +376,7 @@ int		ft_find_wall(t_s *s, int flag_row);
 /*
 **check_map_utils.c
 */
-int		ft_is_NSEW(char c);
+int		ft_is_nsew(char c);
 int		ft_find_player_fir(t_s *s);
 int		ft_edge_player(t_s *s);
 int		ft_set_player_ag(t_s *s);
@@ -410,8 +410,8 @@ int		ft_all_init(t_s *s);
 **deal_key.c
 */
 int		ft_deal_key(int key_code, t_s *s);
-int		ft_deal_key_AD(int key_code, t_s *s);
-int		ft_deal_key_RL(int key_code, t_s *s);
+int		ft_deal_key_ad(int key_code, t_s *s);
+int		ft_deal_key_rl(int key_code, t_s *s);
 /*
 **deal_key_utils.c
 */
@@ -428,7 +428,7 @@ int		ft_col_init(t_s *s);
 **all_init_utils.c
 */
 int		ft_dir_init(t_s *s);
-int		ft_dir_init_EW(t_s *s);
+int		ft_dir_init_ew(t_s *s);
 int		ft_sp_init(t_s *s);
 int		ft_wall_sp_init_sp(t_s *s);
 /*
@@ -452,7 +452,7 @@ int		ft_draw_line(t_s *s, int x);
 **calc_hit_utils.c
 */
 int		ft_calc_hit_init(t_s *s);
-int		ft_calc_hit_DDA(t_s *s);
+int		ft_calc_hit_dda(t_s *s);
 /*
 **draw_line_utils.c
 */
@@ -481,7 +481,7 @@ int		ft_sort_sp_sort(t_s *s);
 */
 int		ft_draw_sp_one(t_s *s, int i);
 int		ft_draw_sp_one_pos(t_s *s, int i);
-int		ft_draw_sp_one_HW(t_s *s);
+int		ft_draw_sp_one_hw(t_s *s);
 int		ft_draw_sp_one_draw(t_s *s);
 /*
 **bitmap.c
@@ -498,7 +498,7 @@ void	*ft_memcpy(void *dest, void *src, size_t n);
 /*
 **free_utils.c
 */
-void	free_NULL(void *p);
+void	free_null(void *p);
 int		free_return(void *p, int rv);
 /*
 **free_cub_tex.c
@@ -516,11 +516,11 @@ int		free_tex_map_sp(t_s *s, int rv);
 /*
 **free_xpm.c
 */
-int		free_xpm_N(t_s *s, int rv);
-int		free_xpm_S(t_s *s, int rv);
-int		free_xpm_W(t_s *s, int rv);
-int		free_xpm_E(t_s *s, int rv);
-int		free_xpm_SP(t_s *s, int rv);
+int		free_xpm_n(t_s *s, int rv);
+int		free_xpm_s(t_s *s, int rv);
+int		free_xpm_w(t_s *s, int rv);
+int		free_xpm_e(t_s *s, int rv);
+int		free_xpm_sp(t_s *s, int rv);
 /*
 **free_sp.c
 */

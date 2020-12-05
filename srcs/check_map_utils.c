@@ -6,13 +6,13 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:01 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:13:05 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:12:40 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_is_NSEW(char c)
+int		ft_is_nsew(char c)
 {
 	if (c == 'N')
 		return (1);
@@ -37,7 +37,7 @@ int		ft_find_player_fir(t_s *s)
 		var.j = 1;
 		while (var.j < s->map.map_wid + 1)
 		{
-			if (ft_is_NSEW(s->map.map[var.i][var.j]))
+			if (ft_is_nsew(s->map.map[var.i][var.j]))
 			{
 				s->map.player_first[0] = var.i;
 				s->map.player_first[1] = var.j;

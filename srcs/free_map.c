@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:42 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:43 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		free_map(t_s *s)
 {
-	free_NULL(s->map.map);
+	free_null(s->map.map);
 	return (s->rv);
 }
 
@@ -25,7 +25,7 @@ int		free_map_row(t_s *s, int row, int rv)
 	i = 0;
 	while (i < row + 1)
 	{
-		free_NULL(s->map.map[i]);
+		free_null(s->map.map[i]);
 		i++;
 	}
 	return (rv);

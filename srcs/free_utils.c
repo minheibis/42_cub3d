@@ -6,13 +6,13 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:49 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:50 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:43 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d.h"
 
-void	free_NULL(void *p)
+void	free_null(void *p)
 {
 	free(p);
 	p = NULL;
@@ -20,6 +20,6 @@ void	free_NULL(void *p)
 
 int		free_return(void *p, int rv)
 {
-	free_NULL(p);
+	free_null(p);
 	return (rv);
 }

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:49:32 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:16:45 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,25 @@ int		ft_wall_sp_init(t_s *s)
 		return (XPM_FILE_ERROR);
 	if (!(s->g.ws.n.data = (int *)mlx_get_data_addr(s->g.ws.n.ptr,
 		&s->g.ws.n.bpp, &s->g.ws.n.size_l, &s->g.ws.n.endian)))
-		return (free_xpm_N(s, XPM_FILE_ERROR));
+		return (free_xpm_n(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.s.ptr = mlx_xpm_file_to_image(s->g.mlx,
 		s->map.sou_tex_path, &s->g.ws.s.width, &s->g.ws.s.height)))
-		return (free_xpm_N(s, XPM_FILE_ERROR));
+		return (free_xpm_n(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.s.data = (int *)mlx_get_data_addr(s->g.ws.s.ptr,
 		&s->g.ws.s.bpp, &s->g.ws.s.size_l, &s->g.ws.s.endian)))
-		return (free_xpm_S(s, XPM_FILE_ERROR));
+		return (free_xpm_s(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.w.ptr = mlx_xpm_file_to_image(s->g.mlx,
 		s->map.wes_tex_path, &s->g.ws.w.width, &s->g.ws.w.height)))
-		return (free_xpm_S(s, XPM_FILE_ERROR));
+		return (free_xpm_s(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.w.data = (int *)mlx_get_data_addr(s->g.ws.w.ptr,
 		&s->g.ws.w.bpp, &s->g.ws.w.size_l, &s->g.ws.w.endian)))
-		return (free_xpm_W(s, XPM_FILE_ERROR));
+		return (free_xpm_w(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.e.ptr = mlx_xpm_file_to_image(s->g.mlx,
 		s->map.eas_tex_path, &s->g.ws.e.width, &s->g.ws.e.height)))
-		return (free_xpm_W(s, XPM_FILE_ERROR));
+		return (free_xpm_w(s, XPM_FILE_ERROR));
 	if (!(s->g.ws.e.data = (int *)mlx_get_data_addr(s->g.ws.e.ptr,
 		&s->g.ws.e.bpp, &s->g.ws.e.size_l, &s->g.ws.e.endian)))
-		return (free_xpm_E(s, XPM_FILE_ERROR));
+		return (free_xpm_e(s, XPM_FILE_ERROR));
 	return (ft_wall_sp_init_sp(s));
 }
 

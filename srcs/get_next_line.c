@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 10:33:43 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:10:01 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:13:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		set_rest(char **rest, int fd)
 	tmp = *rest;
 	if (!(*rest = ft_strjoin(*rest, buf)))
 		return (free_return(tmp, free_return(buf, -1)));
-	free_NULL(tmp);
-	free_NULL(buf);
+	free_null(tmp);
+	free_null(buf);
 	return (rv);
 }
 
@@ -48,7 +48,7 @@ int		set_line(char **rest, char **line)
 	tmp = *line;
 	if (!(*line = ft_substr(*rest, 0, i)))
 		return (free_return(tmp, free_return(rest, -1)));
-	free_NULL(tmp);
+	free_null(tmp);
 	if ((*rest)[i] == '\n')
 	{
 		i++;
@@ -60,7 +60,7 @@ int		set_line(char **rest, char **line)
 	tmp = *rest;
 	if (!(*rest = ft_substr(*rest, i, ft_strlen(*rest))))
 		return (free_return(*line, free_return(tmp, -1)));
-	free_NULL(tmp);
+	free_null(tmp);
 	return (rv);
 }
 
@@ -88,6 +88,6 @@ int		get_next_line(int fd, char **line)
 	}
 	rv = set_line(&rest, line);
 	if (rv == 0)
-		free_NULL(rest);
+		free_null(rest);
 	return (rv);
 }

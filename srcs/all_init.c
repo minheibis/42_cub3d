@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:46:12 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 12:47:12 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **get_screen_resolution
 */
+
 int		ft_window_init(t_s *s)
 {
 	if (!(s->g.mlx = mlx_init()))

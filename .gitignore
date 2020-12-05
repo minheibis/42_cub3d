@@ -1,8 +1,8 @@
+.vscode/
 cub3D
 *.out
 *.o
 *.a
-*.cub
 *.sh
 *.bmp
 Make2

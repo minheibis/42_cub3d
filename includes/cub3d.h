@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:31:13 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ typedef struct	s_sp_info
 	int			stripe;
 }				t_sp_info;
 
-typedef struct	s_game
+typedef struct		s_game
 {
 	void		*mlx;
 	void		*win;
@@ -237,7 +237,7 @@ typedef struct	s_game
 	t_hit_calc	h_c;
 	t_draw_calc	d_c;
 	t_sp_info	sp_i;
-}				t_game;
+}					t_game;
 
 typedef struct		s_bitmap
 {
@@ -261,26 +261,26 @@ typedef struct		s_bitmap
 	unsigned int	important;
 }					t_bitmap;
 
-typedef struct	s_ij
+typedef struct		s_ij
 {
 	int		i;
 	int		j;
-}				t_ij;
+}					t_ij;
 
-typedef struct	s_xy
+typedef struct		s_xy
 {
 	int		x;
 	int		y;
-}				t_xy;
+}					t_xy;
 
-typedef struct	s_ijc
+typedef struct		s_ijc
 {
 	int		i;
 	int		j;
 	int		c;
-}				t_ijc;
+}					t_ijc;
 
-typedef struct	s_s
+typedef struct		s_s
 {
 	int				rv;
 	t_cub_list		cub_list;
@@ -289,260 +289,260 @@ typedef struct	s_s
 	t_game			g;
 	t_bitmap		b;
 	int				flag;
-}				t_s;
+}					t_s;
 /*
 **cub_list_utils.c
 */
-int		ft_set_next_cub_list(t_s *s);
+int					ft_set_next_cub_list(t_s *s);
 /*
 **cub3d.c
 */
-int		ft_parse_to_draw(char *cub_file, int flag);
-int		main(int argc, char **argv);
+int					ft_parse_to_draw(char *cub_file, int flag);
+int					main(int argc, char **argv);
 /*
 **error.c
 */
-int		ft_error(int rv);
-int		ft_error_2(int rv);
-int		ft_error_3(int rv);
+int					ft_error(int rv);
+int					ft_error_2(int rv);
+int					ft_error_3(int rv);
 /*
 **get_next_line_utils.c
 */
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *src);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *s, int c);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strdup(const char *src);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+size_t				ft_strlen(const char *str);
+char				*ft_strchr(const char *s, int c);
 /*
 **get_next_line.c
 */
-int		set_fd(char **rest_fd, int fd);
-int		set_line(char **rest_fd, char **line);
-int		get_next_line(int fd, char **line);
+int					set_fd(char **rest_fd, int fd);
+int					set_line(char **rest_fd, char **line);
+int					get_next_line(int fd, char **line);
 /*
 **init.c
 */
-int		ft_init_s(t_s *s);
-int		ft_init_cub(t_s *s);
-int		ft_init_map(t_s *s);
-int		ft_init_elem_flag(t_s *s);
+int					ft_init_s(t_s *s);
+int					ft_init_cub(t_s *s);
+int					ft_init_map(t_s *s);
+int					ft_init_elem_flag(t_s *s);
 /*
 **input_check.c
 */
-int		ft_save_check(char *arg, char *save);
-int		ft_cub_check(char *arg, char *cub);
+int					ft_save_check(char *arg, char *save);
+int					ft_cub_check(char *arg, char *cub);
 /*
 **read_cub.c
 */
-int		ft_read_cub(t_s *s, char *cub_file);
-int		ft_parse_cub(t_s *s);
+int					ft_read_cub(t_s *s, char *cub_file);
+int					ft_parse_cub(t_s *s);
 /*
 **parse_element.c
 */
-int		ft_parse_element(t_s *s);
-int		ft_parse_r(t_s *s);
-int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
-int		ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
+int					ft_parse_element(t_s *s);
+int					ft_parse_r(t_s *s);
+int					ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
+int					ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
 /*
 **parse_element_utils.c
 */
-int		ft_check_set_element(t_s *s);
+int					ft_check_set_element(t_s *s);
 /*
 **parse_map.c
 */
-int		ft_parse_map(t_s *s);
-int		ft_parse_map_bef(t_s *s);
-int		ft_parse_map_set(t_s *s);
-int		ft_parse_map_aft(t_s *s);
+int					ft_parse_map(t_s *s);
+int					ft_parse_map_bef(t_s *s);
+int					ft_parse_map_set(t_s *s);
+int					ft_parse_map_aft(t_s *s);
 /*
 **parse_map_set.c
 */
-int		ft_parse_map_size(t_s *s);
-int		ft_parse_map_put(t_s *s);
-int		ft_parse_map_put_xrow(t_s *s, int row);
-int		ft_parse_map_put_row_in(t_s *s, int	i);
-int		ft_parse_map_put_row(t_s *s);
+int					ft_parse_map_size(t_s *s);
+int					ft_parse_map_put(t_s *s);
+int					ft_parse_map_put_xrow(t_s *s, int row);
+int					ft_parse_map_put_row_in(t_s *s, int	i);
+int					ft_parse_map_put_row(t_s *s);
 /*
 **parse_map_utils.c
 */
-int		ft_parse_is_map_line(char *cub_line);
+int					ft_parse_is_map_line(char *cub_line);
 /*
 **ft_isnum.c
 */
-int		ft_isnum(char c);
+int					ft_isnum(char c);
 /*
 **check_map.c
 */
-int		ft_check_map(t_s *s);
-int		ft_find_fake_player(t_s *s);
-int		ft_find_wall(t_s *s, int flag_row);
+int					ft_check_map(t_s *s);
+int					ft_find_fake_player(t_s *s);
+int					ft_find_wall(t_s *s, int flag_row);
 /*
 **check_map_utils.c
 */
-int		ft_is_nsew(char c);
-int		ft_find_player_fir(t_s *s);
-int		ft_edge_player(t_s *s);
-int		ft_set_player_ag(t_s *s);
+int					ft_is_nsew(char c);
+int					ft_find_player_fir(t_s *s);
+int					ft_edge_player(t_s *s);
+int					ft_set_player_ag(t_s *s);
 /*
 **find_wall.c
 */
-int		ft_find_wall_row_for(t_s *s);
-int		ft_find_wall_row_bac(t_s *s);
-int		ft_find_wall_col_for(t_s *s);
-int		ft_find_wall_col_bac(t_s *s);
+int					ft_find_wall_row_for(t_s *s);
+int					ft_find_wall_row_bac(t_s *s);
+int					ft_find_wall_col_for(t_s *s);
+int					ft_find_wall_col_bac(t_s *s);
 /*
 **check_p.c
 */
-int		ft_check_p_row(t_s *s, int i, int j);
-int		ft_check_p_col(t_s *s, int i, int j);
-int		ft_check_cell(t_s *s, int i, int j);
-int		ft_check_cell_around(t_s *s, int i, int j);
+int					ft_check_p_row(t_s *s, int i, int j);
+int					ft_check_p_col(t_s *s, int i, int j);
+int					ft_check_cell(t_s *s, int i, int j);
+int					ft_check_cell_around(t_s *s, int i, int j);
 /*
 **check_p_utils.c
 */
-int		ft_map_space(char c);
-int		ft_map_item(t_s *s, char c);
-int		ft_map_player(char c);
-int		ft_map_fake_wall(char c);
+int					ft_map_space(char c);
+int					ft_map_item(t_s *s, char c);
+int					ft_map_player(char c);
+int					ft_map_fake_wall(char c);
 /*
 **draw_map.c
 */
-int		ft_draw_map(t_s *s);
-int		ft_all_init(t_s *s);
+int					ft_draw_map(t_s *s);
+int					ft_all_init(t_s *s);
 /*
 **deal_key.c
 */
-int		ft_deal_key(int key_code, t_s *s);
-int		ft_deal_key_ad(int key_code, t_s *s);
-int		ft_deal_key_rl(int key_code, t_s *s);
+int					ft_deal_key(int key_code, t_s *s);
+int					ft_deal_key_ad(int key_code, t_s *s);
+int					ft_deal_key_rl(int key_code, t_s *s);
 /*
 **deal_key_utils.c
 */
-int		ft_map_in(char c);
+int					ft_map_in(char c);
 /*
 **all_init.c
 */
-int		ft_window_init(t_s *s);
-int		ft_img_init(t_s *s);
-int		ft_player_init(t_s *s);
-int		ft_wall_sp_init(t_s *s);
-int		ft_col_init(t_s *s);
+int					ft_window_init(t_s *s);
+int					ft_img_init(t_s *s);
+int					ft_player_init(t_s *s);
+int					ft_wall_sp_init(t_s *s);
+int					ft_col_init(t_s *s);
 /*
 **all_init_utils.c
 */
-int		ft_dir_init(t_s *s);
-int		ft_dir_init_ew(t_s *s);
-int		ft_sp_init(t_s *s);
-int		ft_wall_sp_init_sp(t_s *s);
+int					ft_dir_init(t_s *s);
+int					ft_dir_init_ew(t_s *s);
+int					ft_sp_init(t_s *s);
+int					ft_wall_sp_init_sp(t_s *s);
 /*
 **main_loop.c
 */
-int		ft_main_loop(t_s *s);
-int		ft_ray_wall(t_s *s);
+int					ft_main_loop(t_s *s);
+int					ft_ray_wall(t_s *s);
 /*
 **main_loop_utils.c
 */
-int		ft_reset_img(t_s *s);
+int					ft_reset_img(t_s *s);
 /*
 **ray_wall_x.c
 */
-int		ft_ray_wall_x(t_s *s, int x);
-int		ft_calc_pos(t_s *s, int x);
-int		ft_calc_hit(t_s *s);
-int		ft_calc_line(t_s *s);
-int		ft_draw_line(t_s *s, int x);
+int					ft_ray_wall_x(t_s *s, int x);
+int					ft_calc_pos(t_s *s, int x);
+int					ft_calc_hit(t_s *s);
+int					ft_calc_line(t_s *s);
+int					ft_draw_line(t_s *s, int x);
 /*
 **calc_hit_utils.c
 */
-int		ft_calc_hit_init(t_s *s);
-int		ft_calc_hit_dda(t_s *s);
+int					ft_calc_hit_init(t_s *s);
+int					ft_calc_hit_dda(t_s *s);
 /*
 **draw_line_utils.c
 */
-int		to_coord(int x, int y, t_s *s);
-int		ft_decide_wall(t_s *s);
-int		ft_draw_line_calc(t_s *s);
-int		ft_draw_line_draw(t_s *s, int x);
+int					to_coord(int x, int y, t_s *s);
+int					ft_decide_wall(t_s *s);
+int					ft_draw_line_calc(t_s *s);
+int					ft_draw_line_draw(t_s *s, int x);
 /*
 **parse_sp.c
 */
-int		ft_parse_sp(t_s *s);
-int		ft_search_sp(t_s *s);
+int					ft_parse_sp(t_s *s);
+int					ft_search_sp(t_s *s);
 /*
 **ray_sp.c
 */
-int		ft_ray_sp(t_s *s);
-int		ft_sort_sp(t_s *s);
-int		ft_draw_sp(t_s *s);
+int					ft_ray_sp(t_s *s);
+int					ft_sort_sp(t_s *s);
+int					ft_draw_sp(t_s *s);
 /*
 **sort_sp.c
 */
-int		ft_sort_sp_calc(t_s *s);
-int		ft_sort_sp_sort(t_s *s);
+int					ft_sort_sp_calc(t_s *s);
+int					ft_sort_sp_sort(t_s *s);
 /*
 **draw_sp_one.c
 */
-int		ft_draw_sp_one(t_s *s, int i);
-int		ft_draw_sp_one_pos(t_s *s, int i);
-int		ft_draw_sp_one_hw(t_s *s);
-int		ft_draw_sp_one_draw(t_s *s);
+int					ft_draw_sp_one(t_s *s, int i);
+int					ft_draw_sp_one_pos(t_s *s, int i);
+int					ft_draw_sp_one_hw(t_s *s);
+int					ft_draw_sp_one_draw(t_s *s);
 /*
 **bitmap.c
 */
-int		ft_write_bmp(char *filename, t_s *s);
-int		ft_bmp_init(t_s *s);
-int		ft_bmp_head_set(t_s *s);
-int		ft_bmp_rgb_set(t_s *s);
-int		ft_bmp_rgb_set_line(int i, t_s *s);
+int					ft_write_bmp(char *filename, t_s *s);
+int					ft_bmp_init(t_s *s);
+int					ft_bmp_head_set(t_s *s);
+int					ft_bmp_rgb_set(t_s *s);
+int					ft_bmp_rgb_set_line(int i, t_s *s);
 /*
 **bitmap_utils.c
 */
-void	*ft_memcpy(void *dest, void *src, size_t n);
+void				*ft_memcpy(void *dest, void *src, size_t n);
 /*
 **free_utils.c
 */
-void	free_null(void *p);
-int		free_return(void *p, int rv);
+void				free_null(void *p);
+int					free_return(void *p, int rv);
 /*
 **free_cub_tex.c
 */
-int		free_cublist(t_s *s);
-int		free_tex(t_s *s, int rv);
+int					free_cublist(t_s *s);
+int					free_tex(t_s *s, int rv);
 /*
 **free_map.c
 */
-int		free_map(t_s *s);
-int		free_map_row(t_s *s, int row, int rv);
-int		free_map_all(t_s *s, int rv);
-int		free_tex_map(t_s *s, int rv);
-int		free_tex_map_sp(t_s *s, int rv);
+int					free_map(t_s *s);
+int					free_map_row(t_s *s, int row, int rv);
+int					free_map_all(t_s *s, int rv);
+int					free_tex_map(t_s *s, int rv);
+int					free_tex_map_sp(t_s *s, int rv);
 /*
 **free_xpm.c
 */
-int		free_xpm_n(t_s *s, int rv);
-int		free_xpm_s(t_s *s, int rv);
-int		free_xpm_w(t_s *s, int rv);
-int		free_xpm_e(t_s *s, int rv);
-int		free_xpm_sp(t_s *s, int rv);
+int					free_xpm_n(t_s *s, int rv);
+int					free_xpm_s(t_s *s, int rv);
+int					free_xpm_w(t_s *s, int rv);
+int					free_xpm_e(t_s *s, int rv);
+int					free_xpm_sp(t_s *s, int rv);
 /*
 **free_sp.c
 */
-int		free_sp_zbuff(t_s *s, int rv);
-int		free_sp_x(t_s *s, int rv);
-int		free_sp_y(t_s *s, int rv);
-int		free_spord(t_s *s, int rv);
-int		free_sp_all(t_s *s, int rv);
+int					free_sp_zbuff(t_s *s, int rv);
+int					free_sp_x(t_s *s, int rv);
+int					free_sp_y(t_s *s, int rv);
+int					free_spord(t_s *s, int rv);
+int					free_sp_all(t_s *s, int rv);
 /*
 **free_mlx.c
 */
-int		free_mlx(t_s *s, int rv);
-int		free_wind(t_s *s, int rv);
-int		free_img(t_s *s, int rv);
+int					free_mlx(t_s *s, int rv);
+int					free_wind(t_s *s, int rv);
+int					free_img(t_s *s, int rv);
 /*
 **free_exit.c
 */
-int		free_xpm_img(t_s *s, int rv);
-int		free_exit(t_s *s, int rv);
-int		free_for_bmp(t_s *s, int rv);
+int					free_xpm_img(t_s *s, int rv);
+int					free_exit(t_s *s, int rv);
+int					free_for_bmp(t_s *s, int rv);
 
 #endif

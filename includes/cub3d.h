@@ -502,6 +502,7 @@ int		ft_col_init(t_s *s);
 int		ft_dir_init(t_s *s);
 int		ft_dir_init_EW(t_s *s);
 int		ft_sp_init(t_s *s);
+int		ft_wall_sp_init_sp(t_s *s);
 /*
 **main_loop.c
 */

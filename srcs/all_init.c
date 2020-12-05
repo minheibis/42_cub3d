@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:51 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:38:40 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 12:40:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_window_init(t_s *s)
 {
-/*
+/**
 **get_screen_resolution
-*/
+**/
 	if (!(s->g.mlx = mlx_init()))
 		return (MLX_ERROR);
 	mlx_get_screen_size(s->g.mlx, &s->g.img.disp_width, &s->g.img.disp_height);

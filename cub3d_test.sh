@@ -88,5 +88,24 @@ echo "./cub3D ./maps/test_27_element_aftermap_ERROR.cub --save"
 echo "./cub3D ./maps/test_28_map_shape_plus.cub --save"
 ./cub3D ./maps/test_28_map_shape_plus.cub --save
 
+echo "./cub3D ./maps/test_29_too_large_map_ERROR.cub --save"
+./cub3D ./maps/test_29_too_large_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_30_endbysprite_ERROR.cub --save"
+./cub3D ./maps/test_30_endbysprite_ERROR.cub --save
+
+echo "./cub3D ./maps/test_31_invalid_info_ERROR.cub --save"
+./cub3D ./maps/test_31_invalid_info_ERROR.cub --save
+
+echo "./cub3D ./maps/test_32_filename_kindof_ERROR.cub.cu --save"
+./cub3D ./maps/test_32_filename_kindof_ERROR.cub.cu --save
+
+echo "./cub3D ./maps/test_33_large_resol_ERROR.cub --save"
+./cub3D ./maps/test_33_large_resol_ERROR.cub --save
+
+echo "./cub3D ./maps/test_34_big_resol_ERROR.cub --save"
+./cub3D ./maps/test_34_big_resol_ERROR.cub --save
+
+
 #echo "./cub3D ./maps/test_2_large_resol.cub"
 #./cub3D ./maps/test_2_large_resol.cub

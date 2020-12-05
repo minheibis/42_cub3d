@@ -24,6 +24,8 @@ int		ft_parse_map_size(t_s *s)
 			s->map.map_wid = tmp_line->len;
 		tmp_line = tmp_line->next;
 	}
+	if (s->map.map_hei > 5000 || s->map.map_wid > 5000)
+		return (LARGE_MAP_ERROR);
 	return (0);
 }
 

@@ -46,7 +46,8 @@ int		ft_parse_map_bef(t_s *s)
 
 int		ft_parse_map_set(t_s *s)
 {
-	ft_parse_map_size(s);
+	if ((s->rv = ft_parse_map_size(s)))
+		return (s->rv);
 	if ((s->rv = ft_parse_map_put(s)))
 		return (s->rv);
 	return (0);

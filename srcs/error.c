@@ -49,6 +49,8 @@ int		ft_error_2(int rv)
 		write(2, "Error\ncub file set color error\n", 32);
 	else if (rv == NO_MAP_FOUND)
 		write(2, "Error\nno map in cub file\n", 26);
+	else if (rv == LARGE_MAP_ERROR)
+		write(2, "Error\ntoo large map to draw\n", 29);
 	else if (rv == MALLOC_ERROR_MAP)
 		write(2, "Error\nmalloc error map\n", 24);
 	else if (rv == MALLOC_ERROR_MAP_XROW)

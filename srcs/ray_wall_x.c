@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ray_wall_x.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:33 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:22:49 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_ray_wall_x(t_s *s, int x)
@@ -20,27 +32,14 @@ int		ft_calc_pos(t_s *s, int x)
 	**	cameraX: x-coordinate in camera space,
 	**	 the right side of the screen is 1, center is 0, left side is -1
 	*/
-	//printf
-	// printf("ft_calc_pos: s->g.p.dirX: [%lf]\n", s->g.p.dirX);
-	// printf("ft_calc_pos: s->g.p.dirY: [%lf]\n", s->g.p.dirY);
 	s->g.r.cameraX = 1 - (x * 2 / (double)s->g.img.scre_width);
 	s->g.r.rayDirX = s->g.p.dirX + s->g.p.planeX * s->g.r.cameraX;
 	s->g.r.rayDirY = s->g.p.dirY + s->g.p.planeY * s->g.r.cameraX;
-
-	// printf("ft_calc_pos: s->g.p.dirX: [%lf]\n", s->g.p.dirX);
-	// printf("ft_calc_pos: s->g.p.dirY: [%lf]\n", s->g.p.dirY);
-	// printf("ft_calc_pos: s->g.p.planeX: [%lf]\n", s->g.p.planeX);
-	// printf("ft_calc_pos: s->g.p.planeY: [%lf]\n", s->g.p.planeY);
-	// printf("ft_calc_pos: s->g.r.cameraX: [%lf]\n", s->g.r.cameraX);
-	// printf("ft_calc_pos: s->g.r.rayDirX: [%lf]\n", s->g.r.rayDirX);
-	// printf("ft_calc_pos: s->g.r.rayDirY: [%lf]\n", s->g.r.rayDirY);
-
 	/*
 	**which box of the map we are in
 	*/
 	s->g.h_c.mapX = floor(s->g.p.posX);
 	s->g.h_c.mapY = floor(s->g.p.posY);
-
 	/*
 	**length of ray from one x-side to next x-side or one y-side to next y-side
 	** different from oldmain.c
@@ -77,18 +76,12 @@ int		ft_calc_line(t_s *s)
 	/*
 	**in case of over flow
 	*/
-	// printf("ft_calc_line: s->g.h_c.prepWallDist: [%lf]\n", s->g.h_c.prepWallDist);
 	if (s->g.h_c.prepWallDist < 0.01)
 		s->g.h_c.prepWallDist = 0.01;
-	//printf
-	// printf("ft_calc_line: s->g.img.scre_height: [%d]\n", s->g.img.scre_height);
-	// printf("ft_calc_line: s->g.h_c.prepWallDist: [%lf]\n", s->g.h_c.prepWallDist);
 	/*
 	** calculate height of line to draw on screen
 	*/
 	s->g.d_c.lineH = floor(s->g.img.scre_height / s->g.h_c.prepWallDist);
-	//printf
-	// printf("ft_calc_line: s->g.d_c.lineH: [%d]\n", s->g.d_c.lineH);
 	/*
 	**caluculate lowest and heighest pixel to fill in current stripe
 	*/
@@ -98,9 +91,6 @@ int		ft_calc_line(t_s *s)
 	s->g.d_c.drawE = s->g.img.scre_height / 2 + s->g.d_c.lineH / 2;
 	if (s->g.d_c.drawE >= s->g.img.scre_height)
 		s->g.d_c.drawE = s->g.img.scre_height - 1;
-	//printf
-	// printf("ft_calc_line: s->g.d_c.drawS: [%d]\n", s->g.d_c.drawS);
-	// printf("ft_calc_line: s->g.d_c.drawE: [%d]\n", s->g.d_c.drawE);
 	return (0);
 }
 

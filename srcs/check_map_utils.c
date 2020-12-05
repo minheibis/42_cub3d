@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:01 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:13:05 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_is_NSEW(char c)
@@ -31,9 +43,6 @@ int		ft_find_player_fir(t_s *s)
 				s->map.player_first[1] = var.j;
 				s->map.player_dir = s->map.map[var.i][var.j];
 				s->map.map[var.i][var.j] = 'p';
-				//printf
-				// printf("ft_find_player_fir: var.i: [%d]\n", var.i);
-				// printf("ft_find_player_fir: var.j: [%d]\n", var.j);
 				var.c++;
 			}
 			var.j++;

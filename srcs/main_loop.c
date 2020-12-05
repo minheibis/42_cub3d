@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_loop.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:12 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:21:16 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_main_loop(t_s *s)
@@ -6,7 +18,6 @@ int		ft_main_loop(t_s *s)
 		return (s->rv);
 	if ((s->rv = ft_ray_sp(s)))
 		return (s->rv);
-	// have to put the saving code here.
 	/*
 	**put image to window
 	*/
@@ -28,8 +39,6 @@ int		ft_ray_wall(t_s *s)
 	x = 0;
 	while (x < s->g.img.scre_width)
 	{
-		//printf
-		// printf("ft_ray_wall: x: [%d]\n", x);
 		ft_ray_wall_x(s, x);
 		x++;
 	}

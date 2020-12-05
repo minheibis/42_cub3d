@@ -1,17 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ray_sp.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:30 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:22:16 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_ray_sp(t_s *s)
 {
 	ft_sort_sp(s);
-	//printf
-	// int i;
-	// i = 0;
-	// while (i < s->map.sp_count)
-	// {
-	// 	printf("ft_ray_sp: s->g.sp_i.spOrd[i]: [%d][%d]\n", i, s->g.sp_i.spOrd[i]);
-	// 	printf("ft_ray_sp: s->g.sp_i.spDist[i]: [%d][%lf]\n", i, s->g.sp_i.spDist[i]);
-	// 	i++;
-	// }
 	ft_draw_sp(s);
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:25 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:21:58 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_parse_map(t_s *s)
@@ -19,9 +31,6 @@ int		ft_parse_map(t_s *s)
 		if ((s->rv = ft_parse_map_aft(s)))
 			return (free_map_all(s, s->rv));
 	}
-	//delete after
-	// printf("ft_parse_map: \n");
-	// ft_show_map(s);
 	return (0);
 }
 

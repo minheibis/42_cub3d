@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   deal_key.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:22 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:14:45 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_deal_key(int key_code, t_s *s)
 {
-	//printf
-	// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posY);
 	/*
 	**exit
 	*/
@@ -22,10 +31,6 @@ int		ft_deal_key(int key_code, t_s *s)
 			s->g.p.posX += s->g.p.dirX * moveSpeed;
 		if (ft_map_in(s->map.map[(int)floor(s->g.p.posY + s->g.p.dirY * moveSpeed)][(int)floor(s->g.p.posX)]))
 			s->g.p.posY += s->g.p.dirY * moveSpeed;
-		//printf
-		// printf("ft_deal_key: s->g.p.posX: [KEY_W]\n");
-		// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posX);
-		// printf("ft_deal_key: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	}
 	/*
 	**move backwards if no wall behind you
@@ -36,9 +41,6 @@ int		ft_deal_key(int key_code, t_s *s)
 			s->g.p.posX -= s->g.p.dirX * moveSpeed;
 		if (ft_map_in(s->map.map[(int)floor(s->g.p.posY - s->g.p.dirY * moveSpeed)][(int)floor(s->g.p.posX)]))
 			s->g.p.posY -= s->g.p.dirY * moveSpeed;
-		// printf("ft_deal_key: s->g.p.posX: [KEY_s]\n");
-		// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posX);
-		// printf("ft_deal_key: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	}
 	else
 		return (ft_deal_key_AD(key_code, s));
@@ -56,9 +58,6 @@ int		ft_deal_key_AD(int key_code, t_s *s)
 			s->g.p.posX += s->g.p.dirY * moveSpeed;
 		if (ft_map_in(s->map.map[(int)floor(s->g.p.posY - s->g.p.dirX * moveSpeed)][(int)floor(s->g.p.posX)]))
 			s->g.p.posY -= s->g.p.dirX * moveSpeed;
-		// printf("ft_deal_key: s->g.p.posX: [KEY_A]\n");
-		// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posX);
-		// printf("ft_deal_key: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	}
 	/*
 	**move left if no wall on right of you
@@ -70,9 +69,6 @@ int		ft_deal_key_AD(int key_code, t_s *s)
 			s->g.p.posX -= s->g.p.dirY * moveSpeed;
 		if (ft_map_in(s->map.map[(int)floor(s->g.p.posY + s->g.p.dirX * moveSpeed)][(int)floor(s->g.p.posX)]))
 			s->g.p.posY += s->g.p.dirX * moveSpeed;
-		// printf("ft_deal_key: s->g.p.posX: [KEY_D]\n");
-		// printf("ft_deal_key: s->g.p.posX: [%lf]\n", s->g.p.posX);
-		// printf("ft_deal_key: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	}
 	else
 		return (ft_deal_key_RL(key_code, s));
@@ -95,11 +91,6 @@ int		ft_deal_key_RL(int key_code, t_s *s)
 		s->g.p.oldPlaneX = s->g.p.planeX;
 		s->g.p.planeX = s->g.p.planeX * cos(rotSpeed) - s->g.p.planeY * sin(rotSpeed);
 		s->g.p.planeY = s->g.p.oldPlaneX * sin(rotSpeed) + s->g.p.planeY * cos(rotSpeed);
-		// printf("ft_deal_key_RL: [KEY_R AFTER]\n");
-		// printf("ft_deal_key_RL: s->g.p.dirX: [%lf]\n", s->g.p.dirX);
-		// printf("ft_deal_key_RL: s->g.p.dirY: [%lf]\n", s->g.p.dirY);
-		// printf("ft_deal_key_RL: s->g.p.planeX: [%lf]\n", s->g.p.planeX);
-		// printf("ft_deal_key_RL: s->g.p.planeY: [%lf]\n", s->g.p.planeY);
 	}
 	/*
 	**rotate to the left
@@ -115,11 +106,6 @@ int		ft_deal_key_RL(int key_code, t_s *s)
 		s->g.p.oldPlaneX = s->g.p.planeX;
 		s->g.p.planeX = s->g.p.planeX * cos(-rotSpeed) - s->g.p.planeY * sin(-rotSpeed);
 		s->g.p.planeY = s->g.p.oldPlaneX * sin(-rotSpeed) + s->g.p.planeY * cos(-rotSpeed);
-		// printf("ft_deal_key_RL: [KEY_L AFTER]\n");
-		// printf("ft_deal_key_RL: s->g.p.dirX: [%lf]\n", s->g.p.dirX);
-		// printf("ft_deal_key_RL: s->g.p.dirY: [%lf]\n", s->g.p.dirY);
-		// printf("ft_deal_key_RL: s->g.p.planeX: [%lf]\n", s->g.p.planeX);
-		// printf("ft_deal_key_RL: s->g.p.planeY: [%lf]\n", s->g.p.planeY);
 	}
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:32 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:25:00 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_error(int rv)
@@ -22,7 +34,14 @@ int		ft_error(int rv)
 		write(2, "Error\ncub file set resolution error\n", 37);
 	else if (rv == NOT_ONE_ELEMENT_ERROR)
 		write(2, "Error\ncub file has zero or more than one elemnt\n", 49);
-	else if (rv == INVALID_LINE_ERROR)
+	else
+		return(ft_error_2(rv));
+	return (0);
+}
+
+int		ft_error_2(int rv)
+{
+	if (rv == INVALID_LINE_ERROR)
 		write(2, "Error\ncub file has invalid line\n", 33);
 	else if (rv == MALLOC_ERROR_TEX_PATH)
 		write(2, "Error\nmalloc error tex path\n", 29);
@@ -42,7 +61,14 @@ int		ft_error(int rv)
 		write(2, "Error\nplayer in map not surrounded by walls\n(or invalid letter inside map)\n", 76);
 	else if (rv == NOT_ONE_PLAYER)
 		write(2, "Error\nnot one player in the map\n", 33);
-	else if (rv == FAIL_INIT)
+	else
+		return(ft_error_3(rv));
+	return (0);
+}
+
+int		ft_error_3(int rv)
+{
+	if (rv == FAIL_INIT)
 		write(2, "Error\ncannot initialize for drawing\n", 37);
 	else if (rv == XPM_FILE_ERROR)
 		write(2, "Error\ncannot read xpm file\n", 28);

@@ -4,7 +4,6 @@
 /*
 ** Keyboard LETTERS
 */
-
 # define KEY_A 97
 # define KEY_B 98
 # define KEY_C 99
@@ -35,7 +34,6 @@
 /*
 ** Keyboard ARROWS
 */
-
 # define KEY_AR_L 65361
 # define KEY_AR_R 65363
 # define KEY_AR_U 65362
@@ -44,7 +42,6 @@
 /*
 ** Keyboard NUMPAD
 */
-
 # define KEY_NP_DIV 65455
 # define KEY_NP_MUL 65450
 # define KEY_NP_MIN 65453
@@ -53,14 +50,12 @@
 /*
 ** Keyboard MISC
 */
-
 # define KEY_SP 32
 # define KEY_ESC 65307
 
 /*
 ** Mouse
 */
-
 # define M_CLKEY_L 1
 # define M_CLKEY_R 3
 # define M_CLKEY_M 2

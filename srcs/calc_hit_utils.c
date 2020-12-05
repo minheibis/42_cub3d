@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calc_hit_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:08:58 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:12:58 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_calc_hit_init(t_s *s)
@@ -43,24 +55,14 @@ int		ft_calc_hit_DDA(t_s *s)
 		{
 			s->g.h_c.sideDistY += s->g.h_c.deltaDistY;
 			s->g.h_c.mapY += s->g.h_c.stepY;
-			s->g.h_c.side = 0; //is this true? should be 1?
+			s->g.h_c.side = 0;
 		}
 		/*
 		**Check if ray has hit a wall
 		*/
-		//printf
-		// printf("ft_calc_hit_DDA: s->g.p.posX: [%lf]\n", s->g.p.posX);
-		// printf("ft_calc_hit_DDA: s->g.p.posY: [%lf]\n", s->g.p.posY);
-		// printf("ft_calc_hit_DDA: s->g.h_c.mapX: [%d]\n", s->g.h_c.mapX);
-		// printf("ft_calc_hit_DDA: s->g.h_c.mapY: [%d]\n", s->g.h_c.mapY);
-		// printf("ft_calc_hit_DDA: s->map.map[s->g.h_c.mapY]: [%s]\n", s->map.map[s->g.h_c.mapY]);
 		if (s->map.map[s->g.h_c.mapY][s->g.h_c.mapX] == '1')
 		{
 			s->g.h_c.hit = 1;
-			//printf
-			// printf("ft_calc_hit_DDA: 55: s->g.h_c.mapX: [%d]\n", s->g.h_c.mapX);
-			// printf("ft_calc_hit_DDA: 56: s->g.h_c.mapY: [%d]\n", s->g.h_c.mapY);
-			// printf("ft_calc_hit_DDA: 56: s->g.h_c.side: [%d]\n", s->g.h_c.side);
 		}
 	}
 	return (0);

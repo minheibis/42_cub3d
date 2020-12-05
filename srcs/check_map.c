@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:03 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:13:30 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_check_map(t_s *s)
@@ -7,23 +19,15 @@ int		ft_check_map(t_s *s)
 	flag_row = 1;
 	if (ft_find_player_fir(s) != 1)
 		return (NOT_ONE_PLAYER);
-	//delete after
-	// printf("ft_check_map 1: s->map.map\n");
-	// ft_show_map(s);
 	while (ft_find_fake_player(s))
 	{
 		if (ft_edge_player(s))
 			return (NOT_SURROUNEDED_BY_WALLS);
 		else if (ft_find_wall(s, flag_row))
 			return (NOT_SURROUNEDED_BY_WALLS);
-		//delete after
-		// printf("ft_check_map 2: s->map.map\n");
-		// ft_show_map(s);
 		flag_row *= -1;
 	}
 	ft_set_player_ag(s);
-	// printf("ft_check_map 3: s->map.map\n");
-	// ft_show_map(s);
 	return (0);
 }
 

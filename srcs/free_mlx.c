@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_mlx.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:44 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:20:28 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		free_mlx(t_s *s, int rv)
@@ -22,10 +34,3 @@ int		free_img(t_s *s, int rv)
 	s->g.img.ptr = NULL;
 	return (rv);
 }
-
-// int		free_img_xpm(t_s *s, int rv)
-// {
-// 	free_img(s, rv);
-// 	free_xpm_SP(s, rv);
-// 	return (rv);
-// }

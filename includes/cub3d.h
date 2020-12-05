@@ -8,11 +8,6 @@
 #include "mlx.h"
 #include "key_linux.h"
 
-//delet at last
-#include <stdio.h>
-#include <string.h>
-#include <mcheck.h>
-
 # define MAX_FD 256
 # define BUFFER_SIZE 128
 /*
@@ -373,11 +368,12 @@ int		ft_set_next_cub_list(t_s *s);
 */
 int		ft_parse_to_draw(char *cub_file, int flag);
 int		main(int argc, char **argv);
-// int		main(void);
 /*
 **error.c
 */
 int		ft_error(int rv);
+int		ft_error_2(int rv);
+int		ft_error_3(int rv);
 /*
 **get_next_line_utils.c
 */
@@ -616,8 +612,5 @@ int		free_img(t_s *s, int rv);
 int		free_xpm_img(t_s *s, int rv);
 int		free_exit(t_s *s, int rv);
 int		free_for_bmp(t_s *s, int rv);
-
-//test_utils.c delete after
-void	ft_show_map(t_s *s);
 
 #endif

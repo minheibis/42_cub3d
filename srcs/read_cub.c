@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_cub.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:35 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:23:09 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_read_cub(t_s *s, char *cub_file)
@@ -7,27 +19,20 @@ int		ft_read_cub(t_s *s, char *cub_file)
 	char		*line;
 
 	line = NULL;
-	//printf("ft_read_cub: cub_file: [%s]\n", cub_file);
 	if ((fd = open(cub_file, O_RDONLY)) == -1)
 		return (FILE_OPEN_ERROR);
 	rv = 1;
-	//printf("cub_file: %s\n", cub_file);
-	//printf("fd: %d\n", fd);
 	s->cub_list.tmp = s->cub_list.start;
 	while (rv == 1)
 	{
 		if ((rv = get_next_line(fd, &line)) == -1)
 			return (GNL_ERROR);
-		//printf("ft_read_cub: s->cub_list.tmp->num: [%d]\n", s->cub_list.tmp->num);
 		if (!(s->cub_list.tmp->content = ft_strdup(line)))
 			return (free_return(line, MALLOC_ERROR_TMP_CONTENT));
 		s->cub_list.tmp->len = ft_strlen(s->cub_list.tmp->content);
-		// printf("ft_read_cub: s->cub_list.tmp->content: [%s]\n", s->cub_list.tmp->content);
 		if (rv == 1)
 			if(ft_set_next_cub_list(s) != 0)
 				return (free_return(line, MALLOC_ERROR_NEXT_CUB_LIST));
-		// printf("ft_read_cub: s->cub_list.tmp->content: [%s]\n", s->cub_list.tmp->content);
-		// printf("ft_read_cub: s->cub_list.tmp->next: [%p]\n", s->cub_list.tmp->next);
 	}
 	free_NULL(line);
 	s->cub_list.tmp = s->cub_list.start;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_element.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:18 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:21:32 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_parse_element(t_s *s)
@@ -12,8 +24,6 @@ int		ft_parse_element(t_s *s)
 	*/
 	while (s->cub_list.tmp->next)
 	{
-		// printf("ft_parse_element: s->cub_list.tmp->content [%s]\n", s->cub_list.tmp->content);
-		// printf("ft_parse_element: s->cub_list.tmp->num [%d]\n", s->cub_list.tmp->num);
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')
 			s->rv = ft_parse_R(s);
 		else if (s->cub_list.tmp->content[0] == 'N' && s->cub_list.tmp->content[1] == 'O' && s->cub_list.tmp->content[2] == ' ')
@@ -32,19 +42,6 @@ int		ft_parse_element(t_s *s)
 			s->rv = ft_parse_color(s, &(s->elem.f_C), &(s->map.cel_color[0]));
 		else if (s->cub_list.tmp->content[0] != '\0' && ft_parse_is_map_line(s->cub_list.tmp->content) == 0)
 			s->rv = INVALID_LINE_ERROR;
-		// printf("ft_parse_element: s->map.wid_resol [%d]\n", s->map.wid_resol);
-		// printf("ft_parse_element: s->map.hei_resol [%d]\n", s->map.hei_resol);
-		// printf("ft_parse_element: s->map.nor_tex_path [%s]\n", s->map.nor_tex_path);
-		// printf("ft_parse_element: s->map.sou_tex_path [%s]\n", s->map.sou_tex_path);
-		// printf("ft_parse_element: s->map.wes_tex_path [%s]\n", s->map.wes_tex_path);
-		// printf("ft_parse_element: s->map.eas_tex_path [%s]\n", s->map.eas_tex_path);
-		// printf("ft_parse_element: s->map.spr_tex_path [%s]\n", s->map.spr_tex_path);
-		// printf("ft_parse_element: s->map.cel_color[0] [%d]\n", s->map.cel_color[0]);
-		// printf("ft_parse_element: s->map.cel_color[1] [%d]\n", s->map.cel_color[1]);
-		// printf("ft_parse_element: s->map.cel_color[2] [%d]\n", s->map.cel_color[2]);
-		// printf("ft_parse_element: s->map.flo_color[0] [%d]\n", s->map.flo_color[0]);
-		// printf("ft_parse_element: s->map.flo_color[1] [%d]\n", s->map.flo_color[1]);
-		// printf("ft_parse_element: s->map.flo_color[2] [%d]\n", s->map.flo_color[2]);
 		if (s->rv != 0)
 			return (free_tex(s, s->rv));
 		s->cub_list.tmp = s->cub_list.tmp->next;

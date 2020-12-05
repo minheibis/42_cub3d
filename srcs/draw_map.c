@@ -1,20 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:28 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:16:10 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_draw_map(t_s *s)
 {
 	if ((ft_all_init(s)))
 		return (s->rv);
-	//printf
-	// printf("ft_draw_map: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_draw_map: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	if (s->flag == 2)
 	{
 		/*
 		**deal key
 		*/
 		mlx_hook(s->g.win, X_EVENT_KEY_PRESS, (1L<<0), &ft_deal_key, s);
-		//not sure but bug on the mlx.hook close
-		//mlx_hook(g.win, X_EVENT_KEY_EXIT, (1L<<0), &close, &g);
 		/*
 		**hook main loop
 		*/
@@ -38,18 +45,9 @@ int		ft_all_init(t_s *s)
 	if ((s->rv = ft_img_init(s)))
 		return (free_wind(s, s->rv));
 	ft_player_init(s);
-	//printf
-	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	if ((s->rv = ft_wall_sp_init(s)))
 		return (free_img(s, s->rv));
-	//printf
-	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	ft_col_init(s);
-	//printf
-	// printf("ft_all_init: s->g.p.posX: [%lf]\n", s->g.p.posX);
-	// printf("ft_all_init: s->g.p.posY: [%lf]\n", s->g.p.posY);
 	ft_sp_init(s);
 	if ((s->rv = ft_parse_sp(s)))
 		return (free_xpm_img(s, s->rv));

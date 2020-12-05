@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_sp_one.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:09:30 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:16:35 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_draw_sp_one(t_s *s, int i)
@@ -83,7 +95,6 @@ int		ft_draw_sp_one_draw(t_s *s)
 			{
 				s->g.d_c.texY = (int)floor(((double)y - ((double)s->g.img.scre_height / 2 - (double)s->g.sp_i.spH / 2)) * (double)s->g.ws.sp.height) / (double)s->g.sp_i.spH;
 				s->g.d_c.color = s->g.ws.sp.data[s->g.ws.sp.width * s->g.d_c.texY + s->g.d_c.texX];
-				//printf("s->g.d_c.color [%d]\n", s->g.d_c.color);
 				if (s->g.d_c.color != 0x000000)
 					s->g.img.data[to_coord(s->g.sp_i.stripe, y, s)] = s->g.d_c.color;
 				y++;

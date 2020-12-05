@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map_set.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/05 12:10:20 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/05 12:21:43 by hyuki            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		ft_parse_map_size(t_s *s)
@@ -10,8 +22,6 @@ int		ft_parse_map_size(t_s *s)
 		s->map.map_hei++;
 		if (tmp_line->len > s->map.map_wid)
 			s->map.map_wid = tmp_line->len;
-		// printf("ft_parse_map_size: tmp_line->content: [%s]\n", tmp_line->content);
-		// printf("ft_parse_map_size: tmp_line->next: [%p]\n", tmp_line->next);
 		tmp_line = tmp_line->next;
 	}
 	return (0);

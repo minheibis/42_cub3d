@@ -1,8 +1,7 @@
 NAME		= cub3D
 SRCS_DIR	= ./srcs
 INCLUDE_DIR	= -I/usr/include -Iincludes -Imlx_linux
-SRCS_NAME	= test_utils.c \
-				cub_list_utils.c \
+SRCS_NAME	= cub_list_utils.c \
 				cub3d.c \
 				error.c \
 				get_next_line_utils.c \

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:25 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:23:56 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:42:10 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_decide_wall(t_s *s)
 	return (0);
 }
 
-int			ft_draw_line_calc(t_s *s)
+int		ft_draw_line_calc(t_s *s)
 {
 	if (s->g.h_c.side == 0)
 		s->g.d_c.wallx = s->g.p.posx + s->g.h_c.prepwalldist * s->g.r.raydirx;

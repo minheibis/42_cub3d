@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:22 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:13:17 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:38:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		ft_deal_key_s(int key_code, t_s *s)
 		return (ft_deal_key_ad(key_code, s));
 	return (0);
 }
-
 
 int		ft_deal_key_ad(int key_code, t_s *s)
 {

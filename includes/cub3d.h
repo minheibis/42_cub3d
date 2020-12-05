@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:33:53 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:55:19 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,8 +353,13 @@ int					ft_parse_element_col(t_s *s);
 **parse_element_utils.c
 */
 int					ft_parse_r(t_s *s);
+int					ft_set_resol(t_s *s, int *i, int *resol);
 int					ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path);
+/*
+**parse_element_utils_2.c
+*/
 int					ft_parse_color(t_s *s, int *col_flag, int *p_color_path);
+int					ft_set_color(t_s *s, int j, int *i, int *p_color_path);
 int					ft_check_set_element(t_s *s);
 /*
 **parse_map.c

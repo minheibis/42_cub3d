@@ -19,10 +19,7 @@ int		ft_main_loop(t_s *s)
 	if ((s->rv = ft_ray_sp(s)))
 		return (s->rv);
 	if (s->flag == 2)
-	{
 		mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
-		ft_reset_img(s);
-	}
 	return (0);
 }
 

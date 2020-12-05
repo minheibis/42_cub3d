@@ -28,7 +28,6 @@ SRCS_NAME	= cub_list_utils.c \
 				all_init.c \
 				all_init_utils.c \
 				main_loop.c \
-				main_loop_utils.c \
 				ray_wall_x.c \
 				calc_hit_utils.c \
 				draw_line_utils.c \

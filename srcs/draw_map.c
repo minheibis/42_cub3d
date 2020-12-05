@@ -21,6 +21,7 @@ int		ft_draw_map(t_s *s)
 		mlx_hook(s->g.win, X_EVENT_KEY_PRESS, (1L << 0), &ft_deal_key, s);
 		mlx_loop_hook(s->g.mlx, &ft_main_loop, s);
 		mlx_loop(s->g.mlx);
+		//mlx_do_sync(s->g.mlx);
 	}
 	else
 	{

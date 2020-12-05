@@ -459,10 +459,6 @@ int					ft_wall_sp_init_sp(t_s *s);
 int					ft_main_loop(t_s *s);
 int					ft_ray_wall(t_s *s);
 /*
-**main_loop_utils.c
-*/
-int					ft_reset_img(t_s *s);
-/*
 **ray_wall_x.c
 */
 int					ft_ray_wall_x(t_s *s, int x);

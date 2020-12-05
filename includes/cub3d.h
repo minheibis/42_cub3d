@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:31:13 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:33:04 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,21 @@
 # define INFOHEADERSIZE 40
 # define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
 
-typedef struct	s_cub_line
+typedef struct		s_cub_line
 {
 	char				*content;
 	int					num;
 	int					len;
 	struct s_cub_line	*next;
-}				t_cub_line;
+}					t_cub_line;
 
-typedef struct	s_cub_list
+typedef struct		s_cub_list
 {
 	t_cub_line	*start;
 	t_cub_line	*tmp;
-}				t_cub_list;
+}					t_cub_list;
 
-typedef struct	s_elem_flag
+typedef struct		s_elem_flag
 {
 	int		f_r;
 	int		f_no;
@@ -106,9 +106,9 @@ typedef struct	s_elem_flag
 	int		f_sp;
 	int		f_f;
 	int		f_c;
-}				t_elem_flag;
+}					t_elem_flag;
 
-typedef struct	s_map
+typedef struct		s_map
 {
 	int		wid_resol;
 	int		hei_resol;
@@ -130,9 +130,9 @@ typedef struct	s_map
 	int		player_first[2];
 	char	player_dir;
 	int		sp_count;
-}				t_map;
+}					t_map;
 
-typedef struct	s_img
+typedef struct		s_img
 {
 	void	*ptr;
 	int		*data;
@@ -145,9 +145,9 @@ typedef struct	s_img
 	int		size_l;
 	int		bpp;
 	int		endian;
-}				t_img;
+}					t_img;
 
-typedef struct	s_player
+typedef struct		s_player
 {
 	double	posx;
 	double	posy;
@@ -157,16 +157,16 @@ typedef struct	s_player
 	double	planey;
 	double	olddirx;
 	double	oldplanex;
-}				t_player;
+}					t_player;
 
-typedef struct	s_ray
+typedef struct		s_ray
 {
 	double	camerax;
 	double	raydirx;
 	double	raydiry;
-}				t_ray;
+}					t_ray;
 
-typedef struct	s_ws_img
+typedef struct		s_ws_img
 {
 	t_img	now;
 	t_img	n;
@@ -174,9 +174,9 @@ typedef struct	s_ws_img
 	t_img	w;
 	t_img	e;
 	t_img	sp;
-}				t_ws_img;
+}					t_ws_img;
 
-typedef struct	s_hit_calc
+typedef struct		s_hit_calc
 {
 	int		mapx;
 	int		mapy;
@@ -189,9 +189,9 @@ typedef struct	s_hit_calc
 	int		stepy;
 	int		hit;
 	int		side;
-}				t_hit_calc;
+}					t_hit_calc;
 
-typedef struct	s_draw_calc
+typedef struct		s_draw_calc
 {
 	int		lineh;
 	int		draws;
@@ -202,9 +202,9 @@ typedef struct	s_draw_calc
 	double	step;
 	double	texpos;
 	int		color;
-}				t_draw_calc;
+}					t_draw_calc;
 
-typedef struct	s_sp_info
+typedef struct		s_sp_info
 {
 	double		*zbuff;
 	double		*sp_x;
@@ -224,19 +224,19 @@ typedef struct	s_sp_info
 	int			drawsx;
 	int			drawex;
 	int			stripe;
-}				t_sp_info;
+}					t_sp_info;
 
 typedef struct		s_game
 {
-	void		*mlx;
-	void		*win;
-	t_img		img;
-	t_player	p;
-	t_ray		r;
-	t_ws_img	ws;
-	t_hit_calc	h_c;
-	t_draw_calc	d_c;
-	t_sp_info	sp_i;
+	void			*mlx;
+	void			*win;
+	t_img			img;
+	t_player		p;
+	t_ray			r;
+	t_ws_img		ws;
+	t_hit_calc		h_c;
+	t_draw_calc		d_c;
+	t_sp_info		sp_i;
 }					t_game;
 
 typedef struct		s_bitmap

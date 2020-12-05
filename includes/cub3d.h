@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:49:49 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:10:46 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@
 */
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_KEY_EXIT	17
-# define MOVESPEED		0.3
+# define SPEED		0.3
 # define ROTSPEED		0.1
 
 /*
@@ -413,8 +413,13 @@ int					ft_all_init(t_s *s);
 **deal_key.c
 */
 int					ft_deal_key(int key_code, t_s *s);
+int					ft_deal_key_s(int key_code, t_s *s);
 int					ft_deal_key_ad(int key_code, t_s *s);
+/*
+**deal_key_2.c
+*/
 int					ft_deal_key_rl(int key_code, t_s *s);
+int					ft_deal_key_l(int key_code, t_s *s);
 /*
 **deal_key_utils.c
 */

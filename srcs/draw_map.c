@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:28 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:45:40 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:56:19 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_draw_map(t_s *s)
 		return (s->rv);
 	if (s->flag == 2)
 	{
-		mlx_hook(s->g.win, X_EVENT_KEY_PRESS, (1L<<0), &ft_deal_key, s);
+		mlx_hook(s->g.win, X_EVENT_KEY_PRESS, (1L << 0), &ft_deal_key, s);
 		mlx_loop_hook(s->g.mlx, &ft_main_loop, s);
 		mlx_loop(s->g.mlx);
 	}

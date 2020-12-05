@@ -22,6 +22,7 @@ SRCS_NAME	= cub_list_utils.c \
 				check_p_utils.c \
 				draw_map.c \
 				deal_key.c \
+				deal_key_2.c \
 				deal_key_utils.c \
 				all_init.c \
 				all_init_utils.c \

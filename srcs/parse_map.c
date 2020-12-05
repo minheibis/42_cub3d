@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:25 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:54:00 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:58:07 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int		ft_parse_map_set(t_s *s)
 
 int		ft_parse_map_aft(t_s *s)
 {
-
 	while (s->cub_list.tmp)
 	{
 		if (s->cub_list.tmp->len != 0)

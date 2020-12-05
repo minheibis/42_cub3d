@@ -6,15 +6,15 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:05 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:06 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:57:49 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
 int		ft_map_space(char c)
 {
-	if (c == '0'|| c == 'p' || c == ' ')
+	if (c == '0' || c == 'p' || c == ' ')
 		return (1);
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:56 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:35:58 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:00:29 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,15 @@ int		ft_bmp_rgb_set_line(int i, t_s *s)
 	j = 0;
 	while (j < s->g.img.scre_width)
 	{
-		s->b.bmp_line_data[j * 3] = (unsigned char)(s->g.img.data[( s->g.img.scre_height - i - 1) * s->g.img.scre_width + j] & 0x0000FF);
-		s->b.bmp_line_data[j * 3 + 1] = (unsigned char)((s->g.img.data[( s->g.img.scre_height - i - 1) * s->g.img.scre_width + j] >> 8) & 0x0000FF);
-		s->b.bmp_line_data[j * 3 + 2] = (unsigned char)(s->g.img.data[( s->g.img.scre_height - i - 1) * s->g.img.scre_width + j] >> 16);
+		s->b.bmp_line_data[j * 3] =
+			(unsigned char)(s->g.img.data[( s->g.img.scre_height - i - 1) *
+			s->g.img.scre_width + j] & 0x0000FF);
+		s->b.bmp_line_data[j * 3 + 1] =
+			(unsigned char)((s->g.img.data[( s->g.img.scre_height - i - 1) *
+			s->g.img.scre_width + j] >> 8) & 0x0000FF);
+		s->b.bmp_line_data[j * 3 + 2] =
+			(unsigned char)(s->g.img.data[( s->g.img.scre_height - i - 1) *
+			s->g.img.scre_width + j] >> 16);
 		j++;
 	}
 	j = s->g.img.scre_width * 3;

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:20 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:21:43 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:58:52 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int		ft_parse_map_put_xrow(t_s *s, int row)
 {
 	int		j;
 
-	if (!(s->map.map[row] = (char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
+	if (!(s->map.map[row] =
+		(char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
 		return (free_map_row(s, row, MALLOC_ERROR_MAP_XROW));
 	s->map.map[row][s->map.map_wid + 2] = '\0';
 	j = 0;
@@ -64,7 +65,8 @@ int		ft_parse_map_put_row(t_s *s)
 	i = 1;
 	while (i < s->map.map_hei + 1)
 	{
-		if (!(s->map.map[i] = (char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
+		if (!(s->map.map[i] =
+			(char *)malloc(sizeof(char) * (s->map.map_wid + 3))))
 			return (free_map_row(s, i, MALLOC_ERROR_MAP_ROW));
 		s->map.map[i][0] = 'X';
 		s->map.map[i][s->map.map_wid + 1] = 'X';
@@ -76,7 +78,7 @@ int		ft_parse_map_put_row(t_s *s)
 	return (0);
 }
 
-int		ft_parse_map_put_row_in(t_s *s, int	i)
+int		ft_parse_map_put_row_in(t_s *s, int i)
 {
 	int		j;
 

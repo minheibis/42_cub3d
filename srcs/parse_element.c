@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:18 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:12:27 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:53:31 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 int		ft_parse_element(t_s *s)
 {
-	/*
-	**Except for the map content,
-	**	 each type of element can be separated by one or more empty line(s).
-	**Except for the map content which always has to be the last,
-	**	 each type of element can be set in any order in the file.
-	**Except for the map, each type of information from
-	**	 an element can be separated by one or more space(s).
-	*/
 	while (s->cub_list.tmp->next)
 	{
 		if (s->cub_list.tmp->content[0] == 'R' && s->cub_list.tmp->content[1] == ' ')

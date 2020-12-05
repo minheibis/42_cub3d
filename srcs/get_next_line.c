@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 10:33:43 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:13:44 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:53:02 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int		set_rest(char **rest, int fd)
 	if ((rv = read(fd, buf, BUFFER_SIZE)) == -1)
 		return (free_return(buf, -1));
 	buf[rv] = 0;
-	/*
-	**keep tmp for free of old rest
-	*/
 	tmp = *rest;
 	if (!(*rest = ft_strjoin(*rest, buf)))
 		return (free_return(tmp, free_return(buf, -1)));
@@ -54,9 +51,6 @@ int		set_line(char **rest, char **line)
 		i++;
 		rv = 1;
 	}
-	/*
-	**keep tmp for free of old rest
-	*/
 	tmp = *rest;
 	if (!(*rest = ft_substr(*rest, i, ft_strlen(*rest))))
 		return (free_return(*line, free_return(tmp, -1)));
@@ -78,9 +72,6 @@ int		get_next_line(int fd, char **line)
 			return (-1);
 	}
 	rv = 1;
-	/*
-	**strchr is what we need here. rv>0 is for error handling.
-	*/
 	while (ft_strchr(rest, '\n') == NULL && rv > 0)
 	{
 		if ((rv = set_rest(&rest, fd)) == -1)

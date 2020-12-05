@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:32 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:11:00 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:52:19 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_error_2(int rv)
 	else if (rv == NOT_EMPTY_LINE_AFTER_MAP)
 		write(2, "Error\nnot empty line after map in cub file\n", 44);
 	else if (rv == NOT_SURROUNEDED_BY_WALLS)
-		write(2, "Error\nplayer in map not surrounded by walls\n(or invalid letter inside map)\n", 76);
+		write(2, "Error\nmap not is not closed\n(or invalid letter in map)\n", 56);
 	else if (rv == NOT_ONE_PLAYER)
 		write(2, "Error\nnot one player in the map\n", 33);
 	else

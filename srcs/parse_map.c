@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:25 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:21:58 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 15:54:00 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int		ft_parse_map(t_s *s)
 {
-	/*
-	**look from front and detect the identifier
-	** if map is not at the end, ft_parse_map_aft can detect
-	*/
 	s->cub_list.tmp = s->cub_list.start;
 	while (s->map.map_flag == 0)
 	{

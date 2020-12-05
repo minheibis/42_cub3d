@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:56 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:00:29 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 16:37:45 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,10 @@ int		ft_bmp_init(t_s *s)
 	s->b.yppm = 0;
 	s->b.pallete_num = 0;
 	s->b.important = 0;
-
 	s->b.header_buf[0] = 'B';
 	s->b.header_buf[1] = 'M';
 	return (0);
-};
+}
 
 int		ft_bmp_head_set(t_s *s)
 {
@@ -76,7 +75,7 @@ int		ft_bmp_head_set(t_s *s)
 	if (write(s->b.fd, s->b.header_buf, HEADERSIZE) == -1)
 		return (BMP_HEAD_WRITE_ERROR);
 	return (0);
-};
+}
 
 int		ft_bmp_rgb_set(t_s *s)
 {

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:27 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:53:58 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:11:00 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_parse_sp(t_s *s)
 	**set zbuffer
 	*/
 	if (!(s->g.sp_i.zbuff = (double *)malloc((s->g.img.scre_width + 1) * sizeof(double))))
-		return (MALLOC_ERROR_zbuff);
+		return (MALLOC_ERROR_ZBUFF);
 	s->g.sp_i.zbuff[s->g.img.scre_width] = 0;
 	/*
 	**set the int* etc for sprites
@@ -28,9 +28,9 @@ int		ft_parse_sp(t_s *s)
 	if (!(s->g.sp_i.sp_y = (double *)malloc((s->map.sp_count) * sizeof(double))))
 		return (free_sp_x(s, MALLOC_ERROR_SP_Y));
 	if (!(s->g.sp_i.spord = (int *)malloc((s->map.sp_count) * sizeof(int))))
-		return (free_sp_y(s, MALLOC_ERROR_spord));
+		return (free_sp_y(s, MALLOC_ERROR_SPORD));
 	if (!(s->g.sp_i.spdist = (double *)malloc((s->map.sp_count) * sizeof(double))))
-		return (free_spord(s, MALLOC_ERROR_spdist));
+		return (free_spord(s, MALLOC_ERROR_SPDIST));
 	ft_search_sp(s);
 	return (0);
 }

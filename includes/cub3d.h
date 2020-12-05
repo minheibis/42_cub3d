@@ -6,19 +6,19 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:59:05 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:12:00 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CUB3D_H_INCLUDED__
-#define __CUB3D_H_INCLUDED__
+#ifndef CUB3D_H
+# define CUB3D_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <math.h>
-#include "mlx.h"
-#include "key_linux.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <math.h>
+# include "mlx.h"
+# include "key_linux.h"
 
 # define MAX_FD 256
 # define BUFFER_SIZE 128
@@ -49,11 +49,11 @@
 # define MLX_ERROR 20
 # define WIN_ERROR 21
 # define XPM_FILE_ERROR 22
-# define MALLOC_ERROR_zbuff 23
+# define MALLOC_ERROR_ZBUFF 23
 # define MALLOC_ERROR_SP_X 24
 # define MALLOC_ERROR_SP_Y 25
-# define MALLOC_ERROR_spord 26
-# define MALLOC_ERROR_spdist 27
+# define MALLOC_ERROR_SPORD 26
+# define MALLOC_ERROR_SPDIST 27
 # define BMP_FILE_OPEN_ERROR 28
 # define MALLOC_ERROR_BMP_LINE 29
 # define BMP_HEAD_WRITE_ERROR 30
@@ -69,14 +69,14 @@
 */
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_KEY_EXIT	17
-#define moveSpeed		0.3
-#define rotSpeed		0.1
+# define MOVESPEED		0.3
+# define ROTSPEED		0.1
 /*
 **for bitmap
 */
-#define FILEHEADERSIZE 14
-#define INFOHEADERSIZE 40
-#define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
+# define FILEHEADERSIZE 14
+# define INFOHEADERSIZE 40
+# define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
 
 typedef struct	s_cub_line
 {

@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:22 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:47:49 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:11:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ int		ft_deal_key(int key_code, t_s *s)
 	*/
 	else if (key_code == KEY_W)
 	{
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx + s->g.p.dirx * moveSpeed)]))
-			s->g.p.posx += s->g.p.dirx * moveSpeed;
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy + s->g.p.diry * moveSpeed)][(int)floor(s->g.p.posx)]))
-			s->g.p.posy += s->g.p.diry * moveSpeed;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx + s->g.p.dirx * MOVESPEED)]))
+			s->g.p.posx += s->g.p.dirx * MOVESPEED;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy + s->g.p.diry * MOVESPEED)][(int)floor(s->g.p.posx)]))
+			s->g.p.posy += s->g.p.diry * MOVESPEED;
 	}
 	/*
 	**move backwards if no wall behind you
 	*/
 	else if (key_code == KEY_S)
 	{
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx - s->g.p.dirx * moveSpeed)]))
-			s->g.p.posx -= s->g.p.dirx * moveSpeed;
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy - s->g.p.diry * moveSpeed)][(int)floor(s->g.p.posx)]))
-			s->g.p.posy -= s->g.p.diry * moveSpeed;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx - s->g.p.dirx * MOVESPEED)]))
+			s->g.p.posx -= s->g.p.dirx * MOVESPEED;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy - s->g.p.diry * MOVESPEED)][(int)floor(s->g.p.posx)]))
+			s->g.p.posy -= s->g.p.diry * MOVESPEED;
 	}
 	else
 		return (ft_deal_key_AD(key_code, s));
@@ -54,10 +54,10 @@ int		ft_deal_key_AD(int key_code, t_s *s)
 	*/
 	if (key_code == KEY_A)
 	{
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx + s->g.p.diry * moveSpeed)]))
-			s->g.p.posx += s->g.p.diry * moveSpeed;
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy - s->g.p.dirx * moveSpeed)][(int)floor(s->g.p.posx)]))
-			s->g.p.posy -= s->g.p.dirx * moveSpeed;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx + s->g.p.diry * MOVESPEED)]))
+			s->g.p.posx += s->g.p.diry * MOVESPEED;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy - s->g.p.dirx * MOVESPEED)][(int)floor(s->g.p.posx)]))
+			s->g.p.posy -= s->g.p.dirx * MOVESPEED;
 	}
 	/*
 	**move left if no wall on right of you
@@ -65,10 +65,10 @@ int		ft_deal_key_AD(int key_code, t_s *s)
 	*/
 	else if (key_code == KEY_D)
 	{
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx - s->g.p.diry * moveSpeed)]))
-			s->g.p.posx -= s->g.p.diry * moveSpeed;
-		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy + s->g.p.dirx * moveSpeed)][(int)floor(s->g.p.posx)]))
-			s->g.p.posy += s->g.p.dirx * moveSpeed;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy)][(int)floor(s->g.p.posx - s->g.p.diry * MOVESPEED)]))
+			s->g.p.posx -= s->g.p.diry * MOVESPEED;
+		if (ft_map_in(s->map.map[(int)floor(s->g.p.posy + s->g.p.dirx * MOVESPEED)][(int)floor(s->g.p.posx)]))
+			s->g.p.posy += s->g.p.dirx * MOVESPEED;
 	}
 	else
 		return (ft_deal_key_RL(key_code, s));
@@ -86,11 +86,11 @@ int		ft_deal_key_RL(int key_code, t_s *s)
 		**both camera direction and camera plane must be rotated
 		*/
 		s->g.p.olddirx = s->g.p.dirx;
-		s->g.p.dirx = s->g.p.dirx * cos(rotSpeed) - s->g.p.diry * sin(rotSpeed);
-		s->g.p.diry = s->g.p.olddirx * sin(rotSpeed) + s->g.p.diry * cos(rotSpeed);
+		s->g.p.dirx = s->g.p.dirx * cos(ROTSPEED) - s->g.p.diry * sin(ROTSPEED);
+		s->g.p.diry = s->g.p.olddirx * sin(ROTSPEED) + s->g.p.diry * cos(ROTSPEED);
 		s->g.p.oldplanex = s->g.p.planeX;
-		s->g.p.planeX = s->g.p.planeX * cos(rotSpeed) - s->g.p.planeY * sin(rotSpeed);
-		s->g.p.planeY = s->g.p.oldplanex * sin(rotSpeed) + s->g.p.planeY * cos(rotSpeed);
+		s->g.p.planeX = s->g.p.planeX * cos(ROTSPEED) - s->g.p.planeY * sin(ROTSPEED);
+		s->g.p.planeY = s->g.p.oldplanex * sin(ROTSPEED) + s->g.p.planeY * cos(ROTSPEED);
 	}
 	/*
 	**rotate to the left
@@ -101,11 +101,11 @@ int		ft_deal_key_RL(int key_code, t_s *s)
 		**both camera direction and camera plane must be rotated
 		*/
 		s->g.p.olddirx = s->g.p.dirx;
-		s->g.p.dirx = s->g.p.dirx * cos(-rotSpeed) - s->g.p.diry * sin(-rotSpeed);
-		s->g.p.diry = s->g.p.olddirx * sin(-rotSpeed) + s->g.p.diry * cos(-rotSpeed);
+		s->g.p.dirx = s->g.p.dirx * cos(-ROTSPEED) - s->g.p.diry * sin(-ROTSPEED);
+		s->g.p.diry = s->g.p.olddirx * sin(-ROTSPEED) + s->g.p.diry * cos(-ROTSPEED);
 		s->g.p.oldplanex = s->g.p.planeX;
-		s->g.p.planeX = s->g.p.planeX * cos(-rotSpeed) - s->g.p.planeY * sin(-rotSpeed);
-		s->g.p.planeY = s->g.p.oldplanex * sin(-rotSpeed) + s->g.p.planeY * cos(-rotSpeed);
+		s->g.p.planeX = s->g.p.planeX * cos(-ROTSPEED) - s->g.p.planeY * sin(-ROTSPEED);
+		s->g.p.planeY = s->g.p.oldplanex * sin(-ROTSPEED) + s->g.p.planeY * cos(-ROTSPEED);
 	}
 	return (0);
 }

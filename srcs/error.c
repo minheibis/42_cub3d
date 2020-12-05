@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:32 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 13:53:58 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:11:00 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,15 @@ int		ft_error_3(int rv)
 		write(2, "Error\ncannot initialize for drawing\n", 37);
 	else if (rv == XPM_FILE_ERROR)
 		write(2, "Error\ncannot read xpm file\n", 28);
-	else if (rv == MALLOC_ERROR_zbuff)
+	else if (rv == MALLOC_ERROR_ZBUFF)
 		write(2, "Error\nmalloc error for zbuffer\n", 32);
 	else if (rv == MALLOC_ERROR_SP_X)
 		write(2, "Error\nmalloc error for sp_x\n", 29);
 	else if (rv == MALLOC_ERROR_SP_Y)
 		write(2, "Error\nmalloc error for sp_y\n", 29);
-	else if (rv == MALLOC_ERROR_spord)
+	else if (rv == MALLOC_ERROR_SPORD)
 		write(2, "Error\nmalloc error for spord\n", 30);
-	else if (rv == MALLOC_ERROR_spdist)
+	else if (rv == MALLOC_ERROR_SPDIST)
 		write(2, "Error\nmalloc error for spdist\n", 31);
 	else if (rv == BMP_FILE_OPEN_ERROR)
 		write(2, "Error\nbmp file does not open\n", 30);

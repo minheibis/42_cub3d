@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:15 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:49:27 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 17:02:10 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int		ft_set_resol(t_s *s, int *i, int *resol)
 	}
 	return (0);
 }
-
 
 int		ft_parse_tex(t_s *s, int *tex_flag, char **p_tex_path)
 {

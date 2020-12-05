@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:16:55 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define MAX_FD 256
 # define BUFFER_SIZE 128
+
 /*
 **define_errors
 */
@@ -58,12 +59,14 @@
 # define MALLOC_ERROR_BMP_LINE 29
 # define BMP_HEAD_WRITE_ERROR 30
 # define BMP_RGB_WRITE_ERROR 31
+
 /*
 **for check_p
 */
 # define IS_MAP 0
 # define IS_WALL 1
 # define NO_WALL 2
+
 /*
 **for draw_map
 */
@@ -71,6 +74,7 @@
 # define X_EVENT_KEY_EXIT	17
 # define MOVESPEED		0.3
 # define ROTSPEED		0.1
+
 /*
 **for bitmap
 */
@@ -149,8 +153,8 @@ typedef struct	s_player
 	double	posy;
 	double	dirx;
 	double	diry;
-	double	planeX;
-	double	planeY;
+	double	planex;
+	double	planey;
 	double	olddirx;
 	double	oldplanex;
 }				t_player;
@@ -256,7 +260,6 @@ typedef struct		s_bitmap
 	unsigned int	pallete_num;
 	unsigned int	important;
 }					t_bitmap;
-
 
 typedef struct	s_ij
 {

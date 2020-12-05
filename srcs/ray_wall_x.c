@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:33 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:13:20 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int		ft_calc_pos(t_s *s, int x)
 	**	 the right side of the screen is 1, center is 0, left side is -1
 	*/
 	s->g.r.camerax = 1 - (x * 2 / (double)s->g.img.scre_width);
-	s->g.r.raydirx = s->g.p.dirx + s->g.p.planeX * s->g.r.camerax;
-	s->g.r.raydiry = s->g.p.diry + s->g.p.planeY * s->g.r.camerax;
+	s->g.r.raydirx = s->g.p.dirx + s->g.p.planex * s->g.r.camerax;
+	s->g.r.raydiry = s->g.p.diry + s->g.p.planey * s->g.r.camerax;
 	/*
 	**which box of the map we are in
 	*/

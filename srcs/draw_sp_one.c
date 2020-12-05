@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:30 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:13:31 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int		ft_draw_sp_one_pos(t_s *s, int i)
 	/*
 	**transform sprite with inverse camera matrix
 	*/
-	s->g.sp_i.invdet = 1.0 / (s->g.p.planeX * s->g.p.diry - s->g.p.dirx * s->g.p.planeY);
+	s->g.sp_i.invdet = 1.0 / (s->g.p.planex * s->g.p.diry - s->g.p.dirx * s->g.p.planey);
 	s->g.sp_i.trx = s->g.sp_i.invdet * (s->g.p.diry * s->g.sp_i.spx - s->g.p.dirx * s->g.sp_i.spy);
-	s->g.sp_i.try = s->g.sp_i.invdet * (-s->g.p.planeY * s->g.sp_i.spx + s->g.p.planeX * s->g.sp_i.spy);
+	s->g.sp_i.try = s->g.sp_i.invdet * (-s->g.p.planey * s->g.sp_i.spx + s->g.p.planex * s->g.sp_i.spy);
 	/*
 	**this is actually the depth inside the screen, that what Z is in 3D
 	** is this true?

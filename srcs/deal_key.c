@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:22 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:12:59 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int		ft_deal_key_rl(int key_code, t_s *s)
 		s->g.p.olddirx = s->g.p.dirx;
 		s->g.p.dirx = s->g.p.dirx * cos(ROTSPEED) - s->g.p.diry * sin(ROTSPEED);
 		s->g.p.diry = s->g.p.olddirx * sin(ROTSPEED) + s->g.p.diry * cos(ROTSPEED);
-		s->g.p.oldplanex = s->g.p.planeX;
-		s->g.p.planeX = s->g.p.planeX * cos(ROTSPEED) - s->g.p.planeY * sin(ROTSPEED);
-		s->g.p.planeY = s->g.p.oldplanex * sin(ROTSPEED) + s->g.p.planeY * cos(ROTSPEED);
+		s->g.p.oldplanex = s->g.p.planex;
+		s->g.p.planex = s->g.p.planex * cos(ROTSPEED) - s->g.p.planey * sin(ROTSPEED);
+		s->g.p.planey = s->g.p.oldplanex * sin(ROTSPEED) + s->g.p.planey * cos(ROTSPEED);
 	}
 	/*
 	**rotate to the left
@@ -103,9 +103,9 @@ int		ft_deal_key_rl(int key_code, t_s *s)
 		s->g.p.olddirx = s->g.p.dirx;
 		s->g.p.dirx = s->g.p.dirx * cos(-ROTSPEED) - s->g.p.diry * sin(-ROTSPEED);
 		s->g.p.diry = s->g.p.olddirx * sin(-ROTSPEED) + s->g.p.diry * cos(-ROTSPEED);
-		s->g.p.oldplanex = s->g.p.planeX;
-		s->g.p.planeX = s->g.p.planeX * cos(-ROTSPEED) - s->g.p.planeY * sin(-ROTSPEED);
-		s->g.p.planeY = s->g.p.oldplanex * sin(-ROTSPEED) + s->g.p.planeY * cos(-ROTSPEED);
+		s->g.p.oldplanex = s->g.p.planex;
+		s->g.p.planex = s->g.p.planex * cos(-ROTSPEED) - s->g.p.planey * sin(-ROTSPEED);
+		s->g.p.planey = s->g.p.oldplanex * sin(-ROTSPEED) + s->g.p.planey * cos(-ROTSPEED);
 	}
 	return (0);
 }

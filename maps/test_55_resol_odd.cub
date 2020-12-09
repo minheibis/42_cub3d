@@ -1,0 +1,20 @@
+R 501 301
+NO ./textures/200_150_mountain.xpm
+SO ./textures/64_64_lake.xpm
+WE ./textures/101_75_sea.xpm
+EA ./textures/300_255_castle.xpm
+
+S ./textures/114_64_sprite_test.xpm
+F 125,20,60
+C 0,240,240
+
+0011111
+1111001
+1000N01
+1110001
+  10201
+  10 11
+  11011
+  11011
+  11111
+  11

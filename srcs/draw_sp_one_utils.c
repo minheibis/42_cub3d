@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   draw_sp_one_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/05 12:10:12 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:53:21 by hyuki            ###   ########.fr       */
+/*   Created: 2020/12/09 13:47:43 by hyuki             #+#    #+#             */
+/*   Updated: 2020/12/09 13:47:44 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_main_loop(t_s *s)
+int		ft_check_size_xy(int *check, int min, int max)
 {
-	if ((s->rv = ft_ray_wall(s)))
-		return (s->rv);
-	if ((s->rv = ft_ray_sp(s)))
-		return (s->rv);
-	if (s->flag == 2)
-	{
-		mlx_put_image_to_window(s->g.mlx, s->g.win, s->g.img.ptr, 0, 0);
-		mlx_do_sync(s->g.mlx);
-	}
-	return (0);
-}
-
-int		ft_ray_wall(t_s *s)
-{
-	int		x;
-
-	x = 0;
-	while (x < s->g.img.scre_width)
-	{
-		ft_ray_wall_x(s, x);
-		x++;
-	}
+	if (*check < min)
+		*check = min;
+	if (*check > max - 1)
+		*check = max - 1;
 	return (0);
 }

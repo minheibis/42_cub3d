@@ -35,6 +35,7 @@ SRCS_NAME	= cub_list_utils.c \
 				ray_sp.c \
 				sort_sp.c \
 				draw_sp_one.c \
+				draw_sp_one_utils.c \
 				bitmap.c \
 				bitmap_utils.c \
 				free_utils.c \

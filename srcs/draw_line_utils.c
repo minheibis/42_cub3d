@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:25 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/08 13:33:03 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 13:52:51 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_draw_line_calc(t_s *s)
 		s->g.d_c.texx = floor(s->g.d_c.wallx * s->g.ws.now.width);
 	else
 		s->g.d_c.texx = floor((1 - s->g.d_c.wallx) * s->g.ws.now.width);
+	ft_check_size_xy(&s->g.d_c.texx, 0, s->g.ws.now.width);
 	s->g.d_c.step = (double)s->g.ws.now.height / (double)s->g.d_c.lineh;
 	if (s->g.d_c.lineh > s->g.img.scre_height)
 		s->g.d_c.texpos = s->g.ws.now.height *
@@ -73,6 +74,7 @@ int		ft_draw_line_draw(t_s *s, int x)
 	while (y < s->g.d_c.drawe)
 	{
 		s->g.d_c.texy = floor(s->g.d_c.texpos);
+		ft_check_size_xy(&s->g.d_c.texy, 0, s->g.ws.now.height);
 		s->g.d_c.color = s->g.ws.now.data
 			[s->g.ws.now.width * s->g.d_c.texy + s->g.d_c.texx];
 		s->g.img.data[to_coord(x, y, s)] = s->g.d_c.color;

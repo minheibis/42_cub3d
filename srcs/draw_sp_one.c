@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:30 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/09 09:55:13 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 13:47:23 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		ft_draw_sp_one_draw(t_s *s)
 		s->g.d_c.texx = (int)floor(((double)s->g.sp_i.stripe -
 			((double)s->g.sp_i.spscx - (double)s->g.sp_i.spw / 2)) *
 			(double)s->g.ws.sp.width / (double)s->g.sp_i.spw);
+		ft_check_size_xy(&s->g.d_c.texx, 0, s->g.ws.sp.width);
 		if (s->g.sp_i.try > 0 && s->g.sp_i.stripe > 0 &&
 			s->g.sp_i.stripe < s->g.img.scre_width &&
 			s->g.sp_i.try < s->g.sp_i.zbuff[s->g.sp_i.stripe])
@@ -85,6 +86,7 @@ int		ft_draw_sp_one_draw_y(t_s *s, int y)
 	s->g.d_c.texy = (int)floor(((double)y -
 		((double)s->g.img.scre_height / 2 - (double)s->g.sp_i.sph / 2)) *
 		(double)s->g.ws.sp.height / (double)s->g.sp_i.sph);
+	ft_check_size_xy(&s->g.d_c.texy, 0, s->g.ws.sp.height);
 	s->g.d_c.color = s->g.ws.sp.data[s->g.ws.sp.width *
 		s->g.d_c.texy + s->g.d_c.texx];
 	if (s->g.d_c.color != 0x000000)

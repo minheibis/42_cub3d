@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/09 10:31:06 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 13:54:10 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -505,6 +505,10 @@ int					ft_draw_sp_one_pos(t_s *s, int i);
 int					ft_draw_sp_one_hw(t_s *s);
 int					ft_draw_sp_one_draw(t_s *s);
 int					ft_draw_sp_one_draw_y(t_s *s, int y);
+/*
+**draw_sp_one_utils.c
+*/
+int					ft_check_size_xy(int *check, int min, int max);
 /*
 **bitmap.c
 */

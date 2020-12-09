@@ -106,6 +106,65 @@ echo "./cub3D ./maps/test_33_large_resol_ERROR.cub --save"
 echo "./cub3D ./maps/test_34_big_resol_ERROR.cub --save"
 ./cub3D ./maps/test_34_big_resol_ERROR.cub --save
 
+echo "./cub3D ./maps/test_35_whole_in_map_ERROR.cub --save"
+./cub3D ./maps/test_35_whole_in_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_36_w_outside_right_map_ERROR.cub --save"
+./cub3D ./maps/test_36_w_outside_right_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_37_w_outside_left_map_ERROR.cub --save"
+./cub3D ./maps/test_37_w_outside_left_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_38_w_outside_up_map_ERROR.cub --save"
+./cub3D ./maps/test_38_w_outside_up_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_39_w_outside_down_map_ERROR.cub --save"
+./cub3D ./maps/test_39_w_outside_down_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_40_comp_map_ERROR.cub --save"
+./cub3D ./maps/test_40_comp_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_41_comp_map.cub --save"
+./cub3D ./maps/test_41_comp_map.cub --save
+
+echo "./cub3D ./maps/test_42_two_player_comp.cub --save"
+./cub3D ./maps/test_42_two_player_comp.cub --save
+
+echo "./cub3D ./maps/test_43_wall_xpm_black.cub --save"
+./cub3D ./maps/test_43_wall_xpm_black.cub --save
+
+echo "./cub3D ./maps/test_44_wall_xpm_ERROR.cub --save"
+./cub3D ./maps/test_44_wall_xpm_ERROR.cub --save
+
+echo "./cub3D ./maps/test_45_large_xpm_file.cub --save"
+./cub3D ./maps/test_45_large_xpm_file.cub --save
+
+echo "./cub3D ./maps/test_46_small_xpm_file.cub --save"
+./cub3D ./maps/test_46_small_xpm_file.cub --save
+
+echo "./cub3D ./maps/test_47_tiny_xpm_file.cub --save"
+./cub3D ./maps/test_47_tiny_xpm_file.cub --save
+
+echo "./cub3D ./maps/test_48_thin_xpm_file.cub --save"
+./cub3D ./maps/test_48_thin_xpm_file.cub --save
+
+echo "./cub3D ./maps/test_49_double_map.cub --save"
+./cub3D ./maps/test_49_double_map.cub --save
+
+echo "./cub3D ./maps/test_50_playeratedge_ERROR.cub --save"
+./cub3D ./maps/test_50_playeratedge_ERROR.cub --save
+
+echo "./cub3D ./maps/test_51_X_outside_map_ERROR.cub --save"
+./cub3D ./maps/test_51_X_outside_map_ERROR.cub --save
+
+echo "./cub3D ./maps/test_52_small_resolution.cub --save"
+./cub3D ./maps/test_52_small_resolution.cub --save
+
+echo "./cub3D ./maps/test_53_random_order.cub --save"
+./cub3D ./maps/test_53_random_order.cub --save
+
+echo "./cub3D ./maps/test_54_edge_player_ERROR.cub --save"
+./cub3D ./maps/test_54_edge_player_ERROR.cub --save
 
 #echo "./cub3D ./maps/test_2_large_resol.cub"
 #./cub3D ./maps/test_2_large_resol.cub

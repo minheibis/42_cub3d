@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:33 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:41:20 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/08 13:30:23 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int		ft_ray_wall_x(t_s *s, int x)
 
 int		ft_calc_pos(t_s *s, int x)
 {
-	s->g.r.camerax = 1 - (x * 2 / (double)s->g.img.scre_width);
+	s->g.r.camerax = (x * 2 / (double)s->g.img.scre_width) - 1;
 	s->g.r.raydirx = s->g.p.dirx + s->g.p.planex * s->g.r.camerax;
 	s->g.r.raydiry = s->g.p.diry + s->g.p.planey * s->g.r.camerax;
 	s->g.h_c.mapx = floor(s->g.p.posx);
 	s->g.h_c.mapy = floor(s->g.p.posy);
 	if (s->g.r.raydirx == 0)
-		s->g.h_c.deltadistx = s->g.img.scre_width;
+		s->g.h_c.deltadistx = (double)s->map.map_hei;
 	else
 		s->g.h_c.deltadistx =
 			sqrt(1 + (pow(s->g.r.raydiry, 2) / pow(s->g.r.raydirx, 2)));
 	if (s->g.r.raydiry == 0)
-		s->g.h_c.deltadisty = s->g.img.scre_height;
+		s->g.h_c.deltadisty = (double)s->map.map_wid;
 	else
 		s->g.h_c.deltadisty =
 			sqrt(1 + (pow(s->g.r.raydirx, 2) / pow(s->g.r.raydiry, 2)));

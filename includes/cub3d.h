@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:00:59 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:55:19 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 10:31:06 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@
 */
 # define FILEHEADERSIZE 14
 # define INFOHEADERSIZE 40
-# define HEADERSIZE (FILEHEADERSIZE+INFOHEADERSIZE)
+# define HEADERSIZE 54
 
 typedef struct		s_cub_line
 {
@@ -381,6 +381,7 @@ int					ft_parse_map_put_row(t_s *s);
 **parse_map_utils.c
 */
 int					ft_parse_is_map_line(char *cub_line);
+int					ft_parse_is_map_letter(char c);
 /*
 **ft_isnum.c
 */

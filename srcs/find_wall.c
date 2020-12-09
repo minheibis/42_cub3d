@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:35 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 12:09:36 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/06 12:53:47 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_find_wall_row_for(t_s *s)
 
 	var.i = s->map.player[0];
 	var.j = s->map.player[1];
-	while (var.j < s->map.map_wid)
+	while (var.j <= s->map.map_wid + 1)
 	{
 		var.c = ft_check_p_row(s, var.i, var.j);
 		if (var.c == IS_WALL)
@@ -37,7 +37,7 @@ int		ft_find_wall_row_bac(t_s *s)
 
 	var.i = s->map.player[0];
 	var.j = s->map.player[1] - 1;
-	while (var.j > 1)
+	while (var.j >= 0)
 	{
 		var.c = ft_check_p_row(s, var.i, var.j);
 		if (var.c == IS_WALL)
@@ -56,7 +56,7 @@ int		ft_find_wall_col_for(t_s *s)
 
 	var.i = s->map.player[0];
 	var.j = s->map.player[1];
-	while (var.i < s->map.map_hei)
+	while (var.i <= s->map.map_hei + 1)
 	{
 		var.c = ft_check_p_col(s, var.i, var.j);
 		if (var.c == IS_WALL)
@@ -75,7 +75,7 @@ int		ft_find_wall_col_bac(t_s *s)
 
 	var.i = s->map.player[0] - 1;
 	var.j = s->map.player[1];
-	while (var.i > 1)
+	while (var.i >= 0)
 	{
 		var.c = ft_check_p_col(s, var.i, var.j);
 		if (var.c == IS_WALL)

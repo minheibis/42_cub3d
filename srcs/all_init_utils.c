@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:08:35 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 14:18:36 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 09:38:46 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int		ft_dir_init(t_s *s)
 	{
 		s->g.p.dirx = 0.0;
 		s->g.p.diry = -1.0;
-		s->g.p.planex = -0.66;
+		s->g.p.planex = 0.66;
 		s->g.p.planey = 0.0;
 	}
 	else if (s->map.player_dir == 'S')
 	{
 		s->g.p.dirx = 0.0;
 		s->g.p.diry = 1.0;
-		s->g.p.planex = 0.66;
+		s->g.p.planex = -0.66;
 		s->g.p.planey = 0.0;
 	}
 	else
@@ -40,14 +40,14 @@ int		ft_dir_init_ew(t_s *s)
 		s->g.p.dirx = 1.0;
 		s->g.p.diry = 0.0;
 		s->g.p.planex = 0.0;
-		s->g.p.planey = -0.66;
+		s->g.p.planey = 0.66;
 	}
 	else if (s->map.player_dir == 'W')
 	{
 		s->g.p.dirx = -1.0;
 		s->g.p.diry = 0.0;
 		s->g.p.planex = 0.0;
-		s->g.p.planey = 0.66;
+		s->g.p.planey = -0.66;
 	}
 	return (0);
 }

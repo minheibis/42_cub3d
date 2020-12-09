@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:38 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 16:23:10 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/08 16:24:42 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int		ft_sort_sp_sort(t_s *s)
 			if (s->g.sp_i.spdist[c.i] < s->g.sp_i.spdist[c.j])
 			{
 				tmp_int = s->g.sp_i.spord[c.i];
-				tmp_double = s->g.sp_i.spdist[c.i];
 				s->g.sp_i.spord[c.i] = s->g.sp_i.spord[c.j];
-				s->g.sp_i.spdist[c.i] = s->g.sp_i.spdist[c.j];
 				s->g.sp_i.spord[c.j] = tmp_int;
+				tmp_double = s->g.sp_i.spdist[c.i];
+				s->g.sp_i.spdist[c.i] = s->g.sp_i.spdist[c.j];
 				s->g.sp_i.spdist[c.j] = tmp_double;
 			}
 			c.j++;

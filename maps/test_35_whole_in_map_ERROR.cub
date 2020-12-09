@@ -1,0 +1,20 @@
+R 200 100
+NO ./textures/200_150_mountain.xpm
+SO ./textures/64_64_lake.xpm
+WE ./textures/101_75_sea.xpm
+EA ./textures/300_255_castle.xpm
+
+S ./textures/114_64_bigtree_sprite.xpm
+F 125,20,60
+C 0,240,240
+
+00111111
+11100011
+1000W011
+11100211
+  100
+  102111
+  110111
+  110111
+  111111
+  11

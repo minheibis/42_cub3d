@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:09:03 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 15:41:39 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/09 10:26:03 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int		ft_check_map(t_s *s)
 		if (ft_edge_player(s))
 			return (NOT_SURROUNEDED_BY_WALLS);
 		else if (ft_find_wall(s, flag_row))
+		{
 			return (NOT_SURROUNEDED_BY_WALLS);
+		}
 		flag_row *= -1;
 	}
 	ft_set_player_ag(s);
@@ -35,11 +37,11 @@ int		ft_find_fake_player(t_s *s)
 {
 	t_ij	var;
 
-	var.i = 1;
-	while (var.i < s->map.map_hei + 1)
+	var.i = 0;
+	while (var.i <= s->map.map_hei + 1)
 	{
-		var.j = 1;
-		while (var.j < s->map.map_wid + 1)
+		var.j = 0;
+		while (var.j <= s->map.map_wid + 1)
 		{
 			if (ft_map_player(s->map.map[var.i][var.j]) == 1)
 			{

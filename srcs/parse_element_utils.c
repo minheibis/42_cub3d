@@ -6,7 +6,7 @@
 /*   By: hyuki <hyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 12:10:15 by hyuki             #+#    #+#             */
-/*   Updated: 2020/12/05 17:02:10 by hyuki            ###   ########.fr       */
+/*   Updated: 2020/12/06 13:59:54 by hyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int		ft_parse_r(t_s *s)
 		i++;
 	ft_set_resol(s, &i, &s->map.hei_resol);
 	if (s->cub_list.tmp->content[i] != '\0'
-		|| s->map.wid_resol <= 0 || s->map.hei_resol <= 0
-		|| s->map.wid_resol > 10000 || s->map.hei_resol > 10000)
+		|| s->map.wid_resol <= 0 || s->map.hei_resol <= 0)
+		return (SET_RESOL_ERROR);
+	if (s->flag == 3 && (s->map.wid_resol > 10000 || s->map.hei_resol > 10000))
 		return (SET_RESOL_ERROR);
 	return (0);
 }
